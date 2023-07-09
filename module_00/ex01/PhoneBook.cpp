@@ -65,3 +65,50 @@ void Phonebook::fill_contact_info(int i)
 	// std::cout << "Please, entre your Phone Number (+212) : " << '\n';
 	// std::getline(std::cin, phone[i].Phone_Number);
 }
+
+
+void Phonebook::search_contact(void)
+{
+	int	j = 0;
+
+	if (contact_number == 0)
+	{
+		std::cout << "no contact" << std::endl;
+		return ;
+	}
+	std::cout << "-----------------------------------------------" << std::endl;
+	std::cout << std::setw(10) << "index " << "|";
+	std::cout << std::setw(10) << " first name " << "|";
+	std::cout << std::setw(10) << " last name " << "|";
+	std::cout << std::setw(10) << " nickname" << "|" << std::endl;
+	std::cout << "-----------------------------------------------" << std::endl;
+
+	while (j < contact_number && j < 8)
+	{
+		std::cout << std::setw(10) << j << "|";
+		if (phone[j].First_Name.length() > 10)
+			std::cout << std::setw(10) << phone[j].First_Name.substr(0, 9) + "." << "|";
+		else
+			std::cout << std::setw(10) << phone[j].First_Name << "|";
+		if (phone[j].Last_Name.length() > 10)
+			std::cout << std::setw(10) << phone[j].Last_Name.substr(0, 9) + "." << "|";
+		else
+			std::cout << std::setw(10) << phone[j].Last_Name.substr(0, 9) + "." << "|";
+		if (phone[j].Nick_Name.length() > 10)
+			std::cout << std::setw(10) << phone[j].Nick_Name.substr(0, 9) + "." << "|";
+		else
+			std::cout << std::setw(10) << phone[j].Nick_Name << "|";
+		std::cout << std::endl;
+		j++;
+	}
+	std::cout << "-----------------------------------------------" << std::endl;
+}
+
+Phonebook::Phonebook()
+{
+	contact_number = 0;
+}
+Phonebook::~Phonebook()
+{
+
+}

@@ -3,19 +3,18 @@
 
 #include <iostream>
 #include <iomanip>
-#include "contact.hpp"
 #include "phonebook.hpp"
 
 class Contact
 {
-private:
+	private:
 
-public:
-	std::string First_Name;
-	std::string Last_Name;
-	std::string Drackest_Secret;
-	std::string Nick_Nanme;
-	std::string	Phone_Number;
+	public:
+		std::string First_Name;
+		std::string Last_Name;
+		std::string Drackest_Secret;
+		std::string Nick_Name;
+		std::string	Phone_Number;
 };
 
 #endif

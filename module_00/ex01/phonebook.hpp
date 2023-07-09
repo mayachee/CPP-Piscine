@@ -3,18 +3,7 @@
 
 #include <iostream>
 #include <iomanip>
-
-class Contact
-{
-    private:
-
-    public:
-        std::string First_Name;
-        std::string Last_Name;
-        std::string Nick_Name;
-        std::string Drackest_Secret;
-        std::string	Phone_Number;
-};
+#include "contact.hpp"
 
 class Phonebook
 {
@@ -23,12 +12,12 @@ class Phonebook
         std::string getInput(std::string str);
     
     public:
-            // int		contact_number;
+            int         contact_number;
             void        fill_contact_info(int i);
         	void        get_contact_info(int i);
-        // 	void	display_contact(void);
-        // 	Phonebook();
-        // 	~Phonebook();
+        	void        search_contact(void);
+        	Phonebook();
+        	~Phonebook();
 };
 
 #endif
@@ -49,3 +38,22 @@ class Phonebook
 //     } while (!valid);
 //     return (input);
 // }
+
+	// while (j < contact_number && j < 8)
+	// {
+	// 	std::cout << j << "|";
+	// 	if (phone[j].FirstName.length() > 10)
+	// 		std::cout << phone[j].FirstName.substr(0, 9) + "." << "|";
+	// 	else
+	// 		std::cout << phone[j].FirstName << "|";
+	// 	if (phone[j].LastName.length() > 10)
+	// 		std::cout << phone[j].LastName.substr(0, 9) + "." << "|";
+	// 	else
+	// 		std::cout << phone[j].LastName << "|";
+	// 	if (phone[j].NickNanme.length() > 10)
+	// 		std::cout << phone[j].NickNanme.substr(0, 9) + "." << "|" << std::endl;
+	// 	else
+	// 		std::cout << phone[j].NickNanme << "|" << std::endl;
+	// 	std::cout << "--------------------------------------------" << std::endl;
+	// 	j++;
+	// }
