@@ -17,6 +17,9 @@ int main()
             if (count_info == 8)
 				count_info = 0;
             info.fill_contact_info(count_info);
+            info.get_contact_info(count_info);
+            // if (info.contact_number <= 8)
+			// 	info.contact_number++;
             count_info++;
         }
         else if (index == "SEARCH")
