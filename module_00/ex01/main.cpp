@@ -5,7 +5,7 @@ int main()
     std::string index;
     Phonebook info;
     int count_info = 0;
-    std::cout << "My Awesome PhoneBook" << std::endl;
+    std::cout << "---- My Awesome PhoneBook -----" << std::endl;
     while (1)
     {
         std::cout << "pick one: ADD | SEARCH | EXIT : " << std::endl;
@@ -23,16 +23,16 @@ int main()
         }
         else if (index == "SEARCH")
         {
-            std::cout << "who is you search here?" << std::endl;
+            std::cout << "who are you looking for?" << std::endl;
             info.search_contact();
             while (true)
 			{
-                std::cout << "Please, enter Number :" << std::endl;
+                std::cout << "Please, enter Id :" << std::endl;
 				std::getline(std::cin, index);
 				if (index.length() == 1 && std::isdigit(index[0]))
 					break;
 				else
-					std::cout << "who is you search here?";
+					std::cout << "who are you looking for?";
 			}
 			std::cout << "This is Result : " << std::endl;
             info.get_contact_info(std::stoi(index));

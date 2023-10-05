@@ -4,7 +4,6 @@ CXX = clang++
 
 SRCS = main.cpp\
 		PhoneBook.cpp\
-		util.cpp\
 
 OBJS = $(SRCS:.cpp=.o)
 
