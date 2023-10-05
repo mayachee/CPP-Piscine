@@ -13,3 +13,9 @@
 |  2  | [CPP_02](https://github.com/siiine-764/cppmodel/tree/main/module_02) | My First Orthodox Class      | ad-hoc polymorphism, operator overloading and Orthodox Cononical class form |
 |  3  | [CPP_03](https://github.com/siiine-764/cppmodel/tree/main/module_03) | Aaaaand... OPEN!      | Inheritance |
 |  4  | [CPP_04](https://github.com/siiine-764/cppmodel/tree/main/module_04) | I don't want to set the world on fire       | Subtype polymorphism, abstract classes, interfaces |
+
+<p align="center">
+	
+![0aff319a17be64b1fa9a44f80f998fb4](https://github.com/siiine-764/cppmodel/assets/80540449/cf514ce3-1513-487d-af62-d454e1fe9393)
+
+</p>
