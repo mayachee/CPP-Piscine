@@ -1,9 +1,9 @@
-# Compiler and flags
-CXXFLAGS = -Wall -Wextra -Werror -I.
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 CXX = clang++
 
 SRCS = main.cpp\
 		PhoneBook.cpp\
+		contact.cpp\
 
 OBJS = $(SRCS:.cpp=.o)
 
