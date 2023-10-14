@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 11:06:57 by mayache-          #+#    #+#             */
-/*   Updated: 2023/10/14 19:27:19 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/10/14 19:55:46 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,24 +51,23 @@ int main()
                 {
                     std::cout << "Please, enter Id :" << std::endl;
                     std::getline(std::cin, index);
-                    if (!std::isdigit(index[0]))
+                    if (std::isdigit(index[0]))
                     {
                         quit = false;
-                        break;
-                    }
-                    indexInt = std::stoi(index);
-                    indexInt++;
-                    if (indexInt > info.contact_number)
-                    {
-                        quit = false;
-                        std::cout << "This contact doesn't exist" << std::endl;
-                    }
-                    else
-                        quit = true;
-                    if (quit == true)
-                    {
-                        std::cout << "This is Result : " << std::endl;
-                        info.get_info(indexInt - 1);
+                        indexInt = std::stoi(index);
+                        indexInt++;
+                        if (indexInt > info.contact_number)
+                        {
+                            quit = false;
+                            std::cout << "This contact doesn't exist" << std::endl;
+                        }
+                        else
+                            quit = true;
+                        if (quit == true)
+                        {
+                            std::cout << "This is Result : " << std::endl;
+                            info.get_info(indexInt - 1);
+                        }
                     }
                 }
             }

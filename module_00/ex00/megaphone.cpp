@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 11:06:34 by mayache-          #+#    #+#             */
-/*   Updated: 2023/10/14 16:32:21 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/10/14 19:52:50 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,15 @@ int main(int ac, char **av)
       std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
   else
   {
+    std::string str = "";
     while (av[i])
     {
       j = 0;
-      while (av[i][j])
+      str = av[i];
+      while (str[j])
       {
-        av[i][j] = toupper(av[i][j]);
-        std::cout << av[i][j];
+        str[j] = toupper(str[j]);
+        std::cout << str[j];
         j++;
       }
       i++;
