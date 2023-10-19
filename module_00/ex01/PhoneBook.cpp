@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 11:07:00 by mayache-          #+#    #+#             */
-/*   Updated: 2023/10/14 20:00:44 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/10/19 18:17:14 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ std::string Phonebook::getInput(std::string str)
 	while (!vld)
 	{
 		std::getline(std::cin, input);
+		if (std::cin.eof())
+			exit(0);
 		if (!input.empty())
 		{
             vld = true;
