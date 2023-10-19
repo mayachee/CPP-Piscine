@@ -1,4 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Karen.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/19 19:40:58 by mayache-          #+#    #+#             */
+/*   Updated: 2023/10/19 19:43:06 by mayache-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Karen.hpp"
+
 void Karen::debug() {
     std::cout << "I love to get extra bacon for my 7XL-double-cheese-triple-pickle-special-ketchup burger. I just love it!" << std::endl;
 }
@@ -20,7 +33,7 @@ void Karen::complain(std::string level)
     std:: string lvls[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
     void    (Karen::*pck[4])(void) = {&Karen::debug, &Karen::info, &Karen::warning, &Karen::error};
     int i = 0;
-    while(lvls)
+    while(i < 4)
     {
         if (lvls[i] == level)
         {
