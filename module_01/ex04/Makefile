@@ -1,4 +1,4 @@
-NAME = zombie4
+NAME = replace
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 CXX = c++
 
