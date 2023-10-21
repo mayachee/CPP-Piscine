@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 20:34:51 by mayache-          #+#    #+#             */
-/*   Updated: 2023/10/14 20:34:52 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/10/21 11:20:45 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ class Zombie
 {
     private:
         std::string name;
+
     public:
         void    announce(void);
         Zombie(std::string name);

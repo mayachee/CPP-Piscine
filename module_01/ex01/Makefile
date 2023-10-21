@@ -1,6 +1,6 @@
 NAME = zombie1
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-CXX = clang++
+CXX = c++
 
 SRCS = main.cpp\
 		Zombie.cpp\

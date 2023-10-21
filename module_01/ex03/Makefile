@@ -1,6 +1,6 @@
-NAME = zombie3
+NAME = war3
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-CXX = clang++
+CXX = c++
 
 SRCS = main.cpp\
 		HumanA.cpp\
@@ -8,7 +8,6 @@ SRCS = main.cpp\
 		Weapon.cpp\
 
 OBJS = $(SRCS:.cpp=.o)
-
 
 all: $(NAME)
 

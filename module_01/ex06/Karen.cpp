@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 19:44:18 by mayache-          #+#    #+#             */
-/*   Updated: 2023/10/19 19:44:19 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/10/21 11:40:48 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,31 +47,12 @@ void Karen::KeranFilter(std::string level)
     switch (local)
     {
         case 0:
-            std::cout << "[ DEBUG ]" << std::endl;
             Karen::debug();
-            std::cout << "[ INFO ]" << std::endl;
-            Karen::info();
-            std::cout << "[ WARNING ]" << std::endl;
-            Karen::warning();
-            std::cout << "[ ERROR ]" << std::endl;
-            Karen::error();
-            break;
         case 1:
-            std::cout << "[ INFO ]" << std::endl;
             Karen::info();
-            std::cout << "[ WARNING ]" << std::endl;
-            Karen::warning();
-            std::cout << "[ ERROR ]" << std::endl;
-            Karen::error();
-            break;
         case 2:
-            std::cout << "[ WARNING ]" << std::endl;
             Karen::warning();
-            std::cout << "[ ERROR ]" << std::endl;
-            Karen::error();
-            break;
         case 3:
-            std::cout << "[ ERROR ]" << std::endl;
             Karen::error();
             break;
         default:
