@@ -1,5 +1,20 @@
 # CPP-Module-00
 
+## Overview
+
+This project leverages imperative programming and object-oriented programming (OOP) principles to accomplish [briefly describe the project's purpose]. It places a strong emphasis on rigor, ensuring that the codebase is of high quality, maintainable, and follows best practices.
+
+## Key Concepts
+
+### Imperative Programming
+Imperative programming is a paradigm that focuses on explicitly defining step-by-step instructions for a computer to follow. It outlines how a program operates by specifying a sequence of statements that change the program's state.
+
+### Object-Oriented Programming (OOP)
+Object-Oriented Programming is based on the concept of "objects," which are self-contained units containing both data (attributes) and methods (functions). OOP promotes the use of classes to create objects and emphasizes concepts like encapsulation, inheritance, and polymorphism.
+
+### Rigor
+Rigor in programming refers to the quality and thoroughness of the code. It involves adhering to best practices, maintaining clean code, thorough documentation, and extensive testing to ensure reliability and maintainability.
+
 ## In general
 
 C++ is a general-purpose programming language created by Bjarne Stroustrup as an extension of the C programming language, or "C with Classes" (source: [Wikipedia](https://en.wikipedia.org/wiki/C++)).<br><br>
