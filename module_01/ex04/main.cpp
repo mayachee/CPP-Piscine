@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 19:39:33 by mayache-          #+#    #+#             */
-/*   Updated: 2023/10/21 22:35:23 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/10/21 23:26:28 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,6 @@
 //         return 1;
 //     }
 // }
-
 
 // Function to replace every occurrence of s1 with s2 in a given string
 std::string replaceAll(std::string source, const std::string& s1, const std::string& s2) {

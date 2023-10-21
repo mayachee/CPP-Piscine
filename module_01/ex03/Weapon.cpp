@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 19:33:37 by mayache-          #+#    #+#             */
-/*   Updated: 2023/10/21 13:41:08 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/10/21 23:27:49 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ const std::string& Weapon::getType() const {
 void Weapon::setType(const std::string& newType) {
     type = newType;
 }
-    
+
 Weapon::Weapon()
 {
 }
