@@ -6,19 +6,21 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 19:44:23 by mayache-          #+#    #+#             */
-/*   Updated: 2023/10/19 19:44:24 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/10/21 15:54:29 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Karen.hpp"
+#include "Harl.hpp"
 
-int main() {
-    Karen karen;
+int main(int ac, char **av) {
+    Harl harl;
 
-    // karen.KeranFilter("DEBUG");
-    karen.KeranFilter("INFO");
-    // karen.KeranFilter("I am not sure how tired I am today...");
-    // karen.KeranFilter("ERROR");
+    if (ac != 2) {
+        std::cerr << "Usage: " << av[0] << " <logLevel>" << std::endl;
+        return 1;
+    }
+    std::string logLevel = av[1];
+    harl.HarlFilter(logLevel);
 
     return 0;
 }

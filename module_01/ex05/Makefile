@@ -1,9 +1,9 @@
-NAME = zombie5
+NAME = Harl
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 CXX = c++
 
 SRCS = main.cpp\
-	Karen.cpp\
+	Harl.cpp\
 
 OBJS = $(SRCS:.cpp=.o)
 
