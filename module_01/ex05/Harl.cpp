@@ -31,6 +31,7 @@ void Harl::error() {
 void Harl::complain(std::string level)
 {
     std:: string lvls[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+    //An array of pointers to member functions (pck) is initialized.
     void    (Harl::*pck[4])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
     int i = 0;
     while(i < 4)
