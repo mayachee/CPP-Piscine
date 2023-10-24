@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Harl.cpp                                          :+:      :+:    :+:   */
+/*   Harl.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/19 19:40:58 by mayache-          #+#    #+#             */
-/*   Updated: 2023/10/19 19:43:06 by mayache-         ###   ########.fr       */
+/*   Created: 2023/10/23 17:24:28 by mayache-          #+#    #+#             */
+/*   Updated: 2023/10/24 14:06:39 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,13 @@ void Harl::error() {
 
 void Harl::complain(std::string level)
 {
+
     std:: string lvls[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-    //An array of pointers to member functions (pck) is initialized.
-    void    (Harl::*pck[4])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+    void (Harl::*pck[4])();
+    pck[0] = &Harl::debug;
+    pck[1] = &Harl::info;
+    pck[2] = &Harl::warning;
+    pck[3] = &Harl::error;
     int i = 0;
     while(i < 4)
     {
