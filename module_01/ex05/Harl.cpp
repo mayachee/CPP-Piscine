@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 17:24:28 by mayache-          #+#    #+#             */
-/*   Updated: 2023/10/24 14:06:39 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/10/24 14:50:10 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ void Harl::error() {
 
 void Harl::complain(std::string level)
 {
-
     std:: string lvls[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
     void (Harl::*pck[4])();
     pck[0] = &Harl::debug;

@@ -6,31 +6,31 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 19:33:42 by mayache-          #+#    #+#             */
-/*   Updated: 2023/10/23 20:25:44 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/10/26 23:32:59 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanB.hpp"
 
-HumanB::HumanB(const std::string& humanName) : name(humanName), weapon(nullptr) {}
+HumanB::HumanB(const std::string& humanName) : name(humanName), weapon(NULL)
+{
+}
 
 void HumanB::setWeapon(const Weapon& humanWeapon) {
-    if (weapon) {
-        delete weapon; // Clean up the previous weapon to avoid memory leaks
-    }
-    weapon = new Weapon(humanWeapon);
+    weapon = &humanWeapon;
 }
     
-void HumanB::attack() const {
-    if (weapon) {
+void HumanB::attack() const
+{
+    if (weapon == NULL) {
+        std::cout << name << " is unarmed" << std::endl;
+    }
+    else {
         std::cout << name << " attacks with their " << weapon->getType() << std::endl;
-    } else {
-        std::cout << name << " attacks unarmed" << std::endl;
     }
 }
 
 HumanB::~HumanB() {
-    if (weapon) {
-        delete weapon; // Clean up the weapon in the destructor to avoid memory leaks
-    }
 }
+
+HumanB::HumanB() {}
