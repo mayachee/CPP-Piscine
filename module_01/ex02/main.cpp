@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 19:30:29 by mayache-          #+#    #+#             */
-/*   Updated: 2023/10/19 19:30:30 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/10/28 15:04:33 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int main() {
     // Displaying the address of the string using stringREF
     std::cout << "Address of the string using stringREF: " << &stringREF << std::endl;
 
+    std::cout << "String using the pointer (str): " << str << std::endl;
     // Displaying the string using the pointer
     std::cout << "String using the pointer (stringPTR): " << *stringPTR << std::endl;
 
