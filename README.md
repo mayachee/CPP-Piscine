@@ -16,6 +16,6 @@
 
 <p align="center">
 	
-![0aff319a17be64b1fa9a44f80f998fb4](https://github.com/siiine-764/cppmodel/assets/80540449/cf514ce3-1513-487d-af62-d454e1fe9393)
+ <img src="https://github.com/siiine-764/cppmodel/assets/80540449/5ec64d0e-1730-490c-b6c5-873e5f0df48a"> 
 
 </p>
