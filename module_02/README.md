@@ -1,15 +1,40 @@
 # CPP-Module-02
 
 ## About this Module
-The Scope of this Module was to get to know C++ further and come in contact with classes in orthodox canonical form:
-- ex00: class that can store a fixed point variable
+
+### The Scope of this Module was to get to know C++ further and come in contact with classes in orthodox canonical form:
+
+#### ex00: class that can store a fixed point variable && classes in orthodox canonical form
+
+  fixed point variable :
+  
+  <img src="https://media.geeksforgeeks.org/wp-content/uploads/20220527101351/OperatorsinCPP.png" />
+  
+  The Orthodox Canonical Class Form:
+
+  A default constructor: used internally to initialize objects and data members when no other value is available.
+  
+  A copy constructor: used in the implementation of call-by-value parameters.
+  
+  An assignment operator: used to assign one value to another.
+  
+  A destructor: Invoked when an object is deleted.
+
+  A standard class should look like the following code:
+  
+      class A final
+    {
+       public:
+          A ();
+          A (const A &a);
+          ~A ();
+          A & operator = (const A &a);
+    };
+  
 - ex01: add constructors and functions to that class from ex00 to make it usable
 - ex02: add all kinds of operator overloads to expand the usability of ex01 even more
 - ex03: a use case which uses most of the previously written code by creating a function that can determine weither a point is inside a triangle or not
 
-
-All of those exercises are compilable with the `-std=c++98`-flag, since this was a requirement for this project.<br>
-All exercises where compiled and tested on `macOS Catalina 10.15.7` and `Ubuntu 20.04.4 LTS`.
 
 
 All exercises can be compiled from the root of the exercise with `make`, `make all` or `make re`.<br>
