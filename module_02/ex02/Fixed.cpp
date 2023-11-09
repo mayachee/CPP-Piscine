@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 16:19:30 by mayache-          #+#    #+#             */
-/*   Updated: 2023/10/29 16:19:31 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/11/08 20:04:16 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,8 @@ bool Fixed::operator!=(const Fixed& other) const {
 }
 
 // Arithmetic operators
-Fixed Fixed::operator+(const Fixed& other) const {
+Fixed Fixed::operator+(const Fixed& other) const 
+{
     Fixed result;
     result.value = value + other.value;
     return result;

@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 16:18:11 by mayache-          #+#    #+#             */
-/*   Updated: 2023/10/29 16:18:12 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/11/09 16:44:52 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,22 @@
 
 #include <iostream>
 
-class Fixed {
-private:
-    int value;
-    static const int fractionalBits = 8;
+#define RESET_TEXT "\033[0m"
+#define BLUE_TEXT "\033[34m"
+#define ORANGE_TEXT "\033[38;5;208m"
 
-public:
-    Fixed();
-    ~Fixed();
-    Fixed(const Fixed& other);
-    Fixed& operator=(const Fixed& other);
-    int getRawBits() const;
-    void setRawBits(int const raw);
+class Fixed {
+    private:
+        int value;
+        static const int fractionalBits = 8;
+
+    public:
+        Fixed();
+        ~Fixed();
+        Fixed(const Fixed& other);
+        Fixed& operator=(const Fixed& other);
+        int getRawBits() const;
+        void setRawBits(int const raw);
 };
 
 
