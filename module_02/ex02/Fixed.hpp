@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 16:19:27 by mayache-          #+#    #+#             */
-/*   Updated: 2023/10/29 16:19:28 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/11/11 15:45:34 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ private:
     int value;  // Representation of the fixed-point value
 
 public:
-    Fixed(); // Default constructor
-    Fixed(float floatValue);  // Conversion constructor
+    Fixed();
+    Fixed(float floatValue);
 
     // Comparison operators
     bool operator>(const Fixed& other) const;

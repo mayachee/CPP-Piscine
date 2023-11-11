@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 16:19:30 by mayache-          #+#    #+#             */
-/*   Updated: 2023/11/08 20:04:16 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/11/11 16:49:23 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Fixed::Fixed()
 
 Fixed::Fixed(float floatValue)
 {
-    value = static_cast<int>(floatValue * 256);
+    value = (int)(floatValue * 256);
 }
 
 // Comparison operators
@@ -74,26 +74,30 @@ Fixed Fixed::operator/(const Fixed& other) const {
 }
 
 // Pre-increment operator
-Fixed& Fixed::operator++() {
-    ++value;
+Fixed& Fixed::operator++() { // ++i
+    ++this->value;
+    // std::cout << "Pre-increment operator" << std::endl;
     return *this;
 }
 
 // Post-increment operator
-Fixed Fixed::operator++(int) {
+Fixed Fixed::operator++(int) // i++
+{
     Fixed temp(*this);
-    ++value;
+    ++(*this);
+    // std::cout << "Post-increment operator" << std::endl;
+    // ++temp;
     return temp;
 }
 
 // Pre-decrement operator
-Fixed& Fixed::operator--() {
+Fixed& Fixed::operator--() { // --i
     --value;
     return *this;
 }
 
 // Post-decrement operator
-Fixed Fixed::operator--(int) {
+Fixed Fixed::operator--(int) { // i--
     Fixed temp(*this);
     --value;
     return temp;
@@ -114,11 +118,11 @@ const Fixed& Fixed::max(const Fixed& a, const Fixed& b) {
 }
 
 float Fixed::toFloat(const Fixed& fixed) const {
-    return static_cast<float>(fixed.value) / 256;
+    return (float)(fixed.value) / 256;
 }
 
 // Friend function to output the Fixed value
-std::ostream& operator<<(std::ostream& os, const Fixed& fixed) {
-    os << fixed.toFloat(fixed);
-    return os;
+std::ostream& operator<<(std::ostream& ostreamm, const Fixed& fixed) {
+    ostreamm << fixed.toFloat(fixed);
+    return ostreamm;
 }

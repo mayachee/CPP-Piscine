@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 16:18:02 by mayache-          #+#    #+#             */
-/*   Updated: 2023/11/10 23:43:44 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/11/11 12:57:09 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,12 @@ Fixed::Fixed(const int intValue)
     value = intValue << fractionalBits;
 }
 
-Fixed::Fixed(const float floatValue) {
+Fixed::Fixed(const float floatValue)
+{
     // float f = 3.4f;
     std::cout << "Float constructor called" << std::endl;
     value = roundf(floatValue * (1 << fractionalBits));
+    // value = roundf(floatValue * (2 ^ 7));
     // value = floatValue;
     // (void)floatValue;
     // value = 5 << 1;
@@ -40,7 +42,7 @@ Fixed::Fixed(const float floatValue) {
     // 5 = 00000101
     // 5 << 1 = 00001010
     // >>
-    std::cout << "old a is " << value << std::endl;
+    // std::cout << "old a is " << value << std::endl;
 
     // 1 << 8 = 0000000100000000
     
@@ -55,10 +57,8 @@ Fixed::Fixed(const Fixed& other) {
 Fixed& Fixed::operator=(const Fixed& other)
 {
     std::cout << "Assignation operator called" << std::endl;
-    // std::cout << "old 2 a is " << other.value << std::endl;
     if (this != &other)
     {
-        // std::cout << "              -->" << other.value << std::endl;
         this->value = other.value;
     }
     return *this;
@@ -74,14 +74,14 @@ void Fixed::setRawBits(int const raw) {
 }
 
 float Fixed::toFloat() const {
-    return static_cast<float>(value) / (1 << fractionalBits);
+    return (float)(value) / (1 << fractionalBits);
 }
 
 int Fixed::toInt() const {
     return value >> fractionalBits;
 }
 
-std::ostream& operator<<(std::ostream& os, const Fixed& fixed) {
-    os << fixed.toFloat();
-    return os;
+std::ostream& operator<<(std::ostream& ostreamm, const Fixed& fixed) {
+    ostreamm << fixed.toFloat();
+    return ostreamm;
 }
