@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 16:19:37 by mayache-          #+#    #+#             */
-/*   Updated: 2023/11/11 16:49:42 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/11/15 16:30:54 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,21 @@ int main( void ) {
     Fixed a;
     // Fixed const b( Fixed( 5.051f ) * Fixed( 2 ) );
 
-    Fixed c(42);
-    Fixed b(10.11f);
+    // Fixed c(42);
+    // Fixed b(10.11f);
     // std::cout << ++c << std::endl;
-    std::cout << c << std::endl;
-    std::cout << ++c << std::endl;
-    std::cout << c << std::endl;
-    std::cout << --c << std::endl;
-    std::cout << --c << std::endl;
-    std::cout << c << std::endl;
-    // Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
-    // std::cout << a << std::endl;
-    // std::cout << ++a << std::endl;
-    // std::cout << a << std::endl;
-    // std::cout << a++ << std::endl;
-    // std::cout << a << std::endl;
+    // std::cout << c << std::endl;
+    // std::cout << ++c << std::endl;
+    // std::cout << c << std::endl;
+    // std::cout << --c << std::endl;
+    // std::cout << --c << std::endl;
+    // std::cout << c << std::endl;
+    // Fixed const b( Fixed( 5.05f ) * Fix ed( 2 ) );
+    std::cout << a << std::endl;
+    std::cout << ++a << std::endl;
+    std::cout << a << std::endl;
+    std::cout << a++ << std::endl;
+    std::cout << a << std::endl;
     // std::cout << b << std::endl;
     // std::cout << Fixed::max( a, b ) << std::endl;
     return 0;
