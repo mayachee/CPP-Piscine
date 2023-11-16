@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 16:19:30 by mayache-          #+#    #+#             */
-/*   Updated: 2023/11/15 21:03:45 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/11/16 20:18:07 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,6 @@ Fixed Fixed::operator/(const Fixed& other) const {
 
 // Pre-increment operator
 Fixed& Fixed::operator++() { // ++i
-    std::cout << "++i has been called\n";
     this->value++;
     return *this;
 }
@@ -83,7 +82,6 @@ Fixed& Fixed::operator++() { // ++i
 // Post-increment operator
 Fixed Fixed::operator++(int) // i++
 {
-    std::cout << "i++ has been called\n";
     Fixed temp(*this);
     this->value++;
     return temp;
