@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 16:18:11 by mayache-          #+#    #+#             */
-/*   Updated: 2023/11/09 16:44:52 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/11/18 11:02:43 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,6 @@
 #define FIXED_HPP
 
 #include <iostream>
-
-#define RESET_TEXT "\033[0m"
-#define BLUE_TEXT "\033[34m"
-#define ORANGE_TEXT "\033[38;5;208m"
 
 class Fixed {
     private:

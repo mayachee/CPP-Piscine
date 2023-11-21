@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 16:19:30 by mayache-          #+#    #+#             */
-/*   Updated: 2023/11/16 20:18:07 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/11/21 13:11:45 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Fixed::Fixed()
 
 Fixed::Fixed(float floatValue)
 {
-    value = (int)(floatValue * 256);
+    value = roundf(floatValue * (1 << fractionalBits));
 }
 
 // Comparison operators
@@ -63,13 +63,13 @@ Fixed Fixed::operator-(const Fixed& other) const {
 
 Fixed Fixed::operator*(const Fixed& other) const {
     Fixed result;
-    result.value = (value * other.value) / 256;
+    result.value = (value * other.value) / (1 << fractionalBits);
     return result;
 }
 
 Fixed Fixed::operator/(const Fixed& other) const {
     Fixed result;
-    result.value = (value * 256) / other.value;
+    result.value = (value * (1 << fractionalBits)) / other.value;
     return result;
 }
 
@@ -88,7 +88,7 @@ Fixed Fixed::operator++(int) // i++
 }
 
 // Pre-decrement operator
-Fixed& Fixed::operator--() { // --i
+Fixed &Fixed::operator--() { // --i
     this->value--;
     return *this;
 }
@@ -116,7 +116,7 @@ const Fixed& Fixed::max(const Fixed& a, const Fixed& b) {
 }
 
 float Fixed::toFloat(const Fixed& fixed) const {
-    return (float)(fixed.value) / 256;
+    return (float)(fixed.value) / (1 << fractionalBits);
 }
 
 // Friend function to output the Fixed value

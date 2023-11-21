@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 16:19:27 by mayache-          #+#    #+#             */
-/*   Updated: 2023/11/11 15:45:34 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/11/21 13:10:06 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 #define FIXED_HPP
 
 #include <iostream>
+#include <cmath>
 
 class Fixed {
 private:
     int value;  // Representation of the fixed-point value
+    static const int fractionalBits = 8;
 
 public:
     Fixed();
@@ -55,11 +57,6 @@ public:
     // Static member function - max
     static const Fixed& max(const Fixed& a, const Fixed& b);
 
-    // Friend function to output the Fixed value
-    // friend std::ostream& operator<<(std::ostream& os, const Fixed& fixed) {
-    //     os << static_cast<float>(fixed.value) / 256;
-    //     return os;
-    // }
     float toFloat(const Fixed& fixed) const;
 };
 
