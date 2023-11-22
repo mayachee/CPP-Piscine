@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 16:18:07 by mayache-          #+#    #+#             */
-/*   Updated: 2023/11/09 16:48:40 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/11/22 22:01:54 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,24 @@
 
 Fixed::~Fixed()
 {
-    std::cout << ORANGE_TEXT << "Destructor called" << RESET_TEXT << std::endl;
+    std::cout << "Destructor called" << std::endl;
 }
 
 Fixed::Fixed()
 {
-    std::cout << ORANGE_TEXT << "Default constructor called" << RESET_TEXT << std::endl;
+    std::cout << "Default constructor called" << std::endl;
     value = 0;
 }
 
 Fixed::Fixed(const Fixed& other)
 {
-    std::cout << ORANGE_TEXT << "Copy constructor called" << RESET_TEXT << std::endl;
+    std::cout << "Copy constructor called" << std::endl;
     // copy object
     *this = other;
 }
 
 Fixed& Fixed::operator=(const Fixed& other) {
-    std::cout << ORANGE_TEXT << "Assignation operator called" << RESET_TEXT << std::endl;
+    std::cout << "Assignation operator called" << std::endl;
     if (this != &other) {
         // cpoy value
         value = other.value;
@@ -42,7 +42,7 @@ Fixed& Fixed::operator=(const Fixed& other) {
 
 int Fixed::getRawBits() const 
 {
-    std::cout << ORANGE_TEXT << "getRawBits member function called" << RESET_TEXT << std::endl;
+    std::cout << "getRawBits member function called" << std::endl;
     return value;
 }
 

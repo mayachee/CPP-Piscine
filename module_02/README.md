@@ -39,3 +39,6 @@
 All exercises can be compiled from the root of the exercise with `make`, `make all` or `make re`.<br>
 All exercises have a main function to demonstrate all the abilities of the subject.<br>
 After that, run the created executable like `./executable_to_run` (ie. ex00 `./fixed`).<br>
+
+
+finished ✅👾
