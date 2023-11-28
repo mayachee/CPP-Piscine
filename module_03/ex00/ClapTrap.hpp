@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 21:16:09 by mayache-          #+#    #+#             */
-/*   Updated: 2023/11/24 21:16:10 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/11/28 16:25:52 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,13 @@ class ClapTrap
         int attackDamage;
 
     public:
+        ClapTrap();
         ClapTrap(std::string const& name);
         ~ClapTrap();
         void attack(std::string const& target);
-        void takeDamage(unsigned int amount);
-        void beRepaired(unsigned int amount);
+        void takeDamage(int amount);
+        void beRepaired(int amount);
+        ClapTrap& operator = (const ClapTrap& other);
 };
-
 
 #endif
