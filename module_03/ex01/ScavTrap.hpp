@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 21:16:31 by mayache-          #+#    #+#             */
-/*   Updated: 2023/11/28 19:02:42 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/11/30 11:34:42 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class ScavTrap : public ClapTrap
         ScavTrap();
         ~ScavTrap();
         void guardGate();
+        void attack(std::string const& target);
 };
 
 #endif

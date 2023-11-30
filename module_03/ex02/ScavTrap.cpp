@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 21:16:52 by mayache-          #+#    #+#             */
-/*   Updated: 2023/11/28 19:13:00 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/11/30 11:35:40 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,15 @@ void ScavTrap::guardGate() {
 ScavTrap::~ScavTrap()
 {
     std::cout << "Destroying a ScavTrap named " << name << std::endl;
+}
+
+void ScavTrap::attack(std::string const& target)
+{
+    if(this->energyPoints <= 0)
+        std::cout << "no enought energy\n";
+    else
+    {
+        this->energyPoints--;
+        std::cout << "ScavTrap " << name << " attacks " << target << ", causing " << attackDamage << " points of damage!" << std::endl;
+    }
 }
