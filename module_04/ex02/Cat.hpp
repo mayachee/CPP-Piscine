@@ -12,6 +12,6 @@ class Cat : public Animal {
         Cat();
         Cat(const Cat &cpy);
         ~Cat();
-        void makeSound() const override;
+        void makeSound() const;
 };
 #endif

@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 16:13:27 by mayache-          #+#    #+#             */
-/*   Updated: 2023/11/29 16:18:10 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/12/01 21:26:13 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ Cat::Cat() {
     std::cout << RED_TEXT << "Cat created" << std::endl;
 }
 
-Cat::Cat(const Cat &cpy) : Animal(cpy)
+Cat::Cat(const Cat &cpy)
 {
 	*this = cpy;
 	std::cout << RED_TEXT << "Cat copy constructor called" << std::endl;

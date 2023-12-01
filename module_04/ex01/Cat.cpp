@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 19:34:29 by mayache-          #+#    #+#             */
-/*   Updated: 2023/11/29 19:34:30 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/12/01 21:28:31 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,9 @@ Cat::Cat() {
     std::cout << RED_TEXT << "Cat created" << std::endl;
 }
 
-Cat::Cat(const Cat &cpy) : Animal(cpy)
+Cat::Cat(const Cat &cpy)
 {
 	*this = cpy;
-    brain = new Brain();
 	std::cout << RED_TEXT << "Cat copy constructor called" << std::endl;
 }
 
@@ -40,6 +39,5 @@ Cat& Cat::operator=(const Cat& cat)
 
 Cat::~Cat()
 {
-    delete brain;
     std::cout << RED_TEXT << "Cat destroyed" << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 16:13:36 by mayache-          #+#    #+#             */
-/*   Updated: 2023/11/29 16:29:13 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/12/01 19:47:03 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,24 @@
 
 int main()
 {
+    {
+        // Create an Animal object
+        const Animal *originalAnimal = new Animal();
+        originalAnimal->makeSound();  // Make a sound
+
+        // Use the copy constructor to create a new Animal object by copying the originalAnimal
+        const Animal *copiedAnimal = new Animal(*originalAnimal);
+
+        // You can now use the copiedAnimal as a copy of the originalAnimal
+        copiedAnimal->makeSound();  // Make a sound using the copiedAnimal
+
+        // Don't forget to delete dynamically allocated objects
+        delete originalAnimal;
+        delete copiedAnimal;
+        std::cout << std::endl;
+        std::cout << std::endl;
+
+    }
     {
         const Animal* meta = new Animal();
         const Animal* dog = new Dog();

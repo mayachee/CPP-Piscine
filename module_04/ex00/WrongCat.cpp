@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 16:13:43 by mayache-          #+#    #+#             */
-/*   Updated: 2023/11/29 16:29:03 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/12/01 21:26:32 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ WrongCat::WrongCat() {
     std::cout << PEACH_TEXT << "WrongCat Constructor\n";
 }
 
-WrongCat::WrongCat(std::string const& type) {
-    this->type = type;
+WrongCat::WrongCat(const WrongCat &cpy_obj) {
     std::cout << PEACH_TEXT << "WrongCat Constructor\n";
+    *this = cpy_obj;
 }
 
 std::string	WrongCat::getType() const

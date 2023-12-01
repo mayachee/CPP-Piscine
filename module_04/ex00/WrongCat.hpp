@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 16:13:46 by mayache-          #+#    #+#             */
-/*   Updated: 2023/11/29 16:28:42 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/12/01 21:14:42 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class WrongCat : public WrongAnimal
 {
     public:
         WrongCat();
-        WrongCat(std::string const& type);
+        WrongCat(const WrongCat &cpy_obj);
         std::string	getType() const;
         void makeSound() const;
         ~WrongCat();

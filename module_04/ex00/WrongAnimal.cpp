@@ -6,19 +6,20 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 16:13:39 by mayache-          #+#    #+#             */
-/*   Updated: 2023/11/29 16:27:31 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/12/01 21:16:46 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "WrongAnimal.hpp"
 
-WrongAnimal::WrongAnimal() {
+WrongAnimal::WrongAnimal()
+{
     std::cout << SNORKEL_BLUE_TEXT << "WrongAnimal Constructor\n";
 }
-WrongAnimal::WrongAnimal(std::string const& type)
+WrongAnimal::WrongAnimal(const WrongAnimal &cpy_obj)
 {
-    this->type = type;
-    std::cout << SNORKEL_BLUE_TEXT << type << " created" << std::endl;
+    std::cout << SNORKEL_BLUE_TEXT << "WrongAnimal copy constructor has been called" << std::endl;
+	*this = cpy_obj;
 }
 
 std::string WrongAnimal::getType() const {
@@ -38,7 +39,8 @@ WrongAnimal& WrongAnimal::operator=(const WrongAnimal& wronganimal)
     return *this;
 }
 
-WrongAnimal::~WrongAnimal() {
+WrongAnimal::~WrongAnimal()
+{
     std::cout << SNORKEL_BLUE_TEXT << "WrongAnimal Destructor\n";
 }
 

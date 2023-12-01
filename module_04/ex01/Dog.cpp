@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 19:34:52 by mayache-          #+#    #+#             */
-/*   Updated: 2023/11/29 19:34:53 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/12/01 21:29:01 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ Dog::Dog() {
     std::cout << BLUE_TEXT << "Dog created" << std::endl;
 }
 
-Dog::Dog(const Dog &cpy) : Animal(cpy)
+Dog::Dog(const Dog &cpy)
 {
 	std::cout << BLUE_TEXT << "Dog copy constructor called" << std::endl;
     *this = cpy;

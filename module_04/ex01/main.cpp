@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 19:34:59 by mayache-          #+#    #+#             */
-/*   Updated: 2023/11/29 19:35:00 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/12/01 22:18:46 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,22 +28,3 @@ int main() {
 
     return 0;
 }
-
-// int main() {
-//     const int arraySize = 10;
-//     Animal* animals[arraySize];
-
-//     for (int i = 0; i < arraySize / 2; i++) {
-//         animals[i] = new Dog();
-//     }
-
-//     for (int i = arraySize / 2; i < arraySize; i++) {
-//         animals[i] = new Cat();
-//     }
-
-//     for (int i = 0; i < arraySize; i++) {
-//         delete animals[i];
-//     }
-
-//     return 0;
-// }

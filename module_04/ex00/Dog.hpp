@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 16:13:33 by mayache-          #+#    #+#             */
-/*   Updated: 2023/11/29 16:23:47 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/12/01 21:29:21 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #define DOG_HPP
 
 #include "Animal.hpp"
-
 #define BLUE_TEXT "\033[38;5;27m"
 
 class Dog : public Animal {
@@ -26,4 +25,5 @@ class Dog : public Animal {
         Dog& operator=(const Dog& cat);
         ~Dog();
 };
+
 #endif

@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 19:34:56 by mayache-          #+#    #+#             */
-/*   Updated: 2023/11/29 19:34:57 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/12/01 22:09:28 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,11 @@
 
 #include "Animal.hpp"
 #include "Brain.hpp"
-
 #define BLUE_TEXT "\033[38;5;27m"
 
 class Dog : public Animal {
+    private:
+        Brain brain;
 
     public:
         Dog();
@@ -27,4 +28,5 @@ class Dog : public Animal {
         Dog& operator=(const Dog& cat);
         ~Dog();
 };
+
 #endif
