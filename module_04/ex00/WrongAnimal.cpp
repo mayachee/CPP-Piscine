@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 16:13:39 by mayache-          #+#    #+#             */
-/*   Updated: 2023/12/01 21:16:46 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/12/04 15:36:43 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 WrongAnimal::WrongAnimal()
 {
     std::cout << SNORKEL_BLUE_TEXT << "WrongAnimal Constructor\n";
+    this->type = "deault WrongAnimal";
 }
 WrongAnimal::WrongAnimal(const WrongAnimal &cpy_obj)
 {
@@ -43,4 +44,3 @@ WrongAnimal::~WrongAnimal()
 {
     std::cout << SNORKEL_BLUE_TEXT << "WrongAnimal Destructor\n";
 }
-

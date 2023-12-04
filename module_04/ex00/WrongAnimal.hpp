@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 16:13:41 by mayache-          #+#    #+#             */
-/*   Updated: 2023/12/01 21:15:36 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/12/04 15:35:29 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ class WrongAnimal
         WrongAnimal();
         WrongAnimal(const WrongAnimal &cpy_obj);
         void makeSound() const;
-        virtual ~WrongAnimal();
-        virtual  std::string getType() const;
+        ~WrongAnimal();
+        std::string getType() const;
         WrongAnimal& operator=(const WrongAnimal &wronganimal);
 };
 

@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 16:13:24 by mayache-          #+#    #+#             */
-/*   Updated: 2023/12/01 22:26:31 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/12/04 15:15:11 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include <iostream>
 #define ORANGE_TEXT "\033[38;5;208m"
-
+#define RESET_TEXT "\033[0m"
 class Animal {
     protected:
         std::string type;
