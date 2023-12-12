@@ -10,7 +10,7 @@
 |-----|---------|-------------|--------|
 |  0  | [CPP_00](https://github.com/siiine-764/cppmodel/tree/main/module_00) | Getting familiar with C++       | Classes, member fucntions, and some basic stuff.. |
 |  1  | [CPP_01](https://github.com/siiine-764/cppmodel/tree/main/module_01) | BraiiiiiiinnnzzzZ | New, pointers to members, references, switch statement	 | 
-|  2  | [CPP_02](https://github.com/siiine-764/cppmodel/tree/main/module_02) | My First Orthodox Class      | ad-hoc polymorphism, operator overloading and Orthodox Cononical class form |
+|  2  | [CPP_02](https://github.com/siiine-7=64/cppmodel/tree/main/module_02) | My First Orthodox Class      | ad-hoc polymorphism, operator overloading and Orthodox Cononical class form |
 |  3  | [CPP_03](https://github.com/siiine-764/cppmodel/tree/main/module_03) | Aaaaand... OPEN!      | Inheritance |
 |  4  | [CPP_04](https://github.com/siiine-764/cppmodel/tree/main/module_04) | I don't want to set the world on fire       | Subtype polymorphism, abstract classes, interfaces |
 

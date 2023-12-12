@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 16:13:41 by mayache-          #+#    #+#             */
-/*   Updated: 2023/12/04 15:35:29 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/12/04 15:48:21 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #define WRONGANIMAL_HPP
 
 #include <iostream>
-
 #define SNORKEL_BLUE_TEXT "\033[38;2;0;121;167m"
 
 class WrongAnimal

@@ -6,13 +6,13 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 16:13:43 by mayache-          #+#    #+#             */
-/*   Updated: 2023/12/04 15:20:14 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/12/04 15:46:13 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include  "WrongCat.hpp"
 
-WrongCat::WrongCat() {
+WrongCat::WrongCat() : WrongAnimal() {
     std::cout << PEACH_TEXT << "WrongCat Constructor\n";
 }
 

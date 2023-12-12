@@ -2,7 +2,7 @@ NAME = Animal
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 CXX = c++
 
-SRCS = main.cpp\
+SRCS = Main.cpp\
 		Animal.cpp\
 		Cat.cpp\
 		Dog.cpp\

@@ -6,13 +6,14 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 16:13:31 by mayache-          #+#    #+#             */
-/*   Updated: 2023/12/04 15:16:41 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/12/04 15:45:43 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
-Dog::Dog() {
+Dog::Dog() : Animal()
+{
     std::cout << BLUE_TEXT << "Dog created" << std::endl;
 }
 
