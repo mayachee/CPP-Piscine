@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 19:34:26 by mayache-          #+#    #+#             */
-/*   Updated: 2023/12/06 20:06:05 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/12/13 21:52:07 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,15 @@
 class Brain
 {
     protected:
-        std::string *ideas;
+        std::string ideas[100];
 
     public:
         Brain();
         ~Brain();
         Brain(const Brain& other);
         Brain& operator=(const Brain& obj);
-        int copyInteger(int source, int bl);
         std::string *getIdeas();
-        void setIdeas(const std::string *ideas, int max_ideas);
+        void setIdeas( std::string ideas, int number_of_ideas);
 };
 
 #endif

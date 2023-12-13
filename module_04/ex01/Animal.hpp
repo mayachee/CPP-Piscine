@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 19:34:20 by mayache-          #+#    #+#             */
-/*   Updated: 2023/12/04 15:44:43 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/12/13 21:38:49 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Animal {
     public:
         Animal();
         Animal(const Animal &cpy_obj);
-        virtual std::string getType() const;
+        std::string getType() const;
         virtual void makeSound() const;
         virtual ~Animal();
         Animal& operator = (const Animal &animal);
