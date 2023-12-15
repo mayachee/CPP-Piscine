@@ -1,5 +1,5 @@
-NAME = Animal
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+NAME = game
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g
 CXX = c++
 
 SRCS = main.cpp\

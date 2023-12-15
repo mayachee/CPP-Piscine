@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 19:34:56 by mayache-          #+#    #+#             */
-/*   Updated: 2023/12/01 22:09:28 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/12/15 21:26:47 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 class Dog : public Animal {
     private:
-        Brain brain;
+        Brain *brn;
 
     public:
         Dog();

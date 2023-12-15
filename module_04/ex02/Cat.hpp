@@ -13,5 +13,6 @@ class Cat : public Animal {
         Cat(const Cat &cpy);
         ~Cat();
         void makeSound() const;
+
 };
 #endif

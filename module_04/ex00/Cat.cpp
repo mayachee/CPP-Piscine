@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 16:13:27 by mayache-          #+#    #+#             */
-/*   Updated: 2023/12/04 15:36:39 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/12/15 21:16:58 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,13 @@
 Cat::Cat() : Animal()
 {
     std::cout << RED_TEXT << "Cat created" << std::endl;
+    this->type = "default Cat";
 }
 
 Cat::Cat(const Cat &cpy) : Animal(cpy)
 {
-	*this = cpy;
 	std::cout << RED_TEXT << "Cat copy constructor called" << std::endl;
+	*this = cpy;
 }
 
 void Cat::makeSound() const

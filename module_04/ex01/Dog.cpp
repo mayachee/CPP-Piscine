@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 19:34:52 by mayache-          #+#    #+#             */
-/*   Updated: 2023/12/04 18:15:48 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/12/15 22:17:48 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,14 @@
 
 Dog::Dog() : Animal()
 {
-    std::cout << BLUE_TEXT << "Dog created" << std::endl;
-    type = "Default Animal";
-    // brain = Brain();
+    std::cout << BLUE_TEXT << "Dog created" << std::endl; // Cat creation alert
+	this->type = "default Dog";
+    brn = new Brain();
+    brn->setIdeas("Dog I want sleep");
+    brn->setIdeas("Dog I want eating");
+    brn->setIdeas("Dog I want say meow");
+    brn->setIdeas("Dog I want say meow");
+    brn->setIdeas("Dog I want say meow");
 }
 
 Dog::Dog(const Dog &cpy) : Animal(cpy)
@@ -43,5 +48,5 @@ Dog& Dog::operator=(const Dog& obj)
 
 Dog::~Dog() {
     std::cout << BLUE_TEXT << "Dog destroyed" << std::endl;
-    // delete (brain);
+    delete(brn);
 }

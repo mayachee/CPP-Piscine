@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 16:13:43 by mayache-          #+#    #+#             */
-/*   Updated: 2023/12/04 15:46:13 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/12/14 17:56:25 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 WrongCat::WrongCat() : WrongAnimal() {
     std::cout << PEACH_TEXT << "WrongCat Constructor\n";
+    this->type = "deault WrongCat";
 }
 
 WrongCat::WrongCat(const WrongCat &cpy_obj) : WrongAnimal(cpy_obj)

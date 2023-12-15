@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 16:13:31 by mayache-          #+#    #+#             */
-/*   Updated: 2023/12/04 15:45:43 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/12/14 17:51:26 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 Dog::Dog() : Animal()
 {
     std::cout << BLUE_TEXT << "Dog created" << std::endl;
+    this->type = "deault Dog";
 }
 
 Dog::Dog(const Dog &cpy) : Animal(cpy)

@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 16:13:20 by mayache-          #+#    #+#             */
-/*   Updated: 2023/12/04 15:18:30 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/12/15 22:28:14 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ Animal::Animal(const Animal &cpy_obj)
 std::string Animal::getType() const {
     return type;
 }
-void Animal::makeSound() const {
-    std::cout << ORANGE_TEXT << "Generic Animal Sound\n" << RESET_TEXT;
-}
+// void Animal::makeSound() const {
+//     std::cout << ORANGE_TEXT << "Generic Animazl Sound\n" << RESET_TEXT;
+// }
 
 Animal& Animal::operator=(const Animal& animal)
 {
