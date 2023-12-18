@@ -1,20 +1,52 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/18 11:46:14 by mayache-          #+#    #+#             */
+/*   Updated: 2023/12/18 11:46:15 by mayache-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Dog.hpp"
 
-Dog::Dog() {
-    brain = new Brain();
-    std::cout << "Dog created" << std::endl;
+Dog::Dog() : Animal()
+{
+    std::cout << BLUE_TEXT << "Dog created" << std::endl; // Cat creation alert
+	this->type = "default Dog";
+    brn = new Brain();
+    brn->setIdeas("Dog I want sleep");
+    brn->setIdeas("Dog I want eating");
+    brn->setIdeas("Dog I want say meow");
+    brn->setIdeas("Dog I want say meow");
+    brn->setIdeas("Dog I want say meow");
 }
 
 Dog::Dog(const Dog &cpy) : Animal(cpy)
 {
-	std::cout << "Dog copy constructor called" << std::endl;
+	std::cout << BLUE_TEXT << "Dog copy constructor called" << std::endl;
     *this = cpy;
 }
-Dog::~Dog() {
-    delete brain;
-    std::cout << "Dog destroyed" << std::endl;
+
+void Dog::makeSound() const
+{
+    std::cout << BLUE_TEXT << "Woof! Woof!\n";
 }
 
-void Dog::makeSound() const{
-    std::cout << "Woof! Woof!" << std::endl;
+Dog& Dog::operator=(const Dog& obj)
+{
+    std::cout << BLUE_TEXT << "Assignation operator called" << std::endl;
+    if (this != &obj)
+    {
+        this->type = obj.type;
+        // this->brain = obj.brain;
+    }
+    return *this;
+}
+
+Dog::~Dog() {
+    std::cout << BLUE_TEXT << "Dog destroyed" << std::endl;
+    delete(brn);
 }
