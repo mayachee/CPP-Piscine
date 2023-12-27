@@ -1,31 +1,44 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/27 22:42:05 by mayache-          #+#    #+#             */
+/*   Updated: 2023/12/27 22:42:06 by mayache-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 
-#include <string>
+#include <stdexcept>
 #include <iostream>
 
-class Bureaucrat {
-public:
-    class GradeTooHighException : public std::exception {
-        virtual const char* what() const throw();
-    };
+class Bureaucrat
+{
+    private:
+        const std::string name;
+        int grade;
 
-    class GradeTooLowException : public std::exception {
-        virtual const char* what() const throw();
-    };
+    public:
+        class GradeTooHighException : public std::exception {
+            virtual const char* what() const throw();
+        };
 
-    Bureaucrat(const std::string& name, int grade);
-    ~Bureaucrat();
+        class GradeTooLowException : public std::exception {
+            virtual const char* what() const throw();
+        };
 
-    const std::string& getName() const;
-    int getGrade() const;
+        Bureaucrat(const std::string& name, int grade);
+        ~Bureaucrat();
 
-    void incrementGrade();
-    void decrementGrade();
+        const std::string& getName() const;
+        int getGrade() const;
 
-private:
-    const std::string name;
-    int grade;
+        void incrementGrade();
+        void decrementGrade();
 };
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat);
