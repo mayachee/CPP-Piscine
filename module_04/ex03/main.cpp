@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/18 12:46:12 by mayache-          #+#    #+#             */
+/*   Updated: 2023/12/18 12:46:13 by mayache-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ICharacter.hpp"
 #include "IMateriaSource.hpp"
 #include "AMateria.hpp"
@@ -8,30 +20,20 @@
 
 int main()
 {
-    Character character("Yassine");
-    Ice ice;
-    Cure cure;
-
-    character.equip(&ice);
-    // character.use(0, character); // Output: * shoots an ice bolt at Player *
-
-    // character.equip(&cure);
-    // character.use(1, character); // Output: * heals Player's wounds *
-
-    // MateriaSource source;
-    // source.learnMateria(&ice);
-    // source.learnMateria(&cure);
-
-    // AMateria *iceMateria = source.createMateria("ice");
-    // if (iceMateria != nullptr)
-    // {
-    //     iceMateria->use(character); // Output: * shoots an ice bolt at Player *
-    //     delete iceMateria;
-    // }
-
-    // AMateria *unknownMateria = source.createMateria("unknown");
-    // if (unknownMateria == nullptr)
-    //     std::cout << "Unknown Materia\n";
-
+    IMateriaSource* src = new MateriaSource();
+    src->learnMateria(new Ice());
+    src->learnMateria(new Cure());
+    ICharacter* me = new Character("me");
+    AMateria* tmp;
+    tmp = src->createMateria("ice");
+    me->equip(tmp);
+    tmp = src->createMateria("cure");
+    me->equip(tmp);
+    ICharacter* bob = new Character("bob");
+    me->use(0, *bob);
+    me->use(1, *bob);
+    delete bob;
+    delete me;
+    delete src;
     return 0;
 }

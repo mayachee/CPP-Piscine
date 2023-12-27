@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 11:46:14 by mayache-          #+#    #+#             */
-/*   Updated: 2023/12/18 11:46:15 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/12/18 13:00:19 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,7 @@ Dog::Dog() : Animal()
     brn = new Brain();
     brn->setIdeas("Dog I want sleep");
     brn->setIdeas("Dog I want eating");
-    brn->setIdeas("Dog I want say meow");
-    brn->setIdeas("Dog I want say meow");
-    brn->setIdeas("Dog I want say meow");
+    brn->setIdeas("Dog I want say haw");
 }
 
 Dog::Dog(const Dog &cpy) : Animal(cpy)

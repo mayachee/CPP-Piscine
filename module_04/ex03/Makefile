@@ -17,12 +17,16 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 		$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
+		@echo "make it"
 
 clean:
-		rm -f $(OBJS)
+		@rm -f $(OBJS)
+		@echo "clean game"
 
 fclean: clean
-		rm -f $(NAME)
+		@rm -f $(NAME)
+		@echo "fclean game"
+
 
 re:	fclean $(NAME)
 

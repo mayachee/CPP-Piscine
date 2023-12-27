@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 19:34:29 by mayache-          #+#    #+#             */
-/*   Updated: 2023/12/15 22:20:46 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/12/18 13:04:28 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,6 @@ Cat::Cat() : Animal()
     brn = new Brain();
     brn->setIdeas("Cat I want sleep");
     brn->setIdeas("Cat I want eating");
-    brn->setIdeas("Cat I want say meow");
-    brn->setIdeas("Cat I want say meow");
-    brn->setIdeas("Cat I want say meow");
-    brn->setIdeas("Cat I want say meow");
     brn->setIdeas("Cat I want say meow");
 }
 

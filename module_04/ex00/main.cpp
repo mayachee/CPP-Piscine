@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 16:13:36 by mayache-          #+#    #+#             */
-/*   Updated: 2023/12/04 15:21:22 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/12/18 13:03:37 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,18 @@
 
 int main()
 {
-    {
-        const Animal *originalAnimal = new Animal();
-        originalAnimal->makeSound();
+    // {
+    //     const Animal *originalAnimal = new Animal();
+    //     originalAnimal->makeSound();
 
-        const Animal *copiedAnimal = new Animal(*originalAnimal);
-        copiedAnimal->makeSound();
+    //     const Animal *copiedAnimal = new Animal(*originalAnimal);
+    //     copiedAnimal->makeSound();
 
-        delete originalAnimal;
-        delete copiedAnimal;
-        std::cout << std::endl;
-        std::cout << std::endl;
-    }
+    //     delete originalAnimal;
+    //     delete copiedAnimal;
+    //     std::cout << std::endl;
+    //     std::cout << std::endl;
+    // }
     {
         const Animal* meta = new Animal();
         const Animal* dog = new Dog();
