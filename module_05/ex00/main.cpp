@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 22:42:03 by mayache-          #+#    #+#             */
-/*   Updated: 2023/12/28 12:33:23 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/12/30 11:05:08 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int main() {
     //Exceptions
     try {
-        Bureaucrat b1("John", 50);
+        Bureaucrat b1("John", 2);
         std::cout << b1 << std::endl;
 
         b1.incrementGrade();

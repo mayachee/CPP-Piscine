@@ -6,23 +6,25 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 22:42:08 by mayache-          #+#    #+#             */
-/*   Updated: 2023/12/28 12:35:57 by mayache-         ###   ########.fr       */
+/*   Updated: 2023/12/30 12:24:48 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-// Define GradeTooHighException and GradeTooLowException
+//-------------------Start Constructors---------------------------
 
-const char* Bureaucrat::GradeTooHighException::what() const throw() {
-    return "Grade is too high";
+Bureaucrat::Bureaucrat() : name("deault")
+{
+    std::cout << "Default constructor has been called" << std::endl;
+    this->grade = 1;
 }
 
-const char* Bureaucrat::GradeTooLowException::what() const throw() {
-    return "Grade is too low";
+Bureaucrat::Bureaucrat(const Bureaucrat &bur)
+{
+    std::cout << "Bureaucrat copy constructor has been called" << std::endl;
+    *this = bur;
 }
-
-// Bureaucrat member function implementations
 
 Bureaucrat::Bureaucrat(const std::string& name, int grade) : name(name) {
     if (grade < 1)
@@ -32,9 +34,36 @@ Bureaucrat::Bureaucrat(const std::string& name, int grade) : name(name) {
     else
         this->grade = grade;
 }
+//-------------------End Constructors-----------------------
 
-Bureaucrat::~Bureaucrat() {}
+//--------------------- Start Exceptions--------------------
+const char* Bureaucrat::GradeTooHighException::what() const throw() {
+    return "Grade is too high";
+}
 
+const char* Bureaucrat::GradeTooLowException::what() const throw() {
+    return "Grade is too low";
+}
+
+//--------------------- End Exceptions--------------------
+
+//----------------- Start Operator assignement-------------------
+
+Bureaucrat& Bureaucrat::operator=(const Bureaucrat& bur)
+{
+    std::cout << "Assignation operator called" << std::endl;
+    (void)bur;
+    return *this;
+}
+
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat) {
+    os << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade();
+    return os;
+}
+
+//----------------- End Operator assignement-------------------
+
+//------------- Start Grade Increment and Decrement------------
 const std::string& Bureaucrat::getName() const {
     return name;
 }
@@ -57,7 +86,10 @@ void Bureaucrat::decrementGrade() {
         throw GradeTooLowException();
 }
 
-std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat) {
-    os << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade();
-    return os;
-}
+//------------- End Grade Increment and Decrement------------
+
+//---------------------- Start Destructor-------------------------
+
+Bureaucrat::~Bureaucrat() {}
+
+//---------------------- End Destructor-------------------------
