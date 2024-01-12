@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 19:34:26 by mayache-          #+#    #+#             */
-/*   Updated: 2023/12/15 21:22:50 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/01/12 21:23:29 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,9 @@
 
 class Brain
 {
-    protected:
+    public:
         std::string ideas[100];
 
-    public:
         Brain();
         ~Brain();
         Brain(const Brain& other);
