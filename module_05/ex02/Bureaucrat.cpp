@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/27 22:42:08 by mayache-          #+#    #+#             */
-/*   Updated: 2024/01/04 19:10:27 by mayache-         ###   ########.fr       */
+/*   Created: 2024/01/16 19:08:54 by mayache-          #+#    #+#             */
+/*   Updated: 2024/01/16 19:08:56 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,12 +97,12 @@ Bureaucrat::~Bureaucrat() {}
 
 // ...
 
-void Bureaucrat::signForm(Form& form) {
+void Bureaucrat::signAForm(AForm& Aform) {
     try {
-        form.beSigned(*this);
-        std::cout << name << " signed " << form.getName() << "." << std::endl;
+        Aform.beSigned(*this);
+        std::cout << name << " signed " << Aform.getName() << "." << std::endl;
     } catch (std::exception& e) {
-        std::cout << name << " couldn’t sign " << form.getName() << " because " << e.what() << "." << std::endl;
+        std::cout << name << " couldn’t sign " << Aform.getName() << " because " << e.what() << "." << std::endl;
     }
 }
 
