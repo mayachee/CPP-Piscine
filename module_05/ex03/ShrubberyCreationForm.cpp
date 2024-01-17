@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 19:08:43 by mayache-          #+#    #+#             */
-/*   Updated: 2024/01/17 18:05:03 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/01/17 18:06:04 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ std::string    ShrubberyCreationForm::getTarget() const
     return (target);
 }
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
-
+    
     if (!this->getSignBoolean())
     {
         throw(FormNotSigned());
@@ -34,15 +34,15 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
     else
     {
         std::string tree = 
-              "      *\n"
-               "     /|\\\n"
-               "    / | \\\n"
-              "   /  |  \\\n"
-              "  /   |   \\\n"
-               " /    |    \\\n"
-             "/_____|_____\\\n"
-                "     | |\n"
-              "    -----      \n";
+            "      *\n"  
+            "     /|\\\n"
+            "    / | \\\n"
+            "   /  |  \\\n"
+            "  /   |   \\\n"  
+            " /    |    \\\n"
+            "/_____|_____\\\n"
+            "     | |\n"
+            "    -----      \n";
         std::ofstream file(this->getTarget() + "_shrubbery");
         if (!file)
         {
