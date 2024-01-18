@@ -8,6 +8,7 @@ SRCS = main.cpp\
 		ShrubberyCreationForm.cpp\
 		RobotomyRequestForm.cpp\
 		PresidentialPardonForm.cpp\
+		Intern.cpp\
 
 OBJS = $(SRCS:.cpp=.o)
 

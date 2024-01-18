@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 19:08:43 by mayache-          #+#    #+#             */
-/*   Updated: 2024/01/17 18:06:04 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/01/18 19:17:06 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
         file << tree;
     }
     
-    (void) executor;
+    // (void) executor;
     if (!this->getSignBoolean())
         throw(FormNotSigned());
     // if (!getIsSigned()) {
