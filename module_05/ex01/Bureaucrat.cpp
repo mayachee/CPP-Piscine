@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 22:42:08 by mayache-          #+#    #+#             */
-/*   Updated: 2024/01/04 19:10:27 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/01/29 19:36:33 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,9 +94,6 @@ Bureaucrat::~Bureaucrat() {}
 
 //---------------------- End Destructor-------------------------
 
-
-// ...
-
 void Bureaucrat::signForm(Form& form) {
     try {
         form.beSigned(*this);
@@ -105,5 +102,3 @@ void Bureaucrat::signForm(Form& form) {
         std::cout << name << " couldn’t sign " << form.getName() << " because " << e.what() << "." << std::endl;
     }
 }
-
-// ...

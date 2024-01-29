@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 22:42:03 by mayache-          #+#    #+#             */
-/*   Updated: 2024/01/02 18:57:48 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/01/29 18:28:07 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,10 @@ int main() {
         std::cout << form1 << std::endl;
 
         b1.signForm(form1);
-        form1.execute(b1);
+        b1.execute(form1);
+        std::cout << "-------------\n";
+        b1.beSigned(b1);
+        std::cout << "-------------\n";
 
         Bureaucrat b2("Alice", 1);
         Form form2("Form2", 10, 5);

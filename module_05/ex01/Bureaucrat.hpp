@@ -6,14 +6,13 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 22:42:05 by mayache-          #+#    #+#             */
-/*   Updated: 2024/01/02 18:24:30 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/01/29 17:13:42 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 
-#include <stdexcept>
 #include <iostream>
 #include "Form.hpp"
 
