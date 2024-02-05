@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 12:30:00 by mayache-          #+#    #+#             */
-/*   Updated: 2024/01/02 18:38:49 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/02/05 16:30:38 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,14 +59,16 @@ void Form::beSigned(const Bureaucrat& bureaucrat) {
 
 void Form::execute(const Bureaucrat& executor) const {
     if (!isSigned)
-        std::cout << executor.getName() << " couldn’t execute " << name << " because it's not signed." << std::endl;
+        std::cout << executor.getName() << " couldn't execute " << name << " because it's not signed." << std::endl;
     else if (executor.getGrade() > execGrade)
-        std::cout << executor.getName() << " couldn’t execute " << name << " because grade is too low." << std::endl;
+        std::cout << executor.getName() << " couldn't execute " << name << " because grade is too low." << std::endl;
     else
         std::cout << executor.getName() << " executed " << name << "." << std::endl;
 }
 
 std::ostream& operator<<(std::ostream& os, const Form& form) {
+    // std::cout << "entered\n" << os <<  "\n";
     os << "Form: " << form.getName() << ", Sign Grade: " << form.getSignGrade() << ", Exec Grade: " << form.getExecGrade() << ", Signed: " << (form.getIsSigned() ? "Yes" : "No");
+    // std::cout << "entered\n" << os <<  "\n";
     return os;
 }
