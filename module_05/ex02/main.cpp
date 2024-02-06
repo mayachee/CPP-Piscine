@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 19:09:06 by mayache-          #+#    #+#             */
-/*   Updated: 2024/01/29 17:59:34 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/02/06 19:54:21 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,14 @@ int main() {
         RobotomyRequestForm robotomyForm("yassine");
         PresidentialPardonForm pardonForm("ayache");
 
-        shrubberyForm.beSigned(bureaucrat);
-        shrubberyForm.execute(bureaucrat);
-        robotomyForm.beSigned(bureaucrat);
-        pardonForm.beSigned(bureaucrat);
-
         bureaucrat.signAForm(shrubberyForm);
         bureaucrat.signAForm(robotomyForm);
         bureaucrat.signAForm(pardonForm);
+
+        // shrubberyForm.beSigned(bureaucrat);
+        // shrubberyForm.execute(bureaucrat);
+        robotomyForm.beSigned(bureaucrat);
+        // pardonForm.beSigned(bureaucrat);
     } catch (std::exception const & e) {
         std::cerr << "Error: " << e.what() << std::endl;
     }

@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 18:16:23 by mayache-          #+#    #+#             */
-/*   Updated: 2024/01/17 18:17:50 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/02/06 19:43:54 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ std::string    PresidentialPardonForm::GetTarget() const
 //---------------------------Membre function---------------------------//
 void    PresidentialPardonForm::execute(Bureaucrat const &bureau) const
 {
-    if (!this->getSignBoolean()) //if the form is not signed 
+    if (!this->getIsSigned()) //if the form is not signed 
         throw(FormNotSigned());
     else if (this->getSignGrade() < bureau.getGrade()) //if the bureaucrat's grade isn't high enough
         throw(GradeDontPermit());

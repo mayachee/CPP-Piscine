@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 12:30:10 by mayache-          #+#    #+#             */
-/*   Updated: 2024/01/02 18:20:34 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/02/06 19:35:01 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class Form {
         bool isSigned;
         int signGrade;
         int execGrade; // Fix the member name here
+        
     public:
         class GradeTooHighException : public std::exception {
             virtual const char* what() const throw();
