@@ -6,24 +6,24 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 18:16:23 by mayache-          #+#    #+#             */
-/*   Updated: 2024/02/06 19:43:54 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/02/07 15:36:49 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 
 //---------------------Construcotrs And Destructors---------------------//
-PresidentialPardonForm::PresidentialPardonForm() : AForm("the form", 25, 5)
+PresidentialPardonForm::PresidentialPardonForm() : AForm("mayache", 25, 5)
 {
     this->Target = "default";
 }
 
-PresidentialPardonForm::PresidentialPardonForm(std::string N): AForm("the form", 25, 5)
+PresidentialPardonForm::PresidentialPardonForm(std::string N): AForm("mayache", 25, 5)
 {
     this->Target = N;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm &obj) : AForm("the form", 25, 5)
+PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm &obj) : AForm("mayache", 25, 5)
 {
     *this = obj;
 }

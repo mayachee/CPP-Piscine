@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 19:08:59 by mayache-          #+#    #+#             */
-/*   Updated: 2024/01/16 19:09:01 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/02/07 12:12:34 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,12 @@
 #include <stdexcept>
 #include <iostream>
 #include "AForm.hpp"
+
+#define ORANGE_TEXT "\033[38;5;208m"
+#define RED_TEXT "\033[38;5;196m"
+#define YELLOW_TEXT "\033[38;5;226m"
+#define BLUE_TEXT "\033[38;5;27m"
+#define RESET_TEXT "\033[0m"
 
 class AForm; // Forward declaration
 
