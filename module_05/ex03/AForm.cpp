@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 22:15:23 by mayache-          #+#    #+#             */
-/*   Updated: 2024/01/16 22:18:57 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/02/11 22:44:59 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,60 +14,70 @@
 
 //--------------------Construcotrs And Destructors--------------------//
 
-AForm::AForm() : name("default"), gradeToSign(1), gradeToExecute(1)
-{
-    signd = false;
+// AForm::AForm() : name("default"), gradeToSign(1), gradeToExecute(1)
+// {
+//     signd = false;
+// }
+
+// Define GradeTooHighException and GradeTooLowException
+
+// const char* AForm::GradeTooHighException::what() const throw() {
+//     return "Grade is too high";
+// }
+
+// const char* AForm::GradeTooLowException::what() const throw() {
+//     return "Grade is too low";
+// }
+
+// Form member function implementations
+
+AForm::AForm(const std::string& name, int signGrade, int execGrade)
+    : name(name), isSigned(false), signGrade(signGrade), execGrade(execGrade) {
+    if (signGrade < 1 || execGrade < 1)
+        throw GradeTooHighException();
+    else if (signGrade > 150 || execGrade > 150)
+        throw GradeTooLowException();
 }
 
-AForm::AForm(std::string N, int Gs, int Ge) : name(N), gradeToSign(Gs), gradeToExecute(Ge)
-{
-    this->signd = false;
-    if (this->gradeToExecute > 150 || this->gradeToSign > 150)
-        throw(GradeTooLowException());
-    if (this->gradeToExecute < 1 || this->gradeToSign < 1)
-        throw(GradeTooHighException());
+AForm::~AForm() {}
+
+const std::string& AForm::getName() const {
+    return this->name;
 }
 
-AForm::AForm(AForm &obj) : name(obj.name), gradeToSign(obj.gradeToSign), gradeToExecute(obj.gradeToExecute)
-{
-    *this = obj;
+bool AForm::getIsSigned() const {
+    return this->isSigned;
 }
 
-AForm::~AForm()
-{
+int AForm::getSignGrade() const {
+    return this->signGrade;
 }
 
-//-------------------------------Getters-------------------------------//
-
-bool        AForm::getSignBoolean() const
-{
-    return (this->signd);
+int AForm::getExecGrade() const {
+    return this->execGrade;
 }
 
-int         AForm::getSignGrade() const
-{
-    return (this->gradeToSign);
-}
-
-int         AForm::getExecuteGrade() const
-{
-    return (this->gradeToExecute);
-}
-
-std::string AForm::getName() const
-{
-    return (this->name);
-}
-
-//--------------------------Membre function--------------------------//
-
-void    AForm::beSigned(Bureaucrat &obj)
-{
-    if (this->getSignGrade() >= obj.getGrade()) // this mean that the grade of the bureancrat is greater and higher that the grade of the form
-        this->signd = true;
+void AForm::beSigned(const Bureaucrat& bureaucrat) {
+    if (bureaucrat.getGrade() <= signGrade)
+        isSigned = true;
     else
-        throw(AForm::CantSignForm());
+        throw GradeTooLowException();
 }
+
+void AForm::execute(const Bureaucrat& executor) const {
+    if (!isSigned)
+        std::cout << executor.getName() << " couldn't execute " << name << " because it's not signed." << std::endl;
+    else if (executor.getGrade() > execGrade)
+        std::cout << executor.getName() << " couldn't execute " << name << " because grade is too low." << std::endl;
+    else
+        std::cout << executor.getName() << " executed " << name << "." << std::endl;
+}
+
+std::ostream& operator<<(std::ostream& os, const AForm& form) {
+    os << "Form: " << form.getName() << ", Sign Grade: " << form.getSignGrade() << ", Exec Grade: " << form.getExecGrade() << ", Signed: " << (form.getIsSigned() ? "Yes" : "No");
+    return os;
+}
+
 
 //-------------------------Exceptions functions-------------------------//
 
@@ -94,24 +104,4 @@ const char *AForm::GradeDontPermit::what() const throw()
 const char *AForm::CantSignForm::what() const throw()
 {
     return ("That Form cant be signed by that Bureaucrat");
-}
-
-//---------------------operators assignement---------------------//
-
-AForm &AForm::operator=(AForm &obj)
-{
-    this->signd = obj.signd;
-    return *this;
-}
-
-std::ostream & operator<<( std::ostream & o, const AForm & rhs)
-{
-    std::string TF;
-    if (rhs.getSignBoolean())
-        TF = "True";
-    else
-        TF = "False";
-	o << "AForm " << rhs.getName() << " has a signing grade of " << rhs.getSignGrade()
-    << " and an execution grade of " << rhs.getExecuteGrade() << " and the signed boolean is " << TF;
-	return (o);
 }

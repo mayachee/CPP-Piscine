@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 22:15:49 by mayache-          #+#    #+#             */
-/*   Updated: 2024/01/16 22:17:47 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/02/11 22:45:18 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,36 +25,36 @@
 #define RESET_TEXT "\033[0m"
 
 
-class Bureaucrat; 
+class Bureaucrat; // Forward declaration
 
-class AForm 
-{
-    private :
+class AForm {
+    private:
         const std::string name;
-        bool signd;
-        const int gradeToSign;
-        const int gradeToExecute;
+        bool isSigned;
+        int signGrade;
+        int execGrade; // Fix the member name here
+        
+    public:
+        // class GradeTooHighException : public std::exception {
+        //     virtual const char* what() const throw();
+        // };
 
-    public :
-//--------------------Construcotrs And Destructors--------------------//
-        AForm();
-        AForm(std::string N, int Gs, int Ge);
-        AForm(AForm &obj);
-        virtual ~AForm();
+        // class GradeTooLowException : public std::exception {
+        //     virtual const char* what() const throw();
+        // };
 
-//-------------------------------Getters-------------------------------//
-        virtual std::string getName() const;
-        virtual bool        getSignBoolean() const;
-        virtual int         getSignGrade() const;
-        virtual int         getExecuteGrade() const;
+        AForm(const std::string& name, int signGrade, int execGrade);
+        ~AForm();
 
-//--------------------------Membre functions--------------------------//
-        virtual void    beSigned(Bureaucrat &obj);
+        const std::string& getName() const;
+        bool getIsSigned() const;
+        int getSignGrade() const;
+        int getExecGrade() const;
 
-        virtual void    execute(Bureaucrat const & executor) const = 0;
+        void beSigned(const Bureaucrat& bureaucrat);
+        void execute(const Bureaucrat& executor) const;
 
-
-//-------------------------Exceptions classes-------------------------//
+        //-------------------------Exceptions classes-------------------------//
         class GradeTooLowException: public std::exception
         {
             public:
@@ -87,11 +87,8 @@ class AForm
                 virtual const char *what() const throw();
         };
 
-//---------------------copy operator assignement---------------------//
-        AForm &operator=(AForm &obj);
-
 };
 
-std::ostream & operator<<( std::ostream & o, const AForm & rhs);
+std::ostream& operator<<(std::ostream& os, const AForm& form);
 
 #endif
