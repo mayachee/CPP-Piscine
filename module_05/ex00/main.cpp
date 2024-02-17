@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 22:42:03 by mayache-          #+#    #+#             */
-/*   Updated: 2024/02/05 15:23:42 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/02/17 19:01:16 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int main() {
         std::cout << b2 << std::endl;
 
         // Uncommenting the line below will throw an exception
-        Bureaucrat b3("Bob", -1);
+        Bureaucrat b3("Bob", 5);
 
         // Bureaucrat b2("Alice", 1);
         std::cout << b3 << std::endl;

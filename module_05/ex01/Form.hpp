@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 12:30:10 by mayache-          #+#    #+#             */
-/*   Updated: 2024/02/06 19:35:01 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/02/17 19:23:40 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ class Form {
         int getExecGrade() const;
 
         void beSigned(const Bureaucrat& bureaucrat);
-        void execute(const Bureaucrat& executor) const;
+        void execute(const Bureaucrat& executor);
 
 };
 

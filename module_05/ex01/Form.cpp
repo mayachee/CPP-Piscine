@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 12:30:00 by mayache-          #+#    #+#             */
-/*   Updated: 2024/02/05 17:10:06 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/02/17 19:23:36 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,14 +50,14 @@ int Form::getExecGrade() const {
     return this->execGrade;
 }
 
-void Form::beSigned(const Bureaucrat& bureaucrat) {
+void Form::beSigned(const Bureaucrat& bureaucrat) {    
     if (bureaucrat.getGrade() <= signGrade)
         isSigned = true;
     else
         throw GradeTooLowException();
 }
 
-void Form::execute(const Bureaucrat& executor) const {
+void Form::execute(const Bureaucrat& executor) {
     if (!isSigned)
         std::cout << executor.getName() << " couldn't execute " << name << " because it's not signed." << std::endl;
     else if (executor.getGrade() > execGrade)

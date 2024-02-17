@@ -6,30 +6,13 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 22:15:23 by mayache-          #+#    #+#             */
-/*   Updated: 2024/02/07 12:49:05 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/02/17 19:40:04 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 
 //--------------------Construcotrs And Destructors--------------------//
-
-// AForm::AForm() : name("default"), gradeToSign(1), gradeToExecute(1)
-// {
-//     signd = false;
-// }
-
-// Define GradeTooHighException and GradeTooLowException
-
-// const char* AForm::GradeTooHighException::what() const throw() {
-//     return "Grade is too high";
-// }
-
-// const char* AForm::GradeTooLowException::what() const throw() {
-//     return "Grade is too low";
-// }
-
-// Form member function implementations
 
 AForm::AForm(const std::string& name, int signGrade, int execGrade)
     : name(name), isSigned(false), signGrade(signGrade), execGrade(execGrade) {
@@ -64,7 +47,7 @@ void AForm::beSigned(const Bureaucrat& bureaucrat) {
         throw GradeTooLowException();
 }
 
-void AForm::execute(const Bureaucrat& executor) const {
+void AForm::execute(const Bureaucrat& executor) {
     if (!isSigned)
         std::cout << executor.getName() << " couldn't execute " << name << " because it's not signed." << std::endl;
     else if (executor.getGrade() > execGrade)
