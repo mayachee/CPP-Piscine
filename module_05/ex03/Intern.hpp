@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 18:06:50 by mayache-          #+#    #+#             */
-/*   Updated: 2024/02/15 12:03:16 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/02/19 15:12:23 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ class Intern
         AForm *makeForm(std::string typeform, std::string target);
 };
 
+// array of pointers to member functions
 typedef AForm *(Intern::*fct_ptr)(std::string);
 
 #endif

@@ -1,3 +1,5 @@
+## Repetition and Exceptions
+
 ## Exceptions
 
  <img src="https://nexwebsites.com/images/blog/cpp_exceptions.png" > 

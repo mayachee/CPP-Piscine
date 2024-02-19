@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 22:15:49 by mayache-          #+#    #+#             */
-/*   Updated: 2024/02/11 22:45:18 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/02/19 15:12:45 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,6 @@ class AForm {
         int execGrade; // Fix the member name here
         
     public:
-        // class GradeTooHighException : public std::exception {
-        //     virtual const char* what() const throw();
-        // };
-
-        // class GradeTooLowException : public std::exception {
-        //     virtual const char* what() const throw();
-        // };
-
         AForm(const std::string& name, int signGrade, int execGrade);
         ~AForm();
 
@@ -52,7 +44,7 @@ class AForm {
         int getExecGrade() const;
 
         void beSigned(const Bureaucrat& bureaucrat);
-        void execute(const Bureaucrat& executor) const;
+        void execute(const Bureaucrat& executor);
 
         //-------------------------Exceptions classes-------------------------//
         class GradeTooLowException: public std::exception

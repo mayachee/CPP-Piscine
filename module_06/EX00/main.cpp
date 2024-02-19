@@ -5,25 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/16 19:09:06 by mayache-          #+#    #+#             */
-/*   Updated: 2024/02/19 15:18:52 by mayache-         ###   ########.fr       */
+/*   Created: 2024/02/19 15:44:19 by mayache-          #+#    #+#             */
+/*   Updated: 2024/02/19 15:55:27 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "ShrubberyCreationForm.hpp"
-#include "PresidentialPardonForm.hpp"
-#include "Intern.hpp"
+#include "ScalarConverter.hpp"
 
-int main() {
-
-    {
-        Intern someRandomIntern;
-        AForm* rrf;
-        rrf = someRandomIntern.makeForm("PresidentialPardon", "Bender");
-        
+int main(int ac, char* av[]) {
+    if (ac < 2) {
+        std::cerr << "Usage: " << av[0] << " <literal>" << std::endl;
+        return 1;
     }
+
+    // Example usage
+    ScalarConverter::convert(av[1]);
 
     return 0;
 }
+
