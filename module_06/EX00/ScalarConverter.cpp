@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 15:44:24 by mayache-          #+#    #+#             */
-/*   Updated: 2024/02/20 17:57:26 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/02/20 20:40:54 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,6 @@ void ScalarConverter::convert(const std::string& str)
     } catch (const std::invalid_argument&) {
         std::cout << "char: Non displayable" << std::endl;
     }
-
-    // Convert to int
-    // try {
-    //     int intValue = customStoi(str);
-    //     std::cout << "int: " << intValue << std::endl;
-    // } catch (const std::invalid_argument&) {
-    //     std::cerr << "Invalid int literal" << std::endl;
-    // }
 
     convertToInteger(str);
     convertToFloat(str);
