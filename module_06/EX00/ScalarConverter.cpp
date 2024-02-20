@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 15:44:24 by mayache-          #+#    #+#             */
-/*   Updated: 2024/02/19 22:40:51 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/02/20 17:57:26 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,53 +25,177 @@ void ScalarConverter::convert(const std::string& str)
     // Convert to char
     try {
         char charValue = customStoi(str);
-        if (isprint(charValue)) {
+        if (isprint(charValue))
             std::cout << "char: '" << charValue << "'" << std::endl;
-        } else {
-            std::cout << "char: Non displayable" << std::endl;
-        }
     } catch (const std::invalid_argument&) {
         std::cout << "char: Non displayable" << std::endl;
     }
 
     // Convert to int
+    // try {
+    //     int intValue = customStoi(str);
+    //     std::cout << "int: " << intValue << std::endl;
+    // } catch (const std::invalid_argument&) {
+    //     std::cerr << "Invalid int literal" << std::endl;
+    // }
+
+    convertToInteger(str);
+    convertToFloat(str);
+    convertToDouble(str);
+}
+
+int ScalarConverter::extractInteger(std::string str) {
     try {
-        int intValue = customStoi(str);
-        std::cout << "int: " << intValue << std::endl;
+        return std::stoi(str); // Convert string to integer
     } catch (const std::invalid_argument&) {
-        std::cerr << "Invalid int literal" << std::endl;
+        return 0; // Return 0 if conversion fails
+    } catch (const std::out_of_range&) {
+        return 0; // Return 0 if value is out of range
     }
+}
+int ScalarConverter::isInteger(const std::string& str) {
 
-    // // Convert to float
-    // try {
-    //     float floatValue = std::stof(str);
-    //     std::cout << "float: " << floatValue << "f" << std::endl;
-    // } catch (const std::invalid_argument&) {
-    //     std::cerr << "Invalid float literal" << std::endl;
-    // }
+ std::string numStr;
+    int startIdx = 0;
+    int sign = 1;
 
-    // // Convert to double
-    // try {
-    //     // double doubleValue = customStod(str);
-    //     // std::string ddd = static_cast<std::string> (doubleValue);
-    //     double     doubleValue = static_cast<double>(str);
-    //     std::cout << "double: " << doubleValue << std::endl;
-    //     // std::cout << "double: " << doubleValue << std::endl;
-    // } catch (const std::invalid_argument&) {
-    //     std::cerr << "Invalid double literal" << std::endl;
-    // }
+    // Handle sign
+    if (str[0] == '-' || str[0] == '+') {
+        if (str[0] == '-')
+            sign = -1;
+        startIdx = 1;
+    }
+    // Find the end of the integer part
+    size_t dotPosition = str.find('.');
+    size_t endIdx = (dotPosition != std::string::npos) ? dotPosition : str.length();
 
-        // Convert to double
+    // Extract the integer part
+    numStr = str.substr(startIdx, endIdx - startIdx);
+    return extractInteger(numStr); 
+}
+
+void ScalarConverter::convertToInteger(const std::string& str) {
+    if (isInteger(str)) {
+        std::cout << "Integer: " << isInteger(str) << std::endl;
+    } else {
+        std::cout << "Not an integer number." << std::endl;
+    }
+}
+void ScalarConverter::convertToFloat(const std::string& str) {
     try {
-        double doubleValue = customStod(str);
-        std::cout << "double: " << doubleValue << std::endl;
+
+        if (isNumeric(str))
+        {
+            std::cout << "float: " << str << ".0f" << std::endl;
+        }
+        else if (isDouble(str))
+        {
+            std::cout << "float: ";
+            for (size_t i = 0; i < str.length(); i++)
+            {
+                std::cout << str[i];
+            }
+            std::cout << std::endl;
+        }
+        else if (isFloat(str))
+        {
+            std::cout << "float: ";
+            for (size_t i = 0; i < str.length() - 1; i++)
+            {
+                std::cout << str[i];
+            }
+            std::cout << std::endl;
+        }
+        // if (str[str.length() ] != 'f')
+        //     std::cout << "f";
+    } catch (const std::invalid_argument&) {
+        std::cerr << "Invalid float literal" << std::endl;
+    }
+}
+
+void ScalarConverter::convertToDouble(const std::string& str) {
+    size_t len = 0;
+    try {
+        if (isNumeric(str))
+        {
+            std::cout << "double: " << str << ".0" << std::endl;
+        }
+        else if (isDouble(str))
+        {
+            std::cout << "double: ";
+            len = str.length();
+            if (str[str.length() - 1] == 'f')
+                len = str.length() - 1;
+            for (size_t i = 0; i < len; i++)
+            {
+                std::cout << str[i];
+            }
+            std::cout << std::endl;
+        }
+        else if (isFloat(str))
+        {
+            std::cout << "double: " << std::endl;
+            
+            for (size_t i = 0; i < str.length() - 1; i++)
+            {
+                std::cout << str[i];
+            }
+            std::cout << std::endl;
+        }
     } catch (const std::invalid_argument& e) {
         std::cerr << e.what() << std::endl;
     }
 }
 
+
+bool ScalarConverter::isNumeric(const std::string& str) {
+    for (size_t i = 0; i < str.length(); i++) {
+        if (!isdigit(str[i])) {
+            return false;
+        }
+    }
+    return true;
+}
+bool ScalarConverter::isFloat(const std::string& str) {
+    bool bl = false;
+    if ((isdigit(str[0])) || ((str[0] == '-') || (str[0] == '+')))
+        bl = true;
+    else
+        bl = false;
+    if (str[str.length()] == 'f')
+    {
+        bl = true;
+    }
+    else
+        bl = false;
+    for (size_t i = 0; i < str.length(); i++) {
+        if (str[i] == '.') {     
+            bl = true;
+        }
+        else
+            bl = false;
+    }
+    return bl;
+}
+
+bool ScalarConverter::isDouble(const std::string& str) {
+    bool bl = false;
+    if ((isdigit(str[0])) || ((str[0] == '-') || (str[0] == '+')))
+        bl = true;
+    for (size_t i = 0; i < str.length(); i++) {
+        if (str[i + 1] == '.' && (str[i] < '0' && str[i ] > '9')) {     
+            bl = true;
+        }
+    }
+    if (str[str.length()] == 'f')
+    {
+        bl = false;
+    }
+    return bl;
+}
+
 double ScalarConverter::customStod(const std::string& str) {
-    std::istringstream iss(str);
+    std::istringstream iss(str[str.length() - 1]);
     double result;
     if (!(iss >> result)) {
         throw std::invalid_argument("Invalid double literal");
