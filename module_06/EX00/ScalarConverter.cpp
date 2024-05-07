@@ -6,11 +6,12 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 15:44:24 by mayache-          #+#    #+#             */
-/*   Updated: 2024/02/20 20:40:54 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/05/06 18:48:00 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
+#include "ConvertToChar.hpp"
 
 void ScalarConverter::convert(const std::string& str)
 {
@@ -23,14 +24,7 @@ void ScalarConverter::convert(const std::string& str)
         exit(0);
     }
     // Convert to char
-    try {
-        char charValue = customStoi(str);
-        if (isprint(charValue))
-            std::cout << "char: '" << charValue << "'" << std::endl;
-    } catch (const std::invalid_argument&) {
-        std::cout << "char: Non displayable" << std::endl;
-    }
-
+    ConvertToChar::convertToChar(str);
     convertToInteger(str);
     convertToFloat(str);
     convertToDouble(str);
@@ -47,7 +41,7 @@ int ScalarConverter::extractInteger(std::string str) {
 }
 int ScalarConverter::isInteger(const std::string& str) {
 
- std::string numStr;
+    std::string numStr;
     int startIdx = 0;
     int sign = 1;
 
@@ -60,14 +54,15 @@ int ScalarConverter::isInteger(const std::string& str) {
     // Find the end of the integer part
     size_t dotPosition = str.find('.');
     size_t endIdx = (dotPosition != std::string::npos) ? dotPosition : str.length();
-
     // Extract the integer part
     numStr = str.substr(startIdx, endIdx - startIdx);
     return extractInteger(numStr); 
 }
 
 void ScalarConverter::convertToInteger(const std::string& str) {
-    if (isInteger(str)) {
+    // int val = isInteger(str);
+    // std::cout << "-->" << val << std::endl;
+    if (isInteger(str) || isInteger(str) == 0) {
         std::cout << "Integer: " << isInteger(str) << std::endl;
     } else {
         std::cout << "Not an integer number." << std::endl;
@@ -82,12 +77,24 @@ void ScalarConverter::convertToFloat(const std::string& str) {
         }
         else if (isDouble(str))
         {
-            std::cout << "float: ";
-            for (size_t i = 0; i < str.length(); i++)
+            if (str[str.length() - 1] == 'f')
             {
-                std::cout << str[i];
+                std::cout << "float: ";
+                for (size_t i = 0; i < str.length(); i++)
+                {
+                    std::cout << str[i];
+                }
+                std::cout << std::endl;
             }
-            std::cout << std::endl;
+            else
+            {
+                std::cout << "float: ";
+                for (size_t i = 0; i < str.length(); i++)
+                {
+                    std::cout << str[i];
+                }   
+                std::cout << "f" << std::endl;
+            }
         }
         else if (isFloat(str))
         {
@@ -96,9 +103,9 @@ void ScalarConverter::convertToFloat(const std::string& str) {
             {
                 std::cout << str[i];
             }
-            std::cout << std::endl;
+            std::cout << "f" << std::endl;
         }
-        // if (str[str.length() ] != 'f')
+        // if (str[str.length() - 1] != 'f')
         //     std::cout << "f";
     } catch (const std::invalid_argument&) {
         std::cerr << "Invalid float literal" << std::endl;
@@ -179,10 +186,10 @@ bool ScalarConverter::isDouble(const std::string& str) {
             bl = true;
         }
     }
-    if (str[str.length()] == 'f')
-    {
-        bl = false;
-    }
+    // if (str[str.length()] == 'f')
+    // {
+    //     bl = false;
+    // }
     return bl;
 }
 
@@ -238,30 +245,6 @@ std::string  ScalarConverter::doubleToString(double value) {
     
     std::sprintf(buffer, "%.2f", value);
     return std::string(buffer);
-}
-
-
-// Custom function to convert string to int
-int ScalarConverter::customStoi(const std::string& str) {
-    int result = 0;
-    int sign = 1;
-    size_t i = 0;
-
-    // Check for negative sign
-    if (str[0] == '-') {
-        sign = -1;
-        ++i;
-    }
-
-    // Convert each character to integer
-    for (; i < str.length(); ++i) {
-        if (str[i] >= '0' && str[i] <= '9') {
-            result = result * 10 + (str[i] - '0');
-        } else {
-            throw std::invalid_argument("Invalid integer literal");
-        }
-    }
-    return result * sign;
 }
 
 ScalarConverter::ScalarConverter(/* args */)

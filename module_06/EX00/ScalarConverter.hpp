@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 15:44:22 by mayache-          #+#    #+#             */
-/*   Updated: 2024/02/20 20:41:52 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/05/06 18:48:41 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ class ScalarConverter
         static void convert(const std::string& str);
 
         // functions to help
-        static int customStoi(const std::string& str);
         static double customStod(const std::string& str);
         static std::string  doubleToString(double value);
         static bool isFloat(const std::string& number);
@@ -36,6 +35,7 @@ class ScalarConverter
         static void convertToDouble(const std::string& str);
         static void convertToInteger(const std::string& str);
         static void convertToFloat(const std::string& str);
+        // static void convertToChar(const std::string str);
         ScalarConverter();
         ~ScalarConverter();
 };
