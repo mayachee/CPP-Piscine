@@ -4,7 +4,6 @@ CXX = c++
 
 SRCS = main.cpp\
 	ScalarConverter.cpp\
-	ConvertToChar.cpp\
 
 OBJS = $(SRCS:.cpp=.o)
 

@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 15:44:22 by mayache-          #+#    #+#             */
-/*   Updated: 2024/05/06 18:48:41 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/05/09 21:39:51 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,13 @@ class ScalarConverter
         static bool isDouble(const std::string& str);
         static int isInteger(const std::string& str);
         static int extractInteger(std::string str);
+        static char customStoi(const std::string& str);
 
         // Convert to double
         static void convertToDouble(const std::string& str);
         static void convertToInteger(const std::string& str);
         static void convertToFloat(const std::string& str);
-        // static void convertToChar(const std::string str);
+        static void convertToChar(const std::string str);
         ScalarConverter();
         ~ScalarConverter();
 };

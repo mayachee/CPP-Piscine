@@ -6,12 +6,11 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 15:44:24 by mayache-          #+#    #+#             */
-/*   Updated: 2024/05/06 18:48:00 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/05/09 22:53:17 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
-#include "ConvertToChar.hpp"
 
 void ScalarConverter::convert(const std::string& str)
 {
@@ -24,7 +23,7 @@ void ScalarConverter::convert(const std::string& str)
         exit(0);
     }
     // Convert to char
-    ConvertToChar::convertToChar(str);
+    convertToChar(str);
     convertToInteger(str);
     convertToFloat(str);
     convertToDouble(str);
@@ -239,6 +238,89 @@ double ScalarConverter::customStod(const std::string& str) {
 //     // std::string resultStr = doubleToString(result);
 //     return result;
 // }
+
+// Custom function to convert string to int
+char ScalarConverter::customStoi(const std::string& str)
+{
+    
+    try {
+        std::string ffff;
+        
+        // if (!isNumeric(str))
+        // {
+        //     std::cout << "float: " << str << ".0f" << std::endl;
+        // }
+        // else 
+        // if (isDouble(str))
+        // {
+        //     if (str[str.length() - 1] == 'f')
+        //     {
+        //         std::cout << "float: ";
+        //         for (size_t i = 0; i < str.length(); i++)
+        //         {
+        //             std::cout << str[i];
+        //         }
+        //         std::cout << std::endl;
+        //     }
+        //     else
+        //     {
+        //         std::cout << "float: ";
+        //         for (size_t i = 0; i < str.length(); i++)
+        //         {
+        //             std::cout << str[i];
+        //         }   
+        //         std::cout << "f" << std::endl;
+        //     }
+        // }
+        // else 
+        if (isFloat(str))
+        {
+            std::cout << "float: ~";
+            for (size_t i = 0; i < str.length() - 1; i++)
+            {
+                ffff[i] = str[i];
+                std::cout << "~ " << ffff[i];
+            }
+            std::cout << "f" << std::endl;
+        }
+        // if (str[str.length() - 1] != 'f')
+        //     std::cout << "f";
+    } catch (const std::invalid_argument&) {
+        std::cerr << "Invalid float literal" << std::endl;
+    }
+
+    const char dd = '0';
+    return dd;
+}
+
+void ScalarConverter::convertToChar(const std::string str)
+{
+    try {
+        // std::cout << "char: '" << "'" << std::endl;
+        // std::cout << "custom " << customStoi(str) << std::endl;
+        if (str[str.length() - 1] == 'f')
+        {
+            // Convert the string to integer
+            int int_num = std::stoi(str);
+            // Convert the integer to ASCII
+            char ascii_char = static_cast<char>(int_num);
+            // Print the ASCII character
+            std::cout << "----> " << ascii_char << std::endl;
+
+
+            //  int int_num = static_cast<int>(customStoi(str));
+            // char charValue = customStoi(str) + '0';
+            std::cout << "v: '" << customStoi(str) << "'" << std::endl;
+            // std::cout << "v: '" << int_num << "'" << std::endl;
+            // if (isprint(charValue))
+                // std::cout << "char: '" << charValue << "'" << std::endl;
+            // std::cout << "v: '" << customStoi(str) << "'" << std::endl;
+        }
+    } catch (const std::invalid_argument&) {
+        std::cout << "char: Non displayable" << std::endl;
+    }
+}
+
 
 std::string  ScalarConverter::doubleToString(double value) {
     char buffer[50];
