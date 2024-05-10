@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 15:44:24 by mayache-          #+#    #+#             */
-/*   Updated: 2024/05/09 22:53:17 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/05/10 22:53:02 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ void ScalarConverter::convert(const std::string& str)
     {
         std::cout << "char: impossible" << std::endl;
         std::cout << "int: impossible" << std::endl;
-        std::cout << "float: " << str << "f" << std::endl;
-        std::cout << "double: " << str << std::endl;
+        std::cout << "Float: " << str << "f" << std::endl;
+        std::cout << "Double: " << str << std::endl;
         exit(0);
     }
     // Convert to char
@@ -42,14 +42,14 @@ int ScalarConverter::isInteger(const std::string& str) {
 
     std::string numStr;
     int startIdx = 0;
-    int sign = 1;
+    // int sign = 1;
 
     // Handle sign
-    if (str[0] == '-' || str[0] == '+') {
-        if (str[0] == '-')
-            sign = -1;
-        startIdx = 1;
-    }
+    // if (str[0] == '-' || str[0] == '+') {
+    //     if (str[0] == '-')
+    //         sign = -1;
+    //     startIdx = 1;
+    // }
     // Find the end of the integer part
     size_t dotPosition = str.find('.');
     size_t endIdx = (dotPosition != std::string::npos) ? dotPosition : str.length();
@@ -72,13 +72,13 @@ void ScalarConverter::convertToFloat(const std::string& str) {
 
         if (isNumeric(str))
         {
-            std::cout << "float: " << str << ".0f" << std::endl;
+            std::cout << "Float: " << str << ".0f" << std::endl;
         }
         else if (isDouble(str))
         {
             if (str[str.length() - 1] == 'f')
             {
-                std::cout << "float: ";
+                std::cout << "Float: ";
                 for (size_t i = 0; i < str.length(); i++)
                 {
                     std::cout << str[i];
@@ -87,7 +87,7 @@ void ScalarConverter::convertToFloat(const std::string& str) {
             }
             else
             {
-                std::cout << "float: ";
+                std::cout << "Float: ";
                 for (size_t i = 0; i < str.length(); i++)
                 {
                     std::cout << str[i];
@@ -97,7 +97,7 @@ void ScalarConverter::convertToFloat(const std::string& str) {
         }
         else if (isFloat(str))
         {
-            std::cout << "float: ";
+            std::cout << "Float: ";
             for (size_t i = 0; i < str.length() - 1; i++)
             {
                 std::cout << str[i];
@@ -112,36 +112,60 @@ void ScalarConverter::convertToFloat(const std::string& str) {
 }
 
 void ScalarConverter::convertToDouble(const std::string& str) {
-    size_t len = 0;
+    // else
+    //     std::cout << "Double: " << Double << std::endl;
+
+    // size_t len = 0;
     try {
-        if (isNumeric(str))
+        double Double = std::stod(str);
+        int i = 0;
+        int bl = 0;
+        while (str[i])
         {
-            std::cout << "double: " << str << ".0" << std::endl;
-        }
-        else if (isDouble(str))
-        {
-            std::cout << "double: ";
-            len = str.length();
-            if (str[str.length() - 1] == 'f')
-                len = str.length() - 1;
-            for (size_t i = 0; i < len; i++)
+            if (str[i] == '.')
             {
-                std::cout << str[i];
+                // if (str[i + 1] )
+                bl = 1;
             }
-            std::cout << std::endl;
+        i++;
         }
-        else if (isFloat(str))
+        if (bl == 0)
         {
-            std::cout << "double: " << std::endl;
+                std::cout << "Double: " << Double << ".0" << std::endl;
             
-            for (size_t i = 0; i < str.length() - 1; i++)
-            {
-                std::cout << str[i];
-            }
-            std::cout << std::endl;
         }
+             else
+                std::cout << "Double: " << Double << std::endl;   
+       
+        // if (isNumeric(str))
+        // {
+        //     std::cout << "Double: 0.0" << std::endl;
+        // }
+        // else 
+        // if (isDouble(str))
+        // {
+        //     std::cout << "Double: ";
+        //     len = str.length();
+        //     if (str[str.length() - 1] == 'f')
+        //         len = str.length() - 1;
+        //     for (size_t i = 0; i < len; i++)
+        //     {
+        //         std::cout << str[i];
+        //     }
+        //     std::cout << std::endl;
+        // }
+        // else if (isFloat(str))
+        // {
+        //     std::cout << "Double: " << std::endl;
+            
+        //     for (size_t i = 0; i < str.length() - 1; i++)
+        //     {
+        //         std::cout << str[i];
+        //     }
+        //     std::cout << std::endl;
+        // }
     } catch (const std::invalid_argument& e) {
-        std::cerr << e.what() << std::endl;
+         std::cout << "Double: 0.0" << std::endl;
     }
 }
 
@@ -185,10 +209,10 @@ bool ScalarConverter::isDouble(const std::string& str) {
             bl = true;
         }
     }
-    // if (str[str.length()] == 'f')
-    // {
-    //     bl = false;
-    // }
+    if (str[str.length()] == 'f')
+    {
+        bl = false;
+    }
     return bl;
 }
 
@@ -248,14 +272,14 @@ char ScalarConverter::customStoi(const std::string& str)
         
         // if (!isNumeric(str))
         // {
-        //     std::cout << "float: " << str << ".0f" << std::endl;
+        //     std::cout << "Float: " << str << ".0f" << std::endl;
         // }
         // else 
         // if (isDouble(str))
         // {
         //     if (str[str.length() - 1] == 'f')
         //     {
-        //         std::cout << "float: ";
+        //         std::cout << "Float: ";
         //         for (size_t i = 0; i < str.length(); i++)
         //         {
         //             std::cout << str[i];
@@ -264,7 +288,7 @@ char ScalarConverter::customStoi(const std::string& str)
         //     }
         //     else
         //     {
-        //         std::cout << "float: ";
+        //         std::cout << "Float: ";
         //         for (size_t i = 0; i < str.length(); i++)
         //         {
         //             std::cout << str[i];
@@ -275,7 +299,7 @@ char ScalarConverter::customStoi(const std::string& str)
         // else 
         if (isFloat(str))
         {
-            std::cout << "float: ~";
+            std::cout << "Float: ~";
             for (size_t i = 0; i < str.length() - 1; i++)
             {
                 ffff[i] = str[i];
@@ -298,24 +322,31 @@ void ScalarConverter::convertToChar(const std::string str)
     try {
         // std::cout << "char: '" << "'" << std::endl;
         // std::cout << "custom " << customStoi(str) << std::endl;
-        if (str[str.length() - 1] == 'f')
-        {
+        // if (isDouble(str) && str[str.length() - 1] != 'f')
+        // {
+        //     double double_num = std::stoi(str);
+        //     std::cout << "----> Char '" << double_num << "'" << std::endl;
+        // }
+        // else
+        // if (str[str.length() - 1] == 'f')
+        // {
             // Convert the string to integer
             int int_num = std::stoi(str);
+            if (int_num < 0)
+                int_num *= -1;
             // Convert the integer to ASCII
             char ascii_char = static_cast<char>(int_num);
             // Print the ASCII character
-            std::cout << "----> " << ascii_char << std::endl;
+            std::cout << "Char: '" << ascii_char << "'" << std::endl;
 
 
             //  int int_num = static_cast<int>(customStoi(str));
             // char charValue = customStoi(str) + '0';
-            std::cout << "v: '" << customStoi(str) << "'" << std::endl;
             // std::cout << "v: '" << int_num << "'" << std::endl;
             // if (isprint(charValue))
                 // std::cout << "char: '" << charValue << "'" << std::endl;
             // std::cout << "v: '" << customStoi(str) << "'" << std::endl;
-        }
+        // }
     } catch (const std::invalid_argument&) {
         std::cout << "char: Non displayable" << std::endl;
     }
@@ -327,6 +358,10 @@ std::string  ScalarConverter::doubleToString(double value) {
     
     std::sprintf(buffer, "%.2f", value);
     return std::string(buffer);
+    // try {
+    // } catch (const std::invalid_argument&) {
+    //     std::cout << "Double: 0.0" << std::endl;
+    // }
 }
 
 ScalarConverter::ScalarConverter(/* args */)
