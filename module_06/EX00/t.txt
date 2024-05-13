@@ -1,4 +1,0 @@
-----> 
-Integer: 4
-Float: 4.2f
-Double: 4.2
