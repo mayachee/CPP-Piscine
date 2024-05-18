@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 15:44:24 by mayache-          #+#    #+#             */
-/*   Updated: 2024/05/15 02:18:24 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/05/18 00:51:47 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,49 @@ void ScalarConverter::convert(const std::string& str)
         std::cout << "Double: " << str << std::endl;
         exit(0);
     }
-    // Convert to char
-    convertToChar(str);
-    convertToInteger(str);
-    convertToFloat(str);
-    convertToDouble(str);
+    int i = 0;
+    unsigned int clcule = 0;
+    unsigned int clculef = 0;
+    unsigned int clculep = 0;
+    // std::cout << "-->" << str.length() << ">--" << std::endl;
+    if (!str[1])
+    {
+        std::cout << "char: " << str[0] << std::endl;
+        int asciiValue = (int)str[0];
+        std::cout << "int: " << asciiValue << std::endl;
+        std::cout << "float: " << asciiValue << ".0f" << std::endl;
+        std::cout << "double: " << asciiValue << ".0" << std::endl;  
+    }
+    else
+    {
+        while (str[i])
+        {
+            if (str[i] == 'f' || (str[i] >= '0' && str[i] <= '9') || str[i] == '.')
+            {
+                if (str[i] == 'f')
+                    clculef++;
+                if (str[i] == '.')
+                    clculep++; 
+                // std::cout << "-->" << str[i] << std::endl;
+                clcule++;
+            }
+            i++;
+        }
+        if (clcule < str.length() || clculef > 1 || clculep > 1)
+        {
+            std::cout << "char: Non displayable" << std::endl;
+            std::cout << "int: 0" << std::endl;
+            std::cout << "float: 0.0f" << std::endl;
+            std::cout << "double: 0.0" << std::endl;
+        }
+        else
+        {
+            convertToChar(str);
+            convertToInteger(str);
+            convertToFloat(str);
+            convertToDouble(str);
+        }
+    }
 }
 
 int ScalarConverter::extractInteger(std::string str) {
@@ -60,8 +98,6 @@ int ScalarConverter::isInteger(const std::string& str) {
 }
 
 void ScalarConverter::convertToInteger(const std::string& str) {
-    // int val = isInteger(str);
-    // std::cout << "-->" << val << std::endl;
     if (!str[1])
     {
         int asciiValue = (int)str[0];
@@ -355,20 +391,24 @@ void ScalarConverter::convertToChar(const std::string str)
         if (!str[1])
             std::cout << "char: " << str[0] << std::endl;
         else
-        {    
+        {
             int int_num = std::stoi(str);
-            if (int_num == 0)
-            {
+            // std::cout << "->" << int_num << std::endl;
+            if (int_num < 32 || int_num > 126)
                 std::cout << "char: Non displayable" << std::endl;
-            }
             else
             {
-                if (int_num < 0)
-                    int_num *= -1;
-                // Convert the integer to ASCII
-                char ascii_char = static_cast<char>(int_num);
-                // Print the ASCII character
-                std::cout << "char: '" << ascii_char << "'" << std::endl;
+                if (int_num == 0)
+                    std::cout << "char: Non displayable" << std::endl;
+                else
+                {
+                    if (int_num < 0)
+                        int_num *= -1;
+                    // Convert the integer to ASCII
+                    char ascii_char = static_cast<char>(int_num);
+                    // Print the ASCII character
+                    std::cout << "char: '" << ascii_char << "'" << std::endl;
+                }
             }
         }
 

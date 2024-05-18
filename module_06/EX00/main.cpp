@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 15:44:19 by mayache-          #+#    #+#             */
-/*   Updated: 2024/05/15 02:41:30 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/05/18 02:12:47 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,15 +61,15 @@
 
 int main(int ac, char* av[])
 {
-    float f = 0.4;
-    char c = f;
-    double d = f;
-    int i = f;
-    std::cout << f << std::endl;
-    std::cout << c << std::endl;
-    std::cout << d << std::endl;
-    std::cout << i << std::endl;
-    if (ac > 2) {
+    // float f = 55.0;
+    // char c = f;
+    // double d = f;
+    // int i = f;
+    // std::cout << f << std::endl;
+    // std::cout << c << std::endl;
+    // std::cout << d << std::endl;
+    // std::cout << i << std::endl;
+    if (ac != 2) {
         std::cerr << "Usage: " << av[0] << " <literal>" << std::endl;
         return 1;
     }
