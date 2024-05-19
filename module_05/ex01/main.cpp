@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 22:42:03 by mayache-          #+#    #+#             */
-/*   Updated: 2024/02/17 19:24:28 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/05/19 02:47:29 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@
 int main() {
     try {
         Bureaucrat b1("John", 30);
+        std::cout << "****** " << b1 << std::endl;
+
+        Bureaucrat bcpy(b1);
+        std::cout << "****]]]]* " << bcpy << std::endl;
         Form form1("Form1", 30, 50);
         std::cout << "-->" << b1 << std::endl;
         std::cout << "-->" << form1 << std::endl;

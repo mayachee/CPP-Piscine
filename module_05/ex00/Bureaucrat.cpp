@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 22:42:08 by mayache-          #+#    #+#             */
-/*   Updated: 2024/02/05 15:29:53 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/05/19 02:43:51 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 Bureaucrat::Bureaucrat() : name("deault")
 {
     std::cout << "Default constructor has been called" << std::endl;
-    this->grade = 1;
+    this->grade = 150;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &bur)
@@ -48,11 +48,12 @@ const char* Bureaucrat::GradeTooLowException::what() const throw() {
 //--------------------- End Exceptions--------------------
 
 //----------------- Start Operator assignement-------------------
-
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& bur)
 {
     std::cout << "Assignation operator called" << std::endl;
-    (void)bur;
+    this->name = bur.name;
+    this->grade = bur.grade;
+
     return *this;
 }
 
@@ -64,8 +65,8 @@ std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat) {
 //----------------- End Operator assignement-------------------
 
 //------------- Start Grade Increment and Decrement------------
-const std::string& Bureaucrat::getName() const {
-    return name;
+const std::string Bureaucrat::getName() const {
+    return this->name;
 }
 
 int Bureaucrat::getGrade() const {

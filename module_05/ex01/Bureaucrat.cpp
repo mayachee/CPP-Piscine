@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 22:42:08 by mayache-          #+#    #+#             */
-/*   Updated: 2024/02/05 16:04:36 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/05/19 02:47:57 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 Bureaucrat::Bureaucrat() : name("deault")
 {
     std::cout << "Default constructor has been called" << std::endl;
-    this->grade = 1;
+    this->grade = 150;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &bur)
@@ -25,7 +25,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat &bur)
     std::cout << "Bureaucrat copy constructor has been called" << std::endl;
     *this = bur;
 }
- 
+
 Bureaucrat::Bureaucrat(const std::string& name, int grade) : name(name) {
     if (grade < 1)
         throw GradeTooHighException();
@@ -52,7 +52,9 @@ const char* Bureaucrat::GradeTooLowException::what() const throw() {
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& bur)
 {
     std::cout << "Assignation operator called" << std::endl;
-    (void)bur;
+    this->name = bur.name;
+    this->grade = bur.grade;
+
     return *this;
 }
 

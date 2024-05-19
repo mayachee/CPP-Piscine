@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 22:42:05 by mayache-          #+#    #+#             */
-/*   Updated: 2024/01/29 17:13:21 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/05/19 02:43:21 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 class Bureaucrat
 {
     private:
-        const std::string name;
+        // const
+        std::string name;
         int grade;
 
     public:
@@ -35,7 +36,7 @@ class Bureaucrat
             virtual const char* what() const throw();
         };
         //-------- Grade Increment and Decrement-------
-        const std::string& getName() const;
+        const std::string getName() const;
         int getGrade() const;
         void incrementGrade();
         void decrementGrade();

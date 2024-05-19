@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 22:42:03 by mayache-          #+#    #+#             */
-/*   Updated: 2024/04/13 12:38:41 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/05/19 02:38:56 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,36 @@
 int main() {
     //Exceptions
     try {
-        Bureaucrat b1("John", 2);
-        std::cout << b1 << std::endl;
+        Bureaucrat b1("John", 6);
+        std::cout <<  "++++> + " << b1 << std::endl;
 
-        b1.incrementGrade();
-        std::cout << b1 << std::endl;
+        Bureaucrat cpy(b1);
 
-        Bureaucrat b2("Alice", 1);
-        std::cout << b2 << std::endl;
+        // cpy = b1;
 
-        b2.decrementGrade();
-        std::cout << b2 << std::endl;
+        std::cout <<  "++++> /" << cpy << std::endl;
 
-        // Uncommenting the line below will throw an exception
-        Bureaucrat b3("Bob", 5);
+        Bureaucrat cpy1(cpy);
+        std::cout <<  "++++> *" << cpy1 << std::endl;
+
+        // b1.incrementGrade();
+        // std::cout << b1 << std::endl;
 
         // Bureaucrat b2("Alice", 1);
-        std::cout << b3 << std::endl;
+        // std::cout << b2 << std::endl;
 
-        b3.decrementGrade();
-        std::cout << b3 << std::endl;
-        // Bureaucrat b4("ayache", 160);
+        // b2.decrementGrade();
+        // std::cout << b2 << std::endl;
+
+        // // Uncommenting the line below will throw an exception
+        // Bureaucrat b3("Bob", 5);
+
+        // // Bureaucrat b2("Alice", 1);
+        // std::cout << b3 << std::endl;
+
+        // b3.decrementGrade();
+        // std::cout << b3 << std::endl;
+        // // Bureaucrat b4("ayache", 160);
 
     } catch (std::exception& e) {
         std::cerr << "Exception: " << e.what() << std::endl;
