@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 19:08:45 by mayache-          #+#    #+#             */
-/*   Updated: 2024/02/11 22:33:42 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/05/20 03:56:26 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,19 @@ class Bureaucrat;
 
 class ShrubberyCreationForm : public AForm {
 private:
-    const std::string target;
+    std::string target;
 
 public:
     ShrubberyCreationForm(const std::string& target);
+    ShrubberyCreationForm(const ShrubberyCreationForm &obj);
+    ShrubberyCreationForm();
+    ~ShrubberyCreationForm();
 
-     std::string getTarget() const;
-    virtual ~ShrubberyCreationForm();
+    std::string getTarget() const;
 
-    virtual void execute(Bureaucrat const & executor) const;
+    void execute(Bureaucrat const & executor) const;
+
+    ShrubberyCreationForm &operator=(const ShrubberyCreationForm &obj);
 };
+
 #endif

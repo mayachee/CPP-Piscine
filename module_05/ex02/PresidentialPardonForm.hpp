@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 19:08:34 by mayache-          #+#    #+#             */
-/*   Updated: 2024/01/17 18:16:30 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/05/20 03:45:21 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class PresidentialPardonForm : public AForm
 //---------------------Construcotrs And Destructors---------------------//
         PresidentialPardonForm();
         PresidentialPardonForm(std::string N);
-        PresidentialPardonForm(PresidentialPardonForm &obj);
+        PresidentialPardonForm(const PresidentialPardonForm &obj);
         ~PresidentialPardonForm();
 
 //-------------------------------Getters-------------------------------//
@@ -41,7 +41,7 @@ class PresidentialPardonForm : public AForm
         void    execute(Bureaucrat const &obj) const;
 
 //-----------------------operators assignement-----------------------//
-        PresidentialPardonForm &operator=(PresidentialPardonForm &obj);
+        PresidentialPardonForm &operator=(const PresidentialPardonForm &obj);
 };
 
 #endif

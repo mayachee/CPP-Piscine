@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 19:08:39 by mayache-          #+#    #+#             */
-/*   Updated: 2024/02/11 22:47:41 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/05/20 03:46:13 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class RobotomyRequestForm : public AForm
 //---------------------Construcotrs And Destructors---------------------//
         RobotomyRequestForm();
         RobotomyRequestForm(std::string N);
-        RobotomyRequestForm(RobotomyRequestForm &obj);
+        RobotomyRequestForm(const RobotomyRequestForm &obj);
         ~RobotomyRequestForm();
 
 //-------------------------------Getters-------------------------------//
@@ -41,8 +41,7 @@ class RobotomyRequestForm : public AForm
         void    execute(Bureaucrat const &obj) const;
 
 //-----------------------operators assignement-----------------------//
-        RobotomyRequestForm &operator=(RobotomyRequestForm &obj);
+        RobotomyRequestForm &operator=(const RobotomyRequestForm &obj);
 };
-
 
 #endif

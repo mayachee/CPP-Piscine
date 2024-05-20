@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 18:16:23 by mayache-          #+#    #+#             */
-/*   Updated: 2024/02/07 15:36:49 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/05/20 03:45:10 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,10 @@ PresidentialPardonForm::PresidentialPardonForm(std::string N): AForm("mayache", 
     this->Target = N;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm &obj) : AForm("mayache", 25, 5)
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &obj) : AForm("mayache", 25, 5)
 {
     *this = obj;
 }
-
-PresidentialPardonForm::~PresidentialPardonForm()
-{}
 
 //-------------------------------Getters-------------------------------//
 std::string    PresidentialPardonForm::GetTarget() const
@@ -49,8 +46,11 @@ void    PresidentialPardonForm::execute(Bureaucrat const &bureau) const
 }
 
 //-----------------------operators assignement-----------------------//
-PresidentialPardonForm &PresidentialPardonForm::operator=(PresidentialPardonForm &obj)
+PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm &obj)
 {
     this->Target = obj.Target;
     return *this;
 }
+
+PresidentialPardonForm::~PresidentialPardonForm()
+{}

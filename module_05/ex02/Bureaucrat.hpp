@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 19:08:59 by mayache-          #+#    #+#             */
-/*   Updated: 2024/02/07 12:12:34 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/05/20 03:25:40 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class AForm; // Forward declaration
 class Bureaucrat
 {
     private:
-        const std::string name;
+        std::string name;
         int grade;
 
     public:

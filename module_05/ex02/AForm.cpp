@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 22:15:23 by mayache-          #+#    #+#             */
-/*   Updated: 2024/02/17 19:40:04 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/05/20 03:37:59 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,10 @@ AForm::AForm(const std::string& name, int signGrade, int execGrade)
         throw GradeTooLowException();
 }
 
+AForm::AForm(const AForm& copy) : name(copy.name), signGrade(copy.signGrade), execGrade(copy.execGrade)
+{
+    *this = copy;
+}
 AForm::~AForm() {}
 
 const std::string& AForm::getName() const {
@@ -47,13 +51,24 @@ void AForm::beSigned(const Bureaucrat& bureaucrat) {
         throw GradeTooLowException();
 }
 
-void AForm::execute(const Bureaucrat& executor) {
+void AForm::execute(const Bureaucrat& executor) const {
     if (!isSigned)
         std::cout << executor.getName() << " couldn't execute " << name << " because it's not signed." << std::endl;
     else if (executor.getGrade() > execGrade)
         std::cout << executor.getName() << " couldn't execute " << name << " because grade is too low." << std::endl;
     else
         std::cout << executor.getName() << " executed " << name << "." << std::endl;
+}
+
+AForm& AForm::operator=(const AForm& Afrm)
+{
+    std::cout << "Assignation operator called" << std::endl;
+    this->name = Afrm.name;
+    this->isSigned = Afrm.isSigned;
+    this->signGrade = Afrm.signGrade;
+    this->execGrade = Afrm.execGrade;
+
+    return *this;
 }
 
 std::ostream& operator<<(std::ostream& os, const AForm& form) {

@@ -6,14 +6,17 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 18:06:35 by mayache-          #+#    #+#             */
-/*   Updated: 2024/02/19 15:18:30 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/05/20 04:08:22 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Intern.hpp"
 
-Intern::Intern()
+Intern::Intern() {}
+
+Intern::Intern(const Intern &other)
 {
+    *this = other;
 }
 AForm *Intern::CreateShrubberyCreationForm(std::string target)
 {
@@ -55,4 +58,11 @@ AForm *Intern::makeForm(std::string typeform, std::string target)
 
 Intern::~Intern()
 {
+}
+
+Intern &Intern::operator=(const Intern &other)
+{
+    std::cout << "Assignation operator called" << std::endl;
+    (void)other;
+    return *this;
 }

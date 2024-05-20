@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 19:08:43 by mayache-          #+#    #+#             */
-/*   Updated: 2024/02/07 13:22:14 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/05/20 03:54:20 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,14 @@
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string& target)
     : AForm("Shrubbery", 145, 137), target(target) {}
 
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &obj) : AForm("Shrubbery", 145, 137)
+{
+    *this = obj;
+}
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm("Shrubbery", 145, 137)
+{
+    this->target = "default";
+}
 
 std::string    ShrubberyCreationForm::getTarget() const
 {
@@ -53,6 +61,13 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
         std::cout << "ShrubberyCreationForm executed successfully by " << executor.getName() << std::endl;
     }
 }
+
+ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &obj)
+{
+    this->target = obj.target;
+    return *this;
+}
+
 
 ShrubberyCreationForm::~ShrubberyCreationForm() {}
 

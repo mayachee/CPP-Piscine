@@ -6,21 +6,11 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 12:30:00 by mayache-          #+#    #+#             */
-/*   Updated: 2024/02/17 19:23:36 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/05/20 03:09:53 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
-
-// Define GradeTooHighException and GradeTooLowException
-
-const char* Form::GradeTooHighException::what() const throw() {
-    return "Grade is too high";
-}
-
-const char* Form::GradeTooLowException::what() const throw() {
-    return "Grade is too low";
-}
 
 // Form member function implementations
 
@@ -32,7 +22,15 @@ Form::Form(const std::string& name, int signGrade, int execGrade)
         throw GradeTooLowException();
 }
 
-Form::~Form() {}
+Form::Form(const Form &obj)
+{
+    *this = obj;
+}
+
+Form::Form() : name("default"), isSigned(150), execGrade(150)
+{
+    signGrade = false;
+}
 
 const std::string& Form::getName() const {
     return this->name;
@@ -66,7 +64,33 @@ void Form::execute(const Bureaucrat& executor) {
         std::cout << executor.getName() << " executed " << name << "." << std::endl;
 }
 
+// Define GradeTooHighException and GradeTooLowException
+
+const char* Form::GradeTooHighException::what() const throw() {
+    return "Grade is too high";
+}
+
+const char* Form::GradeTooLowException::what() const throw() {
+    return "Grade is too low";
+}
+
+//-------- Operator assignement----------
+Form& Form::operator=(const Form& frm)
+{
+    std::cout << "Assignation operator called" << std::endl;
+    this->name = frm.name;
+    this->isSigned = frm.isSigned;
+    this->signGrade = frm.signGrade;
+    this->execGrade = frm.execGrade;
+
+    return *this;
+}
+
 std::ostream& operator<<(std::ostream& os, const Form& form) {
     os << "Form: " << form.getName() << ", Sign Grade: " << form.getSignGrade() << ", Exec Grade: " << form.getExecGrade() << ", Signed: " << (form.getIsSigned() ? "Yes" : "No");
     return os;
 }
+
+//              Destructor
+
+Form::~Form() {}

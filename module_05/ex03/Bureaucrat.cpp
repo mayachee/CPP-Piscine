@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 19:08:54 by mayache-          #+#    #+#             */
-/*   Updated: 2024/01/16 19:08:56 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/05/20 03:26:44 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 Bureaucrat::Bureaucrat() : name("deault")
 {
     std::cout << "Default constructor has been called" << std::endl;
-    this->grade = 1;
+    this->grade = 150;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &bur)
@@ -52,7 +52,8 @@ const char* Bureaucrat::GradeTooLowException::what() const throw() {
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& bur)
 {
     std::cout << "Assignation operator called" << std::endl;
-    (void)bur;
+    this->name = bur.name;
+    this->grade = bur.grade;
     return *this;
 }
 
@@ -98,11 +99,11 @@ Bureaucrat::~Bureaucrat() {}
 // ...
 
 void Bureaucrat::signAForm(AForm& Aform) {
-    try {
+    try {   
         Aform.beSigned(*this);
-        std::cout << name << " signed " << Aform.getName() << "." << std::endl;
+        std::cout <<  name << " signed " << Aform.getName() << "." << std::endl;
     } catch (std::exception& e) {
-        std::cout << name << " couldn’t sign " << Aform.getName() << " because " << e.what() << "." << std::endl;
+        std::cout << name << " couldn't sign " << Aform.getName() << " because " << e.what() << "." << std::endl;
     }
 }
 

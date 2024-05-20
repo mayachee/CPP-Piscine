@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 22:42:05 by mayache-          #+#    #+#             */
-/*   Updated: 2024/05/19 02:43:21 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/05/20 02:58:18 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 class Bureaucrat
 {
     private:
-        // const
         std::string name;
         int grade;
 

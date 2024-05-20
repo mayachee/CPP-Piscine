@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 22:15:49 by mayache-          #+#    #+#             */
-/*   Updated: 2024/02/19 15:12:45 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/05/20 03:39:09 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,24 +27,26 @@
 
 class Bureaucrat; // Forward declaration
 
+//abstract class
 class AForm {
     private:
-        const std::string name;
+        std::string name;
         bool isSigned;
         int signGrade;
-        int execGrade; // Fix the member name here
+        int execGrade;
         
     public:
         AForm(const std::string& name, int signGrade, int execGrade);
-        ~AForm();
+        AForm(const AForm &copy);
+        virtual ~AForm();
 
-        const std::string& getName() const;
-        bool getIsSigned() const;
-        int getSignGrade() const;
-        int getExecGrade() const;
+        virtual const std::string& getName() const;
+        virtual bool getIsSigned() const;
+        virtual int getSignGrade() const;
+        virtual int getExecGrade() const;
 
         void beSigned(const Bureaucrat& bureaucrat);
-        void execute(const Bureaucrat& executor);
+        virtual void execute(const Bureaucrat& executor) const = 0;
 
         //-------------------------Exceptions classes-------------------------//
         class GradeTooLowException: public std::exception
@@ -78,7 +80,7 @@ class AForm {
             public:
                 virtual const char *what() const throw();
         };
-
+        AForm& operator=(const AForm& cpy);
 };
 
 std::ostream& operator<<(std::ostream& os, const AForm& form);

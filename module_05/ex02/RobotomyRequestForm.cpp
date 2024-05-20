@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 18:22:34 by mayache-          #+#    #+#             */
-/*   Updated: 2024/02/11 22:38:50 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/05/20 03:46:24 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ RobotomyRequestForm::RobotomyRequestForm(std::string N): AForm("Roboto", 72, 45)
     this->Target = N;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm &obj) : AForm("Roboto", 72, 45)
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &obj) : AForm("Roboto", 72, 45)
 {
     *this = obj;
 }
@@ -56,7 +56,7 @@ void    RobotomyRequestForm::execute(Bureaucrat const &bureau) const
 }
 
 //-----------------------operators assignement-----------------------//
-RobotomyRequestForm &RobotomyRequestForm::operator=(RobotomyRequestForm &obj)
+RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &obj)
 {
     this->Target = obj.Target;
     return *this;
