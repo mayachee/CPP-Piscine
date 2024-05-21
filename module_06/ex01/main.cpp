@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 08:19:10 by mayache-          #+#    #+#             */
-/*   Updated: 2024/05/20 15:56:21 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/05/21 18:31:06 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,16 +39,10 @@ int main() {
     Serializer serializer;
     // Serialize the Data object into a raw pointer
     uintptr_t raw = serializer.serialize(&data);
-
+    std::cout << "Serializer: " << raw << std::endl;
     // Deserialize the raw pointer back into a Data object
     Data* deserializedData = serializer.deserialize(raw);
 
-    // Check if the deserialized Data object is the same as the original one
-    if (deserializedData == &data) {
-        std::cout << "Serialization and deserialization successful!" << std::endl;
-    } else {
-        std::cout << "Serialization and deserialization failed!" << std::endl;
-    }
-
+    std::cout << "DeSerializer: " << deserializedData << std::endl;
     return 0;
 }

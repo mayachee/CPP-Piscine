@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serializer.cpp                                     :+:      :+:    :+:   */
+/*   ClassA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/20 08:19:47 by mayache-          #+#    #+#             */
-/*   Updated: 2024/05/21 18:28:27 by mayache-         ###   ########.fr       */
+/*   Created: 2024/05/21 19:30:09 by mayache-          #+#    #+#             */
+/*   Updated: 2024/05/21 21:53:00 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Serializer.hpp"
+#ifndef CLASSA_HPP
+# define CLASSA_HPP
 
-uintptr_t Serializer::serialize(Data* ptr)
-{
-    // Convert the pointer to a uintptr_t
-    uintptr_t ptr_val = reinterpret_cast<uintptr_t>(ptr);
-    // std::cout << ptr_val << std::endl;
-    return ptr_val;
-}
+#include "../Base.hpp"
 
-Data* Serializer::deserialize(uintptr_t raw)
+class ClassA : public Base
 {
-    Data* data = new Data();
-    data->value = raw;
-    // std::cout << "-->>" <<  data->value << std::endl;
-    return data;
-}
+    private:
+    /* data */
+    public:
+        ClassA(/* args */);
+        ~ClassA();
+};
+
+#endif
