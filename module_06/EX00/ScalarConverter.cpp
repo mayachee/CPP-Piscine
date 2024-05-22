@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 15:44:24 by mayache-          #+#    #+#             */
-/*   Updated: 2024/05/18 00:51:47 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/05/22 19:55:26 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,22 @@ void ScalarConverter::convert(const std::string& str)
     // std::cout << "-->" << str.length() << ">--" << std::endl;
     if (!str[1])
     {
-        std::cout << "char: " << str[0] << std::endl;
-        int asciiValue = (int)str[0];
-        std::cout << "int: " << asciiValue << std::endl;
-        std::cout << "float: " << asciiValue << ".0f" << std::endl;
-        std::cout << "double: " << asciiValue << ".0" << std::endl;  
+        int inttt = isInteger(str);
+        if (inttt >= 0 && inttt <= 9)
+        {
+            std::cout << "char: Non displayable" << std::endl;
+            std::cout << "int: " << inttt << std::endl;
+            std::cout << "float: " << inttt << ".0f" << std::endl;
+            std::cout << "double: " << inttt << ".0" << std::endl;
+        }
+        else
+        {
+            std::cout << "char: " << str[0] << std::endl;
+            int asciiValue = (int)str[0];
+            std::cout << "int: " << asciiValue << std::endl;
+            std::cout << "float: " << asciiValue << ".0f" << std::endl;
+            std::cout << "double: " << asciiValue << ".0" << std::endl; 
+        }
     }
     else
     {
@@ -52,10 +63,14 @@ void ScalarConverter::convert(const std::string& str)
         }
         if (clcule < str.length() || clculef > 1 || clculep > 1)
         {
-            std::cout << "char: Non displayable" << std::endl;
-            std::cout << "int: 0" << std::endl;
-            std::cout << "float: 0.0f" << std::endl;
-            std::cout << "double: 0.0" << std::endl;
+            int intt = isInteger(str);
+            if (intt > 0)
+                convertToChar(str);
+            else
+                std::cout << "char: Non displayable" << std::endl;
+            std::cout << "int: " << isInteger(str) << std::endl;
+            std::cout << "float: " << std::stof(str) << "f" << std::endl;
+            std::cout << "double: " << std::stod(str) << std::endl;
         }
         else
         {
@@ -69,7 +84,8 @@ void ScalarConverter::convert(const std::string& str)
 
 int ScalarConverter::extractInteger(std::string str) {
     try {
-        return std::stoi(str); // Convert string to integer
+        int nbr = std::stoi(str);
+        return nbr; // Convert string to integer
     } catch (const std::invalid_argument&) {
         return 0; // Return 0 if conversion fails
     } catch (const std::out_of_range&) {
@@ -94,6 +110,7 @@ int ScalarConverter::isInteger(const std::string& str) {
     size_t endIdx = (dotPosition != std::string::npos) ? dotPosition : str.length();
     // Extract the integer part
     numStr = str.substr(startIdx, endIdx - startIdx);
+
     return extractInteger(numStr); 
 }
 
@@ -377,23 +394,11 @@ char ScalarConverter::customStoi(const std::string& str)
 void ScalarConverter::convertToChar(const std::string str)
 {
     try {
-        // std::cout << "char: '" << "'" << std::endl;
-        // std::cout << "custom " << customStoi(str) << std::endl;
-        // if (isDouble(str) && str[str.length() - 1] != 'f')
-        // {
-        //     double double_num = std::stoi(str);
-        //     std::cout << "----> Char '" << double_num << "'" << std::endl;
-        // }
-        // else
-        // if (str[str.length() - 1] == 'f')
-        // {
-            // Convert the string to integer
         if (!str[1])
             std::cout << "char: " << str[0] << std::endl;
         else
         {
             int int_num = std::stoi(str);
-            // std::cout << "->" << int_num << std::endl;
             if (int_num < 32 || int_num > 126)
                 std::cout << "char: Non displayable" << std::endl;
             else

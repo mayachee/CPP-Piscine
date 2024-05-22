@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 18:50:26 by mayache-          #+#    #+#             */
-/*   Updated: 2024/05/21 22:52:29 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/05/22 18:13:33 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,6 @@ void identify(Base* p) {
 }
 
 void identify(Base& p) {
-    std::cout << "reference identify has been called\n" << std::endl;
-    
     try {
         (void)dynamic_cast<ClassA&>(p);
         std::cout << "A" << std::endl;

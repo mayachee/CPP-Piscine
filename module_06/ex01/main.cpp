@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 08:19:10 by mayache-          #+#    #+#             */
-/*   Updated: 2024/05/21 18:31:06 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/05/22 18:10:20 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,16 +33,14 @@
 // }
 
 int main() {
-    // Create an instance of the Data class
     Data data;
     data.value = 10;
     Serializer serializer;
-    // Serialize the Data object into a raw pointer
+
     uintptr_t raw = serializer.serialize(&data);
     std::cout << "Serializer: " << raw << std::endl;
-    // Deserialize the raw pointer back into a Data object
+    
     Data* deserializedData = serializer.deserialize(raw);
-
     std::cout << "DeSerializer: " << deserializedData << std::endl;
     return 0;
 }
