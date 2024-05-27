@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 15:44:24 by mayache-          #+#    #+#             */
-/*   Updated: 2024/05/24 02:10:24 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/05/27 22:51:47 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,8 @@ void ScalarConverter::convert(const std::string& str)
 int ScalarConverter::extractInteger(std::string str) {
     try {
         int nbr = std::stoi(str);
-        return nbr; // Convert string to integer
+        int is_int = static_cast<int>(nbr);
+        return is_int; // Convert string to integer
     } catch (const std::invalid_argument&) {
         return 0; // Return 0 if conversion fails
     } catch (const std::out_of_range&) {
@@ -103,7 +104,7 @@ int ScalarConverter::isInteger(const std::string& str) {
     size_t endIdx = (dotPosition != std::string::npos) ? dotPosition : str.length();
     // Extract the integer part
     numStr = str.substr(startIdx, endIdx - startIdx);
-
+    
     return extractInteger(numStr); 
 }
 
@@ -111,6 +112,7 @@ void ScalarConverter::convertToInteger(const std::string& str) {
     if (!str[1])
     {
         int asciiValue = (int)str[0];
+        
         std::cout << "int: " << asciiValue << std::endl;
     }
     else
@@ -154,13 +156,15 @@ void ScalarConverter::convertToFloat(const std::string& str) {
         else
         {
             float Float = std::stof(str);
+            float is_float = static_cast<float>(Float);
+            // std::cout << "float :" << is_float << std::endl;
             bool bl = 0;
             if (!isFloatOrInt(str))
-                std::cout << "float: " << Float << "f" << std::endl;
+                std::cout << "float: " << is_float << "f" << std::endl;
             else
             {   
                 if (isFloatOrInt(str))
-                    std::cout << "float: " << Float << ".0f" << std::endl;
+                    std::cout << "float: " << is_float << ".0f" << std::endl;
                 else
                 {
                     int i = 0;
@@ -174,7 +178,7 @@ void ScalarConverter::convertToFloat(const std::string& str) {
                         i++;
                     }
                     if (bl == 0)
-                        std::cout << "float: " << Float << "f" << std::endl;
+                        std::cout << "float: " << is_float << "f" << std::endl;
                 }
             }
         }
@@ -192,42 +196,44 @@ void ScalarConverter::convertToDouble(const std::string& str)
                 std::cout << "double: " << asciiValue << ".0" << std::endl;
             }
             else
-            {
-                
-            double Double = std::stod(str);
-            if (!isFloatOrInt(str))
-                std::cout << "double: " << Double << std::endl;
-            else {
-                if (isFloatOrInt(str))
-                    std::cout << "double: " << Double << ".0" << std::endl;
-            else
-            {
-                    std::cout << Double <<std::endl;
-                    int i = 0;
-                    int bl = 0;
-                    while (str[i])
-                    {
-                        if (str[i] != '.')
-                            bl = 0;
-                        i++;
-                    }
-                    i = 0;
-                    while (str[i])
-                    {
-                        if (str[i] == '.')
+            { 
+                double Double = std::stod(str);
+                // std::cout << "double :" << Double << std::endl;
+                double is_double = static_cast<double>(Double);
+                // std::cout << "double :" << is_double << std::endl;
+                if (!isFloatOrInt(str))
+                    std::cout << "double: " << is_double << std::endl;
+                else {
+                    if (isFloatOrInt(str))
+                        std::cout << "double: " << is_double << ".0" << std::endl;
+                else
+                {
+                        std::cout << is_double <<std::endl;
+                        int i = 0;
+                        int bl = 0;
+                        while (str[i])
                         {
-                            bl = 1;
+                            if (str[i] != '.')
+                                bl = 0;
+                            i++;
                         }
-                    i++;
+                        i = 0;
+                        while (str[i])
+                        {
+                            if (str[i] == '.')
+                            {
+                                bl = 1;
+                            }
+                        i++;
+                        }
+                        if (bl == 0)
+                            std::cout << "double: " << is_double << ".0" << std::endl;
+                        else
+                            std::cout << "double: " << is_double << std::endl;   
+                        
                     }
-                    if (bl == 0)
-                        std::cout << "double: " << Double << ".0" << std::endl;
-                    else
-                        std::cout << "double: " << Double << std::endl;   
-                    
                 }
             }
-        }
     } catch (const std::invalid_argument& e) {
          std::cout << "double: 0.0" << std::endl;
     }
@@ -299,7 +305,9 @@ void ScalarConverter::convertToChar(const std::string str)
             std::cout << "char: " << str[0] << std::endl;
         else
         {
-            int int_num = std::stoi(str);
+            int     int_num = std::stoi(str);
+            // char    Char = static_cast<int>(int_num);
+            // std::cout << "char: " << Char << std::endl;
             if (int_num < 32 || int_num > 126)
                 std::cout << "char: Non displayable" << std::endl;
             else
