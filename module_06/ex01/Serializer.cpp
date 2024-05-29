@@ -6,12 +6,20 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 08:19:47 by mayache-          #+#    #+#             */
-/*   Updated: 2024/05/21 18:28:27 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/05/29 19:08:11 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Serializer.hpp"
 
+Serializer::Serializer()
+{
+}
+Serializer::Serializer(Serializer &cpy_obj)
+{
+    *this = cpy_obj;
+}
+// Serializer &Serializer::operator=(Serializer &obj)
 uintptr_t Serializer::serialize(Data* ptr)
 {
     // Convert the pointer to a uintptr_t

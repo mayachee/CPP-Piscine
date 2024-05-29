@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 18:50:26 by mayache-          #+#    #+#             */
-/*   Updated: 2024/05/22 20:52:35 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/05/29 18:20:34 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,16 @@ Base* generate() {
 void identify(Base* p) {
     if (dynamic_cast<ClassA*>(p)) {
         std::cout << "A" << std::endl;
+        return;
     } else if (dynamic_cast<ClassB*>(p)) {
         std::cout << "B" << std::endl;
+        return;
     } else if (dynamic_cast<ClassC*>(p)) {
         std::cout << "C" << std::endl;
+        return;
     } else {
         std::cout << "Unknown type" << std::endl;
+        return;
     }
 }
 
