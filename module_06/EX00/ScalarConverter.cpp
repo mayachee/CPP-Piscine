@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 15:44:24 by mayache-          #+#    #+#             */
-/*   Updated: 2024/05/27 22:51:47 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/05/30 21:47:56 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,7 +133,6 @@ void convertStringToFloat(const std::string& str) {
 bool isFloatOrInt(const std::string& str) {
     try {
         float num = std::stof(str);
-        // std::cout << "->>" << num << std::endl;
         if (num == static_cast<int>(num)) {
             return true;
         } else {
