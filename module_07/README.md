@@ -60,4 +60,17 @@ Implement a function template iter that takes 3 parameters and returns nothing.
 
 --> Your iter function template must work with any type of array.
 
+# Exercise : 02 Array
 
+class template Array:
+
+-> Construction with no parameter ✅
+-> Construction with an unsigned int n as a parameter
+    Tip: Try to compile int * a = new int(); then display *a
+-> Construction by copy and assignment operator. ✅
+-> You MUST use the operator new[] to allocate memory. ✅
+-> Elements can be accessed through the subscript operator: [ ].
+    should use std::exception is thrown ✅
+-> function size() that returns the number of elements in the array ✅
+    . the function takes no parameter ✅
+    . musn’t modify ✅

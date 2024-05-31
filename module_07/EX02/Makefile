@@ -5,17 +5,17 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/05/22 21:58:44 by mayache-          #+#    #+#              #
-#    Updated: 2024/05/31 12:33:44 by mayache-         ###   ########.fr        #
+#    Created: 2024/05/31 12:32:58 by mayache-          #+#    #+#              #
+#    Updated: 2024/05/31 16:13:13 by mayache-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = iter
+NAME = Array
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 CXX = c++
 
 SRCS = main.cpp\
-		iter.cpp\
+		Array.cpp\
 
 OBJS = $(SRCS:.cpp=.o)
 
