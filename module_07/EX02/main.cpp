@@ -6,11 +6,10 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 12:06:04 by mayache-          #+#    #+#             */
-/*   Updated: 2024/05/31 16:54:10 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/06/14 00:24:20 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include "Array.hpp"
 
 int main() {
@@ -44,7 +43,16 @@ int main() {
 
         // Test out-of-bounds access
         std::cout << "Trying to access arr2[10] (should throw exception): " << std::endl;
-        std::cout << arr2[10] << std::endl;
+        std::cout << arr2[4] << std::endl;
+        std::cout << arr2.size() << std::endl;
+
+        int * a = new int();
+        *a = 42;
+        std::cout << *a << std::endl;
+        delete a;
+        
+        //  Array<int> arr5;
+        
     }
     catch (const std::exception& e) {
         std::cerr << "Exception: " << e.what() << std::endl;

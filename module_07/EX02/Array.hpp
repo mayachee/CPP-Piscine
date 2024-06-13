@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 12:33:21 by mayache-          #+#    #+#             */
-/*   Updated: 2024/05/31 16:31:02 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/06/14 00:15:59 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Array {
 
     public:
         // Default constructor: Creates an empty array
-        Array() : elements(nullptr), n(0) {}
+        Array() : elements(NULL), n(0) {}
 
         // Parameterized constructor: Creates an array of n elements initialized by default
         Array(unsigned int size) : n(size) {
