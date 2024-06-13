@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 12:06:04 by mayache-          #+#    #+#             */
-/*   Updated: 2024/06/14 00:24:20 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/06/14 00:34:36 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,17 @@ int main() {
         std::cout << arr2[4] << std::endl;
         std::cout << arr2.size() << std::endl;
 
+        Array<float> flt(5);
+        std::cout << "flt size: " << flt.size() << std::endl;
+        for (float i = 0; i < flt.size(); ++i) {
+            flt[i] = i + 1.05f;
+            std::cout << "---->> flt[" << i << "]: " << flt[i] << std::endl;
+        }
+
         int * a = new int();
         *a = 42;
         std::cout << *a << std::endl;
         delete a;
-        
-        //  Array<int> arr5;
         
     }
     catch (const std::exception& e) {
