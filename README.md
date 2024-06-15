@@ -14,10 +14,10 @@
 |  3  | [CPP_03](https://github.com/siiine-764/cppmodel/tree/main/module_03) | Aaaaand... OPEN!      | Inheritance |
 |  4  | [CPP_04](https://github.com/siiine-764/cppmodel/tree/main/module_04) | I don't want to set the world on fire       | Subtype polymorphism, abstract classes, interfaces |
 |  5  | [CPP_05](https://github.com/siiine-764/cppmodel/tree/main/module_05) | Exceptions baby      | Repetition and Exceptions |
-|  6  | [CPP_05](https://github.com/siiine-764/cppmodel/tree/main/module_06) |       |  |
-|  7  | [CPP_05](https://github.com/siiine-764/cppmodel/tree/main/module_07) |       |  |
-|  8  | [CPP_05](https://github.com/siiine-764/cppmodel/tree/main/module_08) |       |  |
-|  9  | [CPP_05](https://github.com/siiine-764/cppmodel/tree/main/module_09) |       |  |
+|  6  | [CPP_06](https://github.com/siiine-764/cppmodel/tree/main/module_06) |       |  |
+|  7  | [CPP_07](https://github.com/siiine-764/cppmodel/tree/main/module_07) |       |  |
+|  8  | [CPP_08](https://github.com/siiine-764/cppmodel/tree/main/module_08) | STL-cpp |  |
+|  9  | [CPP_09](https://github.com/siiine-764/cppmodel/tree/main/module_09) |       |  |
 
 <p align="center">
 	
