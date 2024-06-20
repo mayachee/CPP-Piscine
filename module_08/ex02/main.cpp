@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 17:29:45 by mayache-          #+#    #+#             */
-/*   Updated: 2024/06/15 16:44:19 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/06/20 15:03:19 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,14 +49,13 @@ int main() {
     {
         MutantStack<int> mstack;
         mstack.push(5);
-        mstack.push(17);
-        std::cout << "top :" << mstack.top() << std::endl;
-        mstack.pop();
-        std::cout << "size :" << mstack.size() << std::endl;
+        mstack.push(257);
         mstack.push(3);
         mstack.push(5);
         mstack.push(737);
         mstack.push(0);
+        std::cout << "top :" << mstack.top() << std::endl;
+        std::cout << "size :" << mstack.size() << std::endl;
 
         MutantStack<int>::iterator it = mstack.begin();
         MutantStack<int>::iterator ite = mstack.end();
