@@ -6,49 +6,112 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 18:39:57 by mayache-          #+#    #+#             */
-/*   Updated: 2024/06/21 18:47:40 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/07/05 15:14:09 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <cstdlib>
 
-BitcoinExchange::BitcoinExchange(const std::string& dbFileName) {
-    loadDatabase(dbFileName);
-}
-
-void BitcoinExchange::loadDatabase(const std::string& dbFileName) {
-    std::ifstream file(dbFileName);
+bool BitcoinExchange::loadDatabase(const std::string& filename) {
+    std::ifstream file(filename.c_str());
     if (!file.is_open()) {
-        throw std::runtime_error("Error: could not open file.");
+        std::cerr << "Error: could not open file." << std::endl;
+        return false;
     }
-    std::string line, date;
-    float rate;
+
+    std::string line;
     while (std::getline(file, line)) {
-        std::stringstream ss(line);
-        if (std::getline(ss, date, ',') && ss >> rate) {
+        std::istringstream iss(line);
+        std::string date;
+        double rate;
+        if (std::getline(iss, date, ',') && (iss >> rate)) {
             exchangeRates[date] = rate;
         }
     }
+
+    file.close();
+    return true;
 }
 
-float BitcoinExchange::getExchangeRate(const std::string& date) const {
-    std::string closestDate = getClosestDate(date);
-    if (closestDate.empty()) {
-        throw std::runtime_error("Error: date not found.");
+bool BitcoinExchange::evaluateInput(const std::string& filename) {
+    std::ifstream file(filename.c_str());
+    if (!file.is_open()) {
+        std::cerr << "Error: could not open file." << std::endl;
+        return false;
     }
-    return exchangeRates.at(closestDate);
+
+    std::string line;
+    std::getline(file, line); // This will read and discard the first line
+    while (std::getline(file, line)) {
+        std::istringstream iss(line);
+        std::string date;
+        double value;
+        if (std::getline(iss, date, '|') && (iss >> value)) {
+            // Trim trailing spaces from date
+            date.erase(date.find_last_not_of(" \n\r\t") + 1);
+            if (isValidValue(value) == 2)
+                std::cerr << "Error: too large a number." << std::endl;
+            else if (isValidDate(date) && isValidValue(value) == 1) {
+                processEntry(date, value);
+            } else if (isValidValue(value) == 0) {
+                std::cerr << "Error: not a positive number." << std::endl;
+            }
+            else {
+                std::cerr << "Error: bad input => " << date << std::endl;
+            }
+        } else if (line.find('|') == std::string::npos) {
+            std::cerr << "Error: bad input => " << line << std::endl;
+        } else {
+            std::cerr << "Error: too large a number." << std::endl;
+        }
+    }
+
+    file.close();
+    return true;
 }
 
-std::string BitcoinExchange::getClosestDate(const std::string& date) const {
-    std::map<std::string, float>::const_iterator it = exchangeRates.lower_bound(date);
+void BitcoinExchange::processEntry(const std::string& date, double value) {
+    double rate = getRate(date);
+    std::cout << date << " => " << value << " = " << value * rate << std::endl;
+}
+
+double BitcoinExchange::getRate(const std::string& date) {
+    std::map<std::string, double>::const_iterator it = exchangeRates.lower_bound(date);
+        
     if (it == exchangeRates.end()) {
-        return (--it)->first;
+        // If no element is found, use the last element in the map.
+        if (exchangeRates.empty()) {
+            return 0.0; // No elements in the map
+        }
+        --it;
+    } else if (it->first != date) {
+        // If an exact match is not found, move to the previous date.
+        if (it == exchangeRates.begin()) {
+            return 0.0; // No previous date available
+        }
+        --it;
     }
-    if (it->first == date) {
-        return it->first;
-    }
-    if (it == exchangeRates.begin()) {
-        return it->first;
-    }
-    return (--it)->first;
+    return it->second;
+}
+
+bool BitcoinExchange::isValidDate(const std::string& date) {
+    if (date.length() != 10) return false;
+    if (date[4] != '-' || date[7] != '-') return false;
+    int year = atoi(date.substr(0, 4).c_str());
+    int month = atoi(date.substr(5, 2).c_str());
+    int day = atoi(date.substr(8, 2).c_str());
+    if (year < 2009 || month < 1 || month > 12 || day < 1 || day > 31) return false;
+    return true;
+}
+
+int BitcoinExchange::isValidValue(double value) {
+    if (value >= 2147483647)
+        return 2;
+    else if (value < 0)
+        return 0;
+    return 1;
 }
