@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 21:50:42 by mayache-          #+#    #+#             */
-/*   Updated: 2024/06/15 00:11:00 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/07/12 19:55:32 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,3 @@ int Span::longestSpan() const {
     }
     return min_span;
 }
-// Explicit instantiation of the template method
-// template void Span::addNumbers<std::vector<int>::iterator>(std::vector<int>::iterator, std::vector<int>::iterator);
-

@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 21:50:39 by mayache-          #+#    #+#             */
-/*   Updated: 2024/06/14 22:00:33 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/07/12 19:55:41 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,8 @@ class Span {
         // Assignment operator
         Span &operator=(const Span &other);
         
-        
         // Methods to add numbers
         void addNumber(int number);
-        // template <typename InputIterator>
-        // void addNumbers(InputIterator begin, InputIterator end);
-
         // Methods to find spans
         int shortestSpan() const;
         int longestSpan() const;
