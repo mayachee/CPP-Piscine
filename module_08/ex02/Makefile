@@ -6,7 +6,7 @@
 #    By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/14 17:30:13 by mayache-          #+#    #+#              #
-#    Updated: 2024/06/20 15:25:05 by mayache-         ###   ########.fr        #
+#    Updated: 2024/07/13 16:06:47 by mayache-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,6 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 CXX = c++
 
 SRCS = main.cpp\
-		MutantStack.cpp\
 
 OBJS = $(SRCS:.cpp=.o)
 
