@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 21:50:36 by mayache-          #+#    #+#             */
-/*   Updated: 2024/06/15 00:10:12 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/07/20 14:18:01 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int main() {
 
         sp.addNumber(6);
         sp.addNumber(4);
-        sp.addNumber(19);
+        sp.addNumber(21);
         sp.addNumber(9);
         sp.addNumber(18);
 
