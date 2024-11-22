@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 21:50:42 by mayache-          #+#    #+#             */
-/*   Updated: 2024/07/20 14:19:23 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/11/22 12:41:35 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ int Span::shortestSpan() const {
     std::vector<int> sorted(numbers);
     std::sort(sorted.begin(), sorted.end());
     int min_span = std::numeric_limits<int>::max();
+    // std::cout << "sorted: +++ " << min_span - 1 << std::endl;
     for (size_t i = 0; i < sorted.size(); i++) {
         span = sorted[i] - sorted[i - 1];
         if (span < min_span) {
@@ -68,12 +69,15 @@ int Span::longestSpan() const {
 
     std::vector<int> sorted(numbers);
     std::sort(sorted.begin(), sorted.end());
+    // int max_span = sorted[0];
     int max_span = sorted[0];
-    for (size_t i = 0; i < sorted.size(); i++) {
-        int span = sorted[i] - sorted[i - 1];
-        if (span > max_span) {
-            max_span = span;
-        }
-    }
+    // std::cout << "sorted: " << sorted[0] << std::endl;
+    max_span = sorted[sorted.size() - 1] - sorted[0];
+    // for (size_t i = 0; i < sorted.size(); i++) {
+    //     int span = sorted[i] - sorted[i - 1];
+    //     if (span > max_span) {
+    //         max_span = sorted[sorted.size() - 1];
+    //     }
+    // }
     return max_span;
 }
