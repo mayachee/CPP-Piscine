@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 17:29:57 by mayache-          #+#    #+#             */
-/*   Updated: 2024/07/13 16:10:29 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/11/22 13:53:15 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class MutantStack : public std::stack<T>
         MutantStack() : std::stack<T>() {}
         typedef typename std::deque<T>::iterator iterator;
         
-        iterator begin() { return this->c.begin();}
+        iterator begin() { return this->c.begin(); }
         iterator end() { return  this->c.end(); }
 };
 
