@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 21:50:42 by mayache-          #+#    #+#             */
-/*   Updated: 2024/11/22 13:19:22 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/11/25 12:51:21 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@ int Span::longestSpan() const {
         throw std::logic_error("Not enough numbers to find a span.");
     }
 
+    // creates a copy of the numbers vector
+    // and assigns it to a new vector named sorted
     std::vector<int> sorted(numbers);
     std::sort(sorted.begin(), sorted.end());
     int max_span = sorted[0];
