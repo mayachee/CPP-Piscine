@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 17:29:45 by mayache-          #+#    #+#             */
-/*   Updated: 2024/11/25 14:09:32 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/11/27 12:10:44 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,14 @@
 
 // int
 // In this example, s is a standard stack that contains the same elements as mstack.
+
+
+// futeares of containers
+// stack: LIFO, no iterators, no access to elements, no insertions or deletions except at the top.
+// queue: FIFO, no iterators, no access to elements, no insertions or deletions except at the front and back.
+// vector:  Dynamic array, iterators available, allows insertions and deletions at any position.
+// deque: It allows for efficient insertion and deletion of elements at both the front and the back.
+// It also supports random access to elements, similar to std::vector
 
 int main()
 {
