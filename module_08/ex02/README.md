@@ -63,3 +63,34 @@ priority_queue Adapts a container to provide priority queue.
 - Associative containers: For fast lookups by unique keys.
 - Unordered associative containers: When order doesn't matter and you need very fast average lookups.
 - Container adapters: To implement specific data structures like stacks or queues
+
+    // The line std::stack<int> s(mstack); initializes a standard stack s using the contents of the MutantStack object mstack. This means that the elements in mstack are copied into the new stack s.
+
+    // Here is a step-by-step explanation:
+
+    // MutantStack<int> mstack; creates an instance of MutantStack that holds integers.
+    // Elements are pushed onto mstack using the push method.
+    // std::stack<int> s(mstack); creates a new standard stack s and initializes it with the elements from mstack.
+    // This allows you to use the standard stack functionalities with the elements that were originally in the MutantStack.
+
+    // Here's a simplified example:
+
+    // int
+    // In this example, s is a standard stack that contains the same elements as mstack.
+
+
+    // futeares of containers
+    // stack: LIFO, no iterators, no access to elements, no insertions or deletions except at the top.
+    // queue: FIFO, no iterators, no access to elements, no insertions or deletions except at the front and back.
+    // vector:  Dynamic array, iterators available, allows insertions and deletions at any position.
+    // deque: It allows for efficient insertion and deletion of elements at both the front and the back.
+    // It also supports random access to elements, similar to std::vector
+    // list: 
+
+    - It is a doubly-linked list, which means that each element points to the previous and next
+    - list: Doubly linked list, allows efficient insertion and deletion of elements at any position, supports bidirectional iterators.
+
+
+
+
+    // An iterator like a pointer that points to an element inside the container.

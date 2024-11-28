@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 21:50:42 by mayache-          #+#    #+#             */
-/*   Updated: 2024/11/25 12:51:21 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/11/28 11:22:49 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,5 +72,6 @@ int Span::longestSpan() const {
     std::sort(sorted.begin(), sorted.end());
     int max_span = sorted[0];
     max_span = sorted[sorted.size() - 1] - sorted[0];
+    
     return max_span;
 }

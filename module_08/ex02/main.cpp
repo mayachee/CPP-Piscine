@@ -6,37 +6,17 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 17:29:45 by mayache-          #+#    #+#             */
-/*   Updated: 2024/11/27 12:10:44 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/11/28 15:53:14 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <list>
 #include "MutantStack.hpp"
-
-// The line std::stack<int> s(mstack); initializes a standard stack s using the contents of the MutantStack object mstack. This means that the elements in mstack are copied into the new stack s.
-
-// Here is a step-by-step explanation:
-
-// MutantStack<int> mstack; creates an instance of MutantStack that holds integers.
-// Elements are pushed onto mstack using the push method.
-// std::stack<int> s(mstack); creates a new standard stack s and initializes it with the elements from mstack.
-// This allows you to use the standard stack functionalities with the elements that were originally in the MutantStack.
-
-// Here's a simplified example:
-
-// int
-// In this example, s is a standard stack that contains the same elements as mstack.
-
-
-// futeares of containers
-// stack: LIFO, no iterators, no access to elements, no insertions or deletions except at the top.
-// queue: FIFO, no iterators, no access to elements, no insertions or deletions except at the front and back.
-// vector:  Dynamic array, iterators available, allows insertions and deletions at any position.
-// deque: It allows for efficient insertion and deletion of elements at both the front and the back.
-// It also supports random access to elements, similar to std::vector
 
 int main()
 {
+
     try
     {
         MutantStack<int> mstack;
@@ -62,17 +42,45 @@ int main()
         // Instead, you should use the iterators directly with the MutantStack object.
         std::stack<int> s(mstack);
 
-        // Example usage of the standard stack 's'
-        std::cout << "----------" << std::endl;
+        // // Example usage of the standard stack 's'
+        // std::cout << "----------" << std::endl;
 
-        while (!s.empty()) {
-            std::cout << s.top() << std::endl; // Print the top element
-            s.pop(); // Remove the top element
-        }
+        // while (!s.empty()) {
+        //     std::cout << s.top() << std::endl; // Print the top element
+        //     s.pop(); // Remove the top element
+        // }
     }
     catch(const std::exception& e)
     {
         std::cerr << e.what() << '\n';
     }
+    
+    try
+    {
+        // MutantStack<int> mstack;
+        std::list<int> mstack;
+        mstack.push_back(5);
+        mstack.push_back(17);
+        std::cout << "top: " << mstack.back() << std::endl;
+        mstack.pop_back();
+        std::cout << "size: " << mstack.size() << std::endl;
+
+        mstack.push_back(3);
+        mstack.push_back(5);
+        mstack.push_back(737);
+        mstack.push_back(50);
+            std::list<int>::iterator it;
+
+    // Use the iterator to traverse the list
+    for (it = mstack.begin(); it != mstack.end(); ++it) {
+        std::cout << *it << std::endl; // Dereference the iterator to access the element
+    }
+    
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+
     return 0;
 }
