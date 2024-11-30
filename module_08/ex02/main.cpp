@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 17:29:45 by mayache-          #+#    #+#             */
-/*   Updated: 2024/11/29 10:01:04 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/11/29 10:41:47 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 
 int main()
 {
-
     try
     {
         MutantStack<int> mstack;
@@ -54,7 +53,6 @@ int main()
     {
         std::cerr << e.what() << '\n';
     }
-    
     try
     {
         // MutantStack<int> mstack;
