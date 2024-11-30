@@ -71,4 +71,54 @@ You will create a C++ program named `btc` that calculates the value of Bitcoin o
 * Consider using a `std::map` or `std::unordered_map` to efficiently store and retrieve Bitcoin exchange rates based on dates.
 * Implement error handling using techniques like `std::ifstream::is_open()` and exceptions.
 
-By following these instructions and addressing the container usage warning, you can effectively test your Bitcoin Exchange program.
+**Reverse Polish Notation (RPN) Calculator (ex01)**
+
+This document explains the Reverse Polish Notation (RPN) calculator exercise and how to test your implementation.
+
+**Exercise Overview:**
+
+You will create a C++ program named `RPN` that calculates the result of a mathematical expression given in Reverse Polish Notation (RPN).
+
+**Requirements:**
+
+* **Program Name:** `RPN`
+* **Input:**
+    * A command-line argument specifying the RPN expression as a string.
+    * The expression consists of numbers (less than 10) and operators (`+`, `-`, `*`, `/`).
+* **Output:**
+    * The calculated result of the RPN expression.
+    * If an error occurs (e.g., invalid input, division by zero), display an appropriate error message.
+* **Error Handling:**
+    * Handle invalid input formats, division by zero, and other potential errors.
+* **Container Usage:**
+    * Use at least one C++ Standard Template Library (STL) container to process the RPN expression.
+    * **Warning:** The container(s) used in the previous exercise are not allowed. The container(s) you use in this exercise will not be usable for subsequent exercises in this module.
+
+**Testing Instructions:**
+
+1. **Compile your program:** Use a C++ compiler like `g++` to compile your code along with the necessary header files.
+2. **Run with Valid Input:**
+
+   ```bash
+   ./RPN "8 9 * 9 - 9 - 9 - 4 - 1 +"
+
+This should output:
+
+      42
+
+
+ Run with Invalid Input:
+ Bash
+
+    ./RPN "(1 + 1)"
+
+ Use code with caution.
+
+ This should output an error message indicating invalid input.
+
+Tips:
+
+   - Use a stack to process the RPN expression.
+   - Iterate through the expression, pushing numbers onto the stack and popping operands and operators to perform calculations.
+   - Handle potential errors like division by zero and invalid input.
+   - Consider using a std::stack for efficient stack operations.
