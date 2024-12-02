@@ -113,11 +113,9 @@ Useful when you need specific data structures like stacks or queues without mana
         // stack: LIFO, no iterators, no access to elements, no insertions or deletions except at the top.
         // queue: FIFO, no iterators, no access to elements, no insertions or deletions except at the front and back.
         // vector:  Dynamic array, iterators available, allows insertions and deletions at any position.
-        // deque: It allows for efficient insertion and deletion of elements at both the front and the back.
+        // deque: Dynamic array, iterators available, allows insertions and deletions at any position.
         // It also supports random access to elements, similar to std::vector
-        
-        // list: It is a doubly-linked list, which means that each element points to the previous and next,
-        // Doubly linked list, allows efficient insertion and deletion of elements at any position, 
+        // list: Doubly linked list (which means that each element points to the previous and next), iterators available, allows insertions and deletions at any element
         // supports bidirectional iterators.
         
         // An iterator like a pointer that points to an element inside the container.

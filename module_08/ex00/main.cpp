@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 11:05:15 by mayache-          #+#    #+#             */
-/*   Updated: 2024/11/28 11:15:51 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/12/02 13:59:53 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int main() {
     v.push_back(2);
     v.push_back(5);
     v.push_back(1);
-    v.insert(v.begin(), 245); // Insert at the beginning
+    v.insert(v.begin(), 11); // Insert at the beginning
 
     // Loop to print the elements of the vector
     std::cout << "Vector elements: ";

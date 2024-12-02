@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 17:29:45 by mayache-          #+#    #+#             */
-/*   Updated: 2024/11/29 10:41:47 by mayache-         ###   ########.fr       */
+/*   Updated: 2024/12/02 14:41:13 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,13 +67,13 @@ int main()
         mstack.push_back(5);
         mstack.push_back(737);
         mstack.push_back(50);
-            std::list<int>::iterator it;
+        
+        std::list<int>::iterator it;
 
-    // Use the iterator to traverse the list
-    for (it = mstack.begin(); it != mstack.end(); ++it) {
-        std::cout << *it << std::endl; // Dereference the iterator to access the element
-    }
-    
+        // Use the iterator to traverse the list
+        for (it = mstack.begin(); it != mstack.end(); ++it) {
+            std::cout << *it << std::endl; // Dereference the iterator to access the element
+        }
     }
     catch(const std::exception& e)
     {
