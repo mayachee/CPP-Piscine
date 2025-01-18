@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 21:50:36 by mayache-          #+#    #+#             */
-/*   Updated: 2024/12/02 14:02:41 by mayache-         ###   ########.fr       */
+/*   Updated: 2025/01/17 11:39:04 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,25 @@
 
 int main()
 {
-    Span sp = Span(5);
+    
+    Span sp = Span(7);
+    std::vector<int>    vect;
 
-    sp.addNumber(3);
-    sp.addNumber(17);
-    sp.addNumber(6);
-    sp.addNumber(9);
-    sp.addNumber(11);
-    std::cout << sp.shortestSpan() << std::endl;
-    std::cout << sp.longestSpan() << std::endl;
-    return 0;
+    srand(time(0));
+
+    for (int i = 0; i < 6; i++)
+        vect.push_back(rand() % 100);
+
+    try {
+        sp.addNumbers(vect.begin(), vect.end());
+        sp.addNumber(7);
+        // std::cout << sp;
+        sp.display_table(sp.getNumbers());
+        std::cout << "--------" << std::endl;
+        std::cout << "Shortest Span : " << sp.shortestSpan() << std::endl;
+        std::cout << "Longest  Span : " << sp.longestSpan() << std::endl;
+    }
+    catch (std::exception &e) {
+        std::cout << "Exception: " << e.what();
+    }
 }
