@@ -1,67 +1,74 @@
-
 #include "PmergeMe.hpp"
 
+// Constructor
+PmergeMe::PmergeMe() {}
 
-PmergeMe::PmergeMe(char **av) {
-    fill_stack(av, args);
-}
+// Destructor
+PmergeMe::~PmergeMe() {}
 
-void PmergeMe::fill_stack(char **av, std::stack<int> &stack) {
-    for (int i = 1; av[i] != NULL; i++) {
-        stack.push(std::atoi(av[i]));
-        std::cout << "Pushed " << stack.top() << " to stack" << std::endl;
-    }
-    sort_elements(stack);
-}
-
-void PmergeMe::run()
-{
-    std::cout << "Running PmergeMe" << std::endl;
-}
-
-void PmergeMe::swap_elements(std::stack<int> &stack, int index1, int index2)
-{
-    std::vector<int> temp;
-    while (!stack.empty()) {
-        temp.push_back(stack.top());
-        stack.pop();
-        std::cout << "----- Pushed " << stack.top() << std::endl;
-
-    }
-    std::swap(temp[index1], temp[index2]);
-    for (std::vector<int>::reverse_iterator it = temp.rbegin(); it != temp.rend(); ++it) {
-        stack.push(*it);
-        std::cout << "----- Pushed " << stack.top() << std::endl;
-
+// Parse input
+void PmergeMe::parseInput(int argc, char** argv) {
+    for (int i = 1; i < argc; ++i) {
+        std::string arg = argv[i];
+        for (size_t j = 0; j < arg.size(); ++j) {
+            if (!isdigit(arg[j]))
+                throw std::invalid_argument("Error");
+        }
+        int num = std::atoi(arg.c_str());
+        if (num <= 0)
+            throw std::invalid_argument("Error");
+        vec.push_back(num);
+        deq.push_back(num);
     }
 }
 
-void PmergeMe::swap_two_elements(int index1, int index2)
-{
-    int buffer = index1;
-    index1 = index2;
-    index2 = buffer;
-
-    std::cout << "Swapped " << index1 << " with " << index2 << std::endl;
-}
-void PmergeMe::sort_elements(std::stack<int> &str_stream)
-{
-    std::vector<int> temp;
-    while (!str_stream.empty()) {
-        temp.push_back(str_stream.top());
-        str_stream.pop();
-    }
-    std::sort(temp.begin(), temp.end());
-    // std::swap(temp[index1], temp[index2]);
-    for (std::vector<int>::reverse_iterator it = temp.rbegin(); it != temp.rend(); ++it) {
-        str_stream.push(*it);
-        swap_two_elements(*it, *it + 1);
-        std::cout << " Pushed " << str_stream.top() << std::endl;
-    }
-
-    for (std::vector<int>::reverse_iterator it = temp.rbegin(); it != temp.rend(); ++it) {
-        str_stream.push(*it);
-        std::cout << "----- Pushed " << str_stream.top() << std::endl;
-    }
+// Merge-Insertion Sort
+void PmergeMe::mergeInsertSort(std::vector<int>& container) {
+    // Implement Ford-Johnson algorithm here
+    std::sort(container.begin(), container.end());
 }
 
+void PmergeMe::mergeInsertSort(std::deque<int>& container) {
+    // Implement Ford-Johnson algorithm here
+    std::sort(container.begin(), container.end());
+}
+
+// Measure execution time
+template <typename T>
+double PmergeMe::measureExecutionTime(T& container) {
+    clock_t start = clock();
+    mergeInsertSort(container);
+    clock_t end = clock();
+    return static_cast<double>(end - start) / CLOCKS_PER_SEC * 1000000; // Time in microseconds
+}
+
+
+
+// Sort and display results
+void PmergeMe::sortAndDisplay() {
+    clock_t vstart;
+    float vres;
+    vstart = clock();
+
+    std::cout << "Before: ";
+    for (size_t i = 0; i < vec.size(); ++i)
+        std::cout << vec[i] << " ";
+    std::cout << std::endl;
+
+    clock_t dstart;
+    float dres;
+    dstart = clock();
+    
+    std::cout << "After: ";
+    for (size_t i = 0; i < vec.size(); ++i)
+        std::cout << vec[i] << " ";
+    std::cout << std::endl;
+
+
+    vres = clock() - vstart;
+    std::cout << "Time to process a range of 5 elements with std::vector : " << std::fixed << std::setprecision(5) << vres / CLOCKS_PER_SEC << " us" << std::endl;
+    
+
+    dres = clock() - dstart;
+    std::cout << "Time to process a range of 5 elements with std::deque : " << std::fixed << std::setprecision(5) << dres / CLOCKS_PER_SEC << " us" << std::endl;
+}

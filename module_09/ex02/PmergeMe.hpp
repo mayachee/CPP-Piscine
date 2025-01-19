@@ -1,20 +1,35 @@
 
+#ifndef PMERGEME_HPP
+#define PMERGEME_HPP
 
-#include <iostream>
-#include <stack>
 #include <vector>
+#include <deque>
+#include <string>
+#include <stdexcept>
+#include <iostream>
+#include <ctime>
+#include <iomanip>
+#include <iostream>
 #include <cstdlib>
 #include <algorithm>
 
 class PmergeMe {
-    private:
-        std::stack<int> args;
-    public:
-        PmergeMe(char **av);
-        void fill_stack(char **av, std::stack<int> &stack);
-        void run();
-        void swap_elements(std::stack<int> &stack, int index1, int index2);
-        void sort_elements(std::stack<int> &str_stream);
+public:
+    PmergeMe();
+    ~PmergeMe();
 
-        void swap_two_elements(int index1, int index2);
+    void parseInput(int argc, char** argv);
+    void sortAndDisplay();
+
+private:
+    std::vector<int> vec;
+    std::deque<int> deq;
+
+    void mergeInsertSort(std::vector<int>& container);
+    void mergeInsertSort(std::deque<int>& container);
+
+    template <typename T>
+    double measureExecutionTime(T& container);
 };
+
+#endif
