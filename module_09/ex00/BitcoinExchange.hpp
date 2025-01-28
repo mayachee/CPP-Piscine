@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 18:40:02 by mayache-          #+#    #+#             */
-/*   Updated: 2024/07/05 15:07:25 by mayache-         ###   ########.fr       */
+/*   Updated: 2025/01/27 16:29:53 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,17 @@
 #include <string>
 
 class BitcoinExchange {
-public:
-    bool loadDatabase(const std::string& filename);
-    bool evaluateInput(const std::string& filename);
-    void processEntry(const std::string& date, double value);
+    private:
+        std::map<std::string, double> exchangeRates;
 
-private:
-    std::map<std::string, double> exchangeRates;
+        double getRate(const std::string& date);
+        bool isValidDate(const std::string& date);
+        int isValidValue(double value);
 
-    double getRate(const std::string& date);
-    bool isValidDate(const std::string& date);
-    int isValidValue(double value);
+    public:
+        bool loadDatabase(const std::string& filename);
+        bool evaluateInput(const std::string& filename);
+        void processEntry(const std::string& date, double value);
 };
 
 #endif
