@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 18:39:57 by mayache-          #+#    #+#             */
-/*   Updated: 2024/07/05 15:14:09 by mayache-         ###   ########.fr       */
+/*   Updated: 2025/01/29 14:41:34 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 #include <sstream>
 #include <cstdlib>
 
-bool BitcoinExchange::loadDatabase(const std::string& filename) {
+bool BitcoinExchange::databaseload(const std::string& filename) {
     std::ifstream file(filename.c_str());
     if (!file.is_open()) {
-        std::cerr << "Error: could not open file." << std::endl;
+        std::cerr << "Error: could not open file this file." << std::endl;
         return false;
     }
 
@@ -30,6 +30,8 @@ bool BitcoinExchange::loadDatabase(const std::string& filename) {
         double rate;
         if (std::getline(iss, date, ',') && (iss >> rate)) {
             exchangeRates[date] = rate;
+            // std::cout << exchangeRates[date] << std::endl;
+            // std::cout << "Loaded " << date << " => " << rate << std::endl;
         }
     }
 
@@ -37,10 +39,12 @@ bool BitcoinExchange::loadDatabase(const std::string& filename) {
     return true;
 }
 
-bool BitcoinExchange::evaluateInput(const std::string& filename) {
+bool BitcoinExchange::execute(const std::string& filename) {
     std::ifstream file(filename.c_str());
+
+    std::cout << "-->" << filename.c_str() << std::endl;
     if (!file.is_open()) {
-        std::cerr << "Error: could not open file." << std::endl;
+        std::cerr << "Error" << std::endl;
         return false;
     }
 
@@ -51,7 +55,8 @@ bool BitcoinExchange::evaluateInput(const std::string& filename) {
         std::string date;
         double value;
         if (std::getline(iss, date, '|') && (iss >> value)) {
-            // Trim trailing spaces from date
+
+            
             date.erase(date.find_last_not_of(" \n\r\t") + 1);
             if (isValidValue(value) == 2)
                 std::cerr << "Error: too large a number." << std::endl;
@@ -66,7 +71,7 @@ bool BitcoinExchange::evaluateInput(const std::string& filename) {
         } else if (line.find('|') == std::string::npos) {
             std::cerr << "Error: bad input => " << line << std::endl;
         } else {
-            std::cerr << "Error: too large a number." << std::endl;
+            std::cerr << "Error: Value Error" << std::endl;
         }
     }
 
@@ -81,7 +86,7 @@ void BitcoinExchange::processEntry(const std::string& date, double value) {
 
 double BitcoinExchange::getRate(const std::string& date) {
     std::map<std::string, double>::const_iterator it = exchangeRates.lower_bound(date);
-        
+    
     if (it == exchangeRates.end()) {
         // If no element is found, use the last element in the map.
         if (exchangeRates.empty()) {
@@ -108,7 +113,8 @@ bool BitcoinExchange::isValidDate(const std::string& date) {
     return true;
 }
 
-int BitcoinExchange::isValidValue(double value) {
+int BitcoinExchange::isValidValue(double value)
+{
     if (value >= 2147483647)
         return 2;
     else if (value < 0)

@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 18:40:02 by mayache-          #+#    #+#             */
-/*   Updated: 2025/01/27 16:29:53 by codespace        ###   ########.fr       */
+/*   Updated: 2025/01/29 12:20:11 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ class BitcoinExchange {
         int isValidValue(double value);
 
     public:
-        bool loadDatabase(const std::string& filename);
-        bool evaluateInput(const std::string& filename);
+        bool databaseload(const std::string& filename);
+        bool execute(const std::string& filename);
         void processEntry(const std::string& date, double value);
 };
 

@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 14:40:06 by mayache-          #+#    #+#             */
-/*   Updated: 2024/11/30 14:51:25 by mayache-         ###   ########.fr       */
+/*   Updated: 2025/01/29 17:25:21 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <stack>
-// #include <string>
 #include <sstream>
 
 bool is_operator(char c) {
@@ -24,10 +23,13 @@ int evaluate_rpn(const std::string& expression) {
 
     std::istringstream iss(expression);
     std::string token;
-
+    
     while (iss >> token) {
         if (isdigit(token[0])) {
-            operands.push(std::stoi(token));
+        std::stringstream ss(token);
+        int number;
+        ss >> number;
+            operands.push(number);
         } else if (is_operator(token[0])) {
             if (operands.size() < 2) {
                 std::cerr << "Error: Invalid expression\n";

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 18:40:08 by mayache-          #+#    #+#             */
-/*   Updated: 2024/07/05 14:04:55 by mayache-         ###   ########.fr       */
+/*   Updated: 2025/01/29 12:20:11 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,12 @@ int main(int argc, char* argv[]) {
     }
 
     BitcoinExchange btcExchange;
-    if (!btcExchange.loadDatabase("bitcoin_prices.csv")) {
+    if (!btcExchange.databaseload("bitcoin_prices.csv")) {
         return 1;
     }
 
-    if (!btcExchange.evaluateInput(argv[1])) {
+    std::cout << "Processing input file..." << std::endl;
+    if (!btcExchange.execute(argv[1])) {
         return 1;
     }
 
