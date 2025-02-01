@@ -3,18 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/21 18:39:57 by mayache-          #+#    #+#             */
-/*   Updated: 2025/01/29 14:41:34 by codespace        ###   ########.fr       */
+/*   Created: 2025/01/30 23:07:40 by mayache-          #+#    #+#             */
+/*   Updated: 2025/01/30 23:37:40 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
-#include <iostream>
-#include <fstream>
-#include <sstream>
-#include <cstdlib>
 
 bool BitcoinExchange::databaseload(const std::string& filename) {
     std::ifstream file(filename.c_str());
@@ -51,8 +47,8 @@ bool BitcoinExchange::execute(const std::string& filename) {
     std::string line;
     std::getline(file, line); // This will read and discard the first line
     while (std::getline(file, line)) {
-        std::istringstream iss(line);
-        std::string date;
+        std::istringstream iss(line); //iss >> value
+        std::string date;       // 2016-03-16 | 3 ====> string: 2016-03-16
         double value;
         if (std::getline(iss, date, '|') && (iss >> value)) {
 
@@ -68,10 +64,9 @@ bool BitcoinExchange::execute(const std::string& filename) {
             else {
                 std::cerr << "Error: bad input => " << date << std::endl;
             }
-        } else if (line.find('|') == std::string::npos) {
-            std::cerr << "Error: bad input => " << line << std::endl;
-        } else {
-            std::cerr << "Error: Value Error" << std::endl;
+        }
+        else {
+            std::cerr << "Error: bad input => " << date << std::endl;
         }
     }
 

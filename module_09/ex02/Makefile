@@ -3,12 +3,13 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: codespace <codespace@student.42.fr>        +#+  +:+       +#+         #
+#    By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/11/30 14:38:28 by mayache-          #+#    #+#              #
-#    Updated: 2025/01/04 12:15:29 by codespace        ###   ########.fr        #
+#    Created: 2025/02/01 11:25:54 by mayache-          #+#    #+#              #
+#    Updated: 2025/02/01 11:25:55 by mayache-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
 
 NAME = PmergeMe
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98

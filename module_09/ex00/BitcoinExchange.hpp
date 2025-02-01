@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 18:40:02 by mayache-          #+#    #+#             */
-/*   Updated: 2025/01/29 12:20:11 by codespace        ###   ########.fr       */
+/*   Updated: 2025/01/30 23:09:28 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 
 #include <map>
 #include <string>
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <cstdlib>
+
 
 class BitcoinExchange {
     private:

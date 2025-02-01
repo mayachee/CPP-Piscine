@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/21 18:40:08 by mayache-          #+#    #+#             */
-/*   Updated: 2025/01/29 12:20:11 by codespace        ###   ########.fr       */
+/*   Created: 2025/01/30 23:46:17 by mayache-          #+#    #+#             */
+/*   Updated: 2025/02/01 11:57:19 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
-#include <iostream>
 
 int main(int argc, char* argv[]) {
     if (argc != 2) {
