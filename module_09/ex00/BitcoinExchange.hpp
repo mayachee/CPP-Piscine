@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 18:40:02 by mayache-          #+#    #+#             */
-/*   Updated: 2025/01/30 23:09:28 by mayache-         ###   ########.fr       */
+/*   Updated: 2025/02/03 10:11:25 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ class BitcoinExchange {
         double getRate(const std::string& date);
         bool isValidDate(const std::string& date);
         int isValidValue(double value);
+        bool isLeapYear(int year);
+        bool checkdate(int day, int month, int year);
 
     public:
         bool databaseload(const std::string& filename);

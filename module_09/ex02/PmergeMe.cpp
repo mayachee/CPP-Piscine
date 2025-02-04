@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 11:26:00 by mayache-          #+#    #+#             */
-/*   Updated: 2025/02/01 11:47:24 by mayache-         ###   ########.fr       */
+/*   Updated: 2025/02/04 16:24:22 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,7 @@ std::vector<int> PmergeMe::mergeInsertionSortVector(const std::vector<int>& arr)
         workingArray = arr;
     }
 
+
     // Step 3: Pairing and Swapping
     std::vector<std::pair<int, int> > pairs;
     for (size_t i = 0; i < workingArray.size(); i += 2) {
@@ -109,6 +110,7 @@ std::vector<int> PmergeMe::mergeInsertionSortVector(const std::vector<int>& arr)
     std::vector<int> largerElements;
     for (size_t i = 0; i < pairs.size(); ++i) {
         largerElements.push_back(pairs[i].first);
+        
     }
     std::vector<int> sortedLarger = mergeInsertionSortVector(largerElements);
 
@@ -116,6 +118,7 @@ std::vector<int> PmergeMe::mergeInsertionSortVector(const std::vector<int>& arr)
     std::vector<int> mainChain = sortedLarger;
     std::vector<int> pend;
     for (size_t i = 0; i < pairs.size(); ++i) {
+        // std::cout << "pairs[" << i << "].first: " << pairs[i].first << std::endl;
         pend.push_back(pairs[i].second);
     }
 

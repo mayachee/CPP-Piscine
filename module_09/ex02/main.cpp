@@ -6,11 +6,22 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 11:25:47 by mayache-          #+#    #+#             */
-/*   Updated: 2025/02/01 11:49:42 by mayache-         ###   ########.fr       */
+/*   Updated: 2025/02/04 16:17:02 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
+
+template <typename T>
+void printContainer(T& cont) 
+{
+    std::cout << " ------------------------------------ "<< std::endl;
+    for (typename T::iterator it = cont.begin(); it != cont.end(); ++it)
+    {
+        std::cout << "NBR is: " << *it << std::endl;
+    }
+    std::cout << " ------------------------------------ "<< std::endl;
+}
 
 int main(int argc, char* argv[]) {
 
@@ -43,6 +54,10 @@ int main(int argc, char* argv[]) {
     clock_t endDeque = clock();
     double timeDeque = static_cast<double>(endDeque - startDeque) / CLOCKS_PER_SEC * 1e1;
 
+    std::cout << " ------------------------------------ "<< std::endl;
+    printContainer(sortedVector);
+    // std::cout << " ------------------------------------ "<< std::endl;
+    // printContainer(sortedDeque);
     // Display "After" array
     std::cout << "After: ";
     for (size_t i = 0; i < sortedVector.size(); ++i) {

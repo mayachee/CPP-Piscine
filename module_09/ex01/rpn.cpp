@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 23:46:43 by mayache-          #+#    #+#             */
-/*   Updated: 2025/02/01 11:13:44 by mayache-         ###   ########.fr       */
+/*   Updated: 2025/02/04 15:41:52 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,7 @@ bool RPN::is_operator(char c) {
 }
 
 int RPN::evaluate_rpn(const std::string& expression) {
-    
     std::stack<int> operands;
-
     std::istringstream iss(expression);
     std::string token;
     
@@ -37,12 +35,19 @@ int RPN::evaluate_rpn(const std::string& expression) {
                 return -1;
             }
 
+// 8  * 9 = 72
+// 72 - 9 = 63
+// 63 - 9 = 54
+// 54 - 9 = 45
+// 45 -4 = 41
+// 41 + 1 = 42
+
             int operand2 = operands.top();
             operands.pop();
             int operand1 = operands.top();
             operands.pop();
 
-            std::cout << operand1 << " " << token[0] << " " << operand2 << std::endl;
+            // std::cout << operand1 << " " << token[0] << " " << operand2 << std::endl;
             switch (token[0]) {
                 case '+':
                     operands.push(operand1 + operand2);

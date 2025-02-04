@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 23:07:40 by mayache-          #+#    #+#             */
-/*   Updated: 2025/01/30 23:37:40 by mayache-         ###   ########.fr       */
+/*   Updated: 2025/02/04 15:32:13 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ bool BitcoinExchange::databaseload(const std::string& filename) {
 bool BitcoinExchange::execute(const std::string& filename) {
     std::ifstream file(filename.c_str());
 
-    std::cout << "-->" << filename.c_str() << std::endl;
+    // std::cout << "-->" << filename.c_str() << std::endl;
     if (!file.is_open()) {
         std::cerr << "Error" << std::endl;
         return false;
@@ -98,7 +98,33 @@ double BitcoinExchange::getRate(const std::string& date) {
     return it->second;
 }
 
-bool BitcoinExchange::isValidDate(const std::string& date) {
+bool BitcoinExchange::isLeapYear(int year) {
+    return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
+}
+
+bool BitcoinExchange::checkdate(int day, int month, int year) {
+    if (year < 1900 || year > 2100) return false;
+    if (month < 1 || month > 12) return false;
+
+    int daysInMonth[] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+    if (month == 2 && isLeapYear(year)) {
+        daysInMonth[1] = 29;
+    }
+
+    return day >= 1 && day <= daysInMonth[month - 1];
+}
+
+
+bool BitcoinExchange::isValidDate(const std::string& date)
+{
+    // std::cout << "year" << date.substr(0, 4) << std::endl;
+    // std::cout << "month" << date.substr(5, 2) << std::endl;
+    // std::cout << "day" << date.substr(8, 2) << std::endl;
+    
+    if (checkdate(atoi(date.substr(8, 2).c_str()),
+        atoi(date.substr(5, 2).c_str()),
+            atoi(date.substr(0, 4).c_str())) == false)
+        return false;
     if (date.length() != 10) return false;
     if (date[4] != '-' || date[7] != '-') return false;
     int year = atoi(date.substr(0, 4).c_str());
@@ -110,7 +136,7 @@ bool BitcoinExchange::isValidDate(const std::string& date) {
 
 int BitcoinExchange::isValidValue(double value)
 {
-    if (value >= 2147483647)
+    if (value >= 1000)
         return 2;
     else if (value < 0)
         return 0;

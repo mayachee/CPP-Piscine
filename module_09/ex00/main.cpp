@@ -6,7 +6,7 @@
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 23:46:17 by mayache-          #+#    #+#             */
-/*   Updated: 2025/02/01 11:57:19 by mayache-         ###   ########.fr       */
+/*   Updated: 2025/02/01 12:27:45 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
-    std::cout << "Processing input file..." << std::endl;
     if (!btcExchange.execute(argv[1])) {
         return 1;
     }
