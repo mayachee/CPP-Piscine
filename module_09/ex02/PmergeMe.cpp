@@ -5,251 +5,142 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/01 11:26:00 by mayache-          #+#    #+#             */
-/*   Updated: 2025/02/04 16:24:22 by mayache-         ###   ########.fr       */
+/*   Created: 2025/02/06 12:30:54 by mayache-          #+#    #+#             */
+/*   Updated: 2025/02/06 17:46:43 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
-int PmergeMe::myStoi(const std::string& str) {
-    size_t i = 0;
-    while (i < str.size() && std::isspace(str[i])) {
-        ++i;
-    }
-
-    bool negative = false;
-    if (i < str.size() && (str[i] == '-' || str[i] == '+')) {
-        negative = (str[i] == '-');
-        ++i;
-    }
-
-    if (i == str.size() || !std::isdigit(str[i])) {
-        throw std::invalid_argument("Invalid argument: " + str);
-    }
-
-    int result = 0;
-    while (i < str.size() && std::isdigit(str[i])) {
-        result = result * 10 + (str[i] - '0');
-        if (result > INT_MAX || result < INT_MIN) {
-            throw std::out_of_range("Argument out of range: " + str);
-        }
-        ++i;
-    }
-
-    while (i < str.size() && std::isspace(str[i])) {
-        ++i;
-    }
-
-    if (i != str.size()) {
-        throw std::invalid_argument("Invalid argument: " + str);
-    }
-
-    return negative ? -result : result;
-}
-
-// Function to generate the Jacobsthal sequence
-std::vector<int> PmergeMe::generateJacobsthal(int maxNeeded) {
-    std::vector<int> jacob;
-    jacob.push_back(0);
-    jacob.push_back(1);
-    while (jacob.back() < maxNeeded) {
-        int nextVal = jacob[jacob.size() - 1] + 2 * jacob[jacob.size() - 2];
-        jacob.push_back(nextVal);
-    }
-    return jacob;
-}
-
-// Function to validate and parse command-line arguments
-std::vector<int> PmergeMe::parseArguments(int argc, char* argv[]) 
-{
-    std::vector<int> arr;
-    for (int i = 1; i < argc; ++i) {
-        // char* endPtr;
-        int num = myStoi(argv[i]);
-        std::cout << "num: " << num << std::endl;
-        // std::cout << "endPtr: " << &endPtr << std::endl;
-        if (num < 0) {
-            std::cerr << "Error" << std::endl;
-            exit(1);
-        }
-        arr.push_back(static_cast<int>(num));
-    }
-    return arr;
-}
-
-// Ford-Johnson Merge-Insertion Sort for std::vector
-std::vector<int> PmergeMe::mergeInsertionSortVector(const std::vector<int>& arr) {
-    if (arr.size() <= 1) {
-        return arr;
-    }
-
-    // Step 2: Handle Struggler (odd-length array)
-    int struggler = -1;
-    std::vector<int> workingArray;
-    if (arr.size() % 2 != 0) {
-        struggler = arr.back();
-        workingArray = std::vector<int>(arr.begin(), arr.end() - 1);
-    } else {
-        workingArray = arr;
-    }
-
-
-    // Step 3: Pairing and Swapping
-    std::vector<std::pair<int, int> > pairs;
-    for (size_t i = 0; i < workingArray.size(); i += 2) {
-        int first = workingArray[i];
-        int second = workingArray[i + 1];
-        if (first < second) {
-            std::swap(first, second); // Swap to make larger first
-        }
-        pairs.push_back(std::make_pair(first, second));
-    }
-
-    // Step 4: Recursively Sort Larger Elements
-    std::vector<int> largerElements;
-    for (size_t i = 0; i < pairs.size(); ++i) {
-        largerElements.push_back(pairs[i].first);
-        
-    }
-    std::vector<int> sortedLarger = mergeInsertionSortVector(largerElements);
-
-    // Step 5: Build Main Chain and Pend
-    std::vector<int> mainChain = sortedLarger;
-    std::vector<int> pend;
-    for (size_t i = 0; i < pairs.size(); ++i) {
-        // std::cout << "pairs[" << i << "].first: " << pairs[i].first << std::endl;
-        pend.push_back(pairs[i].second);
-    }
-
-    // Insert first pend element if applicable
-    if (!pend.empty() && pend[0] <= mainChain[0]) {
-        mainChain.insert(mainChain.begin(), pend[0]);
-        pend.erase(pend.begin());
-    }
-
-    // Step 6: Generate Jacobsthal Sequence
-    std::vector<int> jacobSequence = generateJacobsthal(static_cast<int>(pend.size()) );
-
-    // Step 7: Generate Insertion Order
-    std::vector<int> insertionOrder;
-    for (int i = jacobSequence.size() - 1; i >= 1; --i) {
-        int j = jacobSequence[i];
-        if (j <= static_cast<int>(pend.size()) ) {
-            insertionOrder.push_back(j - 1);
-        }
-    }
-
-    // Step 8: Insert Pend Elements into Main Chain
-    for (size_t i = 0; i < insertionOrder.size(); ++i) {
-        int index = insertionOrder[i];
-        if (index < static_cast<int>(pend.size()) ) {
-            int element = pend[index];
-            int pos = binarySearch(mainChain, element);
-            mainChain.insert(mainChain.begin() + pos, element);
-        }
-    }
-
-    // Step 9: Insert Struggler
-    if (struggler != -1) {
-        int pos = binarySearch(mainChain, struggler);
-        mainChain.insert(mainChain.begin() + pos, struggler);
-    }
-
-    return mainChain;
-}
-
-// Ford-Johnson Merge-Insertion Sort for std::deque
-std::deque<int> PmergeMe::mergeInsertionSortDeque(const std::deque<int>& arr) {
-    if (arr.size() <= 1) {
-        return arr;
-    }
-
-    // Step 2: Handle Struggler (odd-length array)
-    int struggler = -1;
-    std::deque<int> workingArray;
-    if (arr.size() % 2 != 0) {
-        struggler = arr.back();
-        workingArray = std::deque<int>(arr.begin(), arr.end() - 1);
-    } else {
-        workingArray = arr;
-    }
-
-    // Step 3: Pairing and Swapping
-    std::vector<std::pair<int, int> > pairs;
-    for (size_t i = 0; i < workingArray.size(); i += 2) {
-        int first = workingArray[i];
-        int second = workingArray[i + 1];
-        if (first < second) {
-            std::swap(first, second); // Swap to make larger first
-        }
-        pairs.push_back(std::make_pair(first, second));
-    }
-
-    // Step 4: Recursively Sort Larger Elements
-    std::deque<int> largerElements;
-    for (size_t i = 0; i < pairs.size(); ++i) {
-        largerElements.push_back(pairs[i].first);
-    }
-    std::deque<int> sortedLarger = mergeInsertionSortDeque(largerElements);
-
-    // Step 5: Build Main Chain and Pend
-    std::deque<int> mainChain = sortedLarger;
-    std::deque<int> pend;
-    for (size_t i = 0; i < pairs.size(); ++i) {
-        pend.push_back(pairs[i].second);
-    }
-
-    // Insert first pend element if applicable
-    if (!pend.empty() && pend[0] <= mainChain[0]) {
-        mainChain.insert(mainChain.begin(), pend[0]);
-        pend.erase(pend.begin());
-    }
-
-    // Step 6: Generate Jacobsthal Sequence
-    std::vector<int> jacobSequence = generateJacobsthal(static_cast<int>(pend.size()) );
-
-    // Step 7: Generate Insertion Order
-    std::vector<int> insertionOrder;
-    for (int i = jacobSequence.size() - 1; i >= 1; --i) {
-        int j = jacobSequence[i];
-        if (j <= static_cast<int>(pend.size()) ) {
-            insertionOrder.push_back(j - 1);
-        }
-    }
-
-    // Step 8: Insert Pend Elements into Main Chain
-    for (size_t i = 0; i < insertionOrder.size(); ++i) {
-        int index = insertionOrder[i];
-        if (index < static_cast<int>(pend.size()) ) {
-            int element = pend[index];
-            int pos = binarySearch(mainChain, element);
-            mainChain.insert(mainChain.begin() + pos, element);
-        }
-    }
-
-    // Step 9: Insert Struggler
-    if (struggler != -1) {
-        int pos = binarySearch(mainChain, struggler);
-        mainChain.insert(mainChain.begin() + pos, struggler);
-    }
-
-    return mainChain;
-}
-
-
-
 PmergeMe::PmergeMe() {}
 
-PmergeMe::PmergeMe(PmergeMe const & src) {
-    *this = src;
+void PmergeMe::parseInput(int argc, char* argv[]) {
+    for (int i = 1; i < argc; ++i) {
+        int num;
+        if (!isPositiveInteger(argv[i], num)) {
+            std::cerr << "Error: Invalid input " << argv[i] << std::endl;
+            exit(EXIT_FAILURE);
+        }
+        vecContainer.push_back(num);
+        deqContainer.push_back(num);
+    }
 }
 
-PmergeMe::~PmergeMe() {}
-
-PmergeMe & PmergeMe::operator=(PmergeMe const & src) {
-    (void)src;
-    return *this;
+bool PmergeMe::isPositiveInteger(const char* str, int& num) {
+    
+    // std::cout << "--> str" << str << std::endl;
+    char* endptr;
+    num = std::strtol(str, &endptr, 10);
+    // std::cout << "--> num" << num << std::endl;
+    return *endptr == '\0' && num >= 0;
 }
 
+void PmergeMe::printSequence(const std::string& message, const std::vector<int>& sequence) {
+    std::cout << message;
+    for (std::vector<int>::const_iterator it = sequence.begin(); it != sequence.end(); ++it) {
+        std::cout << *it << " ";
+    }
+    std::cout << std::endl;
+}
 
+void PmergeMe::sortAndTimeContainers() {
+    // Sort and time vector container
+    std::clock_t startVec = std::clock();
+    mergeInsertSort(vecContainer);
+    std::clock_t endVec = std::clock();
+    double durationVec = 100.0 * (endVec - startVec) / CLOCKS_PER_SEC;
+
+    // Sort and time deque container
+    std::clock_t startDeq = std::clock();
+    mergeInsertSort(deqContainer);
+    std::clock_t endDeq = std::clock();
+    double durationDeq = 100.0 * (endDeq - startDeq) / CLOCKS_PER_SEC;
+
+    // Print results
+    printSequence("After: ", vecContainer);
+    std::cout << "Time to process a range of " << vecContainer.size() << " elements with std::vector: " << durationVec << " us" << std::endl;
+    std::cout << "Time to process a range of " << deqContainer.size() << " elements with std::deque: " << durationDeq << " us" << std::endl;
+}
+
+void PmergeMe::mergeInsertSort(std::vector<int>& container) {
+    if (container.size() <= 1) return;
+    fordJohnsonSort(container);
+}
+
+void PmergeMe::mergeInsertSort(std::deque<int>& container) {
+    if (container.size() <= 1) return;
+        std::vector<int> temp(container.begin(), container.end());
+    fordJohnsonSort(temp);
+    std::copy(temp.begin(), temp.end(), container.begin());
+
+    // std::cout << "container.size(): " << container.size() << std::endl;
+    
+}
+
+void PmergeMe::fordJohnsonSort(std::vector<int>& container) {
+    if (container.size() <= 1) return;
+
+    // Step 1: Pair and sort elements
+    std::vector<std::pair<int, int> > pairs;
+    size_t i;
+    for (i = 0; i + 1 < container.size(); i += 2) {
+        if (container[i] > container[i + 1]) std::swap(container[i], container[i + 1]);
+
+        // std::cout << "container[i]: " << container[i] << std::endl;
+        // std::cout << "container[i + 1]: " << container[i + 1] << std::endl;
+        pairs.push_back(std::make_pair(container[i], container[i + 1]));
+    }
+
+    // Handle the last unpaired element
+    std::vector<int> leaders;
+    if (i < container.size()) {
+        // std::cout << "-->" << container[i] << std::endl;
+        leaders.push_back(container[i]);
+    }
+
+    // std::cout << "pairs.size(): " << pairs.size() << std::endl;
+    // Extract larger elements from each pair for initial sorting
+    for (size_t j = 0; j < pairs.size(); ++j) {
+        // std::cout << "pairs[j].second: " << pairs[j].second << std::endl;
+        leaders.push_back(pairs[j].second);
+    }
+
+    
+    
+    // Step 2: Recursively sort the larger elements
+    std::sort(leaders.begin(), leaders.end());
+
+    
+
+    // Step 3: Insert smaller elements into the sorted list
+    for (size_t j = 0; j < pairs.size(); ++j) {
+    // std::cout << "pairs[j]" << pairs[j].first << std::endl;
+        binaryInsert(leaders, pairs[j].first);
+    }
+
+    // Copy back the sorted elements into the container
+    container.assign(leaders.begin(), leaders.end());
+    
+}
+
+void PmergeMe::binaryInsert(std::vector<int>& sorted, int value) {
+    size_t left = 0;
+    size_t right = sorted.size();
+    // std::cout << "sorted.size(): " << sorted.size() << std::endl;
+    
+    while (left < right) {
+        size_t mid = left + (right - left) / 2;
+        // std::cout << "mid: " << mid << std::endl;
+        // std::cout << "sorted[mid]: " << sorted[mid] << std::endl;
+        if (value < sorted[mid]) {
+            right = mid;
+        } else {
+            left = mid + 1;
+        }
+    }
+    sorted.insert(sorted.begin() + left, value);
+}
+
+const std::vector<int>& PmergeMe::getVectorContainer() const {
+    return vecContainer;
+}

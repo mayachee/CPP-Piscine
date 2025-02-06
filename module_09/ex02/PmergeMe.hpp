@@ -5,44 +5,38 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mayache- <mayache-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/01 11:26:06 by mayache-          #+#    #+#             */
-/*   Updated: 2025/02/01 11:49:48 by mayache-         ###   ########.fr       */
+/*   Created: 2025/02/06 12:14:26 by mayache-          #+#    #+#             */
+/*   Updated: 2025/02/06 12:29:52 by mayache-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#ifndef PMERGEME_HPP
+#define PMERGEME_HPP
+
 #include <vector>
 #include <deque>
-#include <cstdlib> // for atoi and exit
-#include <ctime>   // for clock_t and clock
-#include <climits>
+#include <string>
+#include <chrono>
+#include <iostream>
 
 class PmergeMe {
-    public:
+private:
+    std::vector<int> vecContainer;
+    std::deque<int> deqContainer;
 
-        std::vector<int> mergeInsertionSortVector(const std::vector<int>& arr);
-        std::deque<int> mergeInsertionSortDeque(const std::deque<int>& arr);
-        std::vector<int> parseArguments(int argc, char* argv[]);
-        int myStoi(const std::string& str);
-        std::vector<int> generateJacobsthal(int maxNeeded);
+    // Utility methods
+    bool isPositiveInteger(const char* str, int& num);
+    void fordJohnsonSort(std::vector<int>& container);
+    void binaryInsert(std::vector<int>& sorted, int value);
+    void mergeInsertSort(std::vector<int>& container);
+    void mergeInsertSort(std::deque<int>& container);
 
-        PmergeMe();
-        PmergeMe(PmergeMe const & src);
-        ~PmergeMe();
-        PmergeMe & operator=(PmergeMe const & src);
-
-        template <typename Container>
-        int binarySearch(const Container& arr, int target) {
-            int low = 0;
-            int high = arr.size() - 1;
-            while (low <= high) {
-                int mid = low + (high - low) / 2;
-                if (arr[mid] < target) {
-                    low = mid + 1;
-                } else {
-                    high = mid - 1;
-                }
-            }
-            return low;
-        }
+public:
+    PmergeMe();
+    void parseInput(int argc, char* argv[]);
+    void printSequence(const std::string& message, const std::vector<int>& sequence);
+    void sortAndTimeContainers();
+    const std::vector<int>& getVectorContainer() const;
 };
+
+#endif // PMERGEME_HPP
